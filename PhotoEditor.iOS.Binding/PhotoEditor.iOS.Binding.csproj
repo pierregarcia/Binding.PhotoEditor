@@ -15,9 +15,9 @@
 	</ItemGroup>
 	
 	<ItemGroup>
-		<Compile Remove="ApiDefinition.cs" />
+		<Compile Remove="ApiDefinitions.cs" />
 		<Compile Remove="StructsAndEnums.cs" />
-		<None Include="ApiDefinition.cs" />
+		<None Include="ApiDefinitions.cs" />
 		<None Include="StructsAndEnums.cs" />
 		<ObjcBindingApiDefinition Include="ApiDefinitions.cs" />
 		<ObjcBindingCoreSource Include="StructsAndEnums.cs" />
