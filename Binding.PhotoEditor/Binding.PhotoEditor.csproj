@@ -1,0 +1,17 @@
+﻿<Project Sdk="MSBuild.Sdk.Extras">
+
+	<PropertyGroup>
+		<TargetFrameworks>monoandroid81</TargetFrameworks>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\PhotoEditor.Android.Binding\PhotoEditor.Android.Binding.csproj" PrivateAssets="All" />
+	</ItemGroup>
+
+	<Target Name="CopyProjectReferencesToPackage" DependsOnTargets="ResolveReferences">
+		<ItemGroup>
+			<BuildOutputInPackage Include="@(ReferenceCopyLocalPaths-&gt;WithMetadataValue('ReferenceSourceTarget', 'ProjectReference')-&gt;WithMetadataValue('PrivateAssets', 'All'))" />
+		</ItemGroup>
+	</Target>
+</Project>

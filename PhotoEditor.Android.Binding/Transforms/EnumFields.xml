@@ -1,0 +1,29 @@
+<enum-field-mappings>
+	<!--
+	This example converts the constants Fragment_id, Fragment_name,
+	and Fragment_tag from android.support.v4.app.FragmentActivity.FragmentTag
+	to an enum called Android.Support.V4.App.FragmentTagType with values
+	Id, Name, and Tag.
+  
+	<mapping jni-class="android/support/v4/app/FragmentActivity$FragmentTag" clr-enum-type="Android.Support.V4.App.FragmentTagType">
+		<field jni-name="Fragment_name" clr-name="Name" value="0" />
+		<field jni-name="Fragment_id" clr-name="Id" value="1" />
+		<field jni-name="Fragment_tag" clr-name="Tag" value="2" />
+	</mapping>
+	-->
+  
+	<mapping jni-class="ly/img/android/sdk/operator/Priority" clr-enum-type="LY.Img.Android.Sdk.Operator.OperationPriority">
+		<field jni-name="LOAD" clr-name="Load" value="0" />
+		<field jni-name="ENHANCEMENT" clr-name="Enhancement" value="1" />
+		<field jni-name="FILTER" clr-name="Filter" value="2" />
+		<field jni-name="FOCUS" clr-name="Focus" value="3" />
+		<field jni-name="ADJUST" clr-name="Adjust" value="4" />
+		<field jni-name="COLOR_ADJUSTMENT" clr-name="ColorAdjustment" value="5" />
+		<field jni-name="TRANSFORM" clr-name="Transform" value="6" />
+		<field jni-name="CROP" clr-name="Crop" value="7" />
+		<field jni-name="BACKDROP" clr-name="Backdrop" value="8" />
+		<field jni-name="LAYER" clr-name="Layer" value="9" />
+		<field jni-name="SAVE" clr-name="Save" value="10" />
+		<field jni-name="SHOW" clr-name="Show" value="11" />
+	</mapping>
+</enum-field-mappings>
