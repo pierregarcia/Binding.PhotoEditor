@@ -193,19 +193,19 @@ namespace PhotoEditor
 
 		// @optional -(void)photoEditViewController:(PESDKPhotoEditViewController * _Nonnull)photoEditViewController willPresentToolController:(PESDKPhotoEditToolController * _Nonnull)toolController;
 		[Export("photoEditViewController:willPresentToolController:")]
-		void PhotoEditViewController(PESDKPhotoEditViewController photoEditViewController, PESDKPhotoEditToolController toolController);
+		void PhotoEditViewControllerWillPresentToolController(PESDKPhotoEditViewController photoEditViewController, PESDKPhotoEditToolController toolController);
 
 		// @optional -(void)photoEditViewController:(PESDKPhotoEditViewController * _Nonnull)photoEditViewController didPresentToolController:(PESDKPhotoEditToolController * _Nonnull)toolController;
 		[Export("photoEditViewController:didPresentToolController:")]
-		void PhotoEditViewController(PESDKPhotoEditViewController photoEditViewController, PESDKPhotoEditToolController toolController);
+		void PhotoEditViewControllerDidPresentToolController(PESDKPhotoEditViewController photoEditViewController, PESDKPhotoEditToolController toolController);
 
 		// @optional -(void)photoEditViewController:(PESDKPhotoEditViewController * _Nonnull)photoEditViewController willDismissToolController:(PESDKPhotoEditToolController * _Nonnull)toolController;
 		[Export("photoEditViewController:willDismissToolController:")]
-		void PhotoEditViewController(PESDKPhotoEditViewController photoEditViewController, PESDKPhotoEditToolController toolController);
+		void PhotoEditViewControllerWillDismissToolController(PESDKPhotoEditViewController photoEditViewController, PESDKPhotoEditToolController toolController);
 
 		// @optional -(void)photoEditViewController:(PESDKPhotoEditViewController * _Nonnull)photoEditViewController didDismissToolController:(PESDKPhotoEditToolController * _Nonnull)toolController;
 		[Export("photoEditViewController:didDismissToolController:")]
-		void PhotoEditViewController(PESDKPhotoEditViewController photoEditViewController, PESDKPhotoEditToolController toolController);
+		void PhotoEditViewControllerDidDismissToolController(PESDKPhotoEditViewController photoEditViewController, PESDKPhotoEditToolController toolController);
 	}
 
 	// @interface PESDKPhotoEditToolController : PESDKViewController
@@ -931,7 +931,7 @@ namespace PhotoEditor
 	{
 		// -(void)setActionClosure:(void (^ _Nullable)(id _Nonnull))actionClosure for:(UIControlEvents)controlEvents;
 		[Export("setActionClosure:for:")]
-		void SetActionClosure([NullAllowed] Action<NSObject> actionClosure, UIControlEvents controlEvents);
+		void SetActionClosure([NullAllowed] Action<NSObject> actionClosure, UIControlEvent controlEvents);
 
 		// @property (copy, nonatomic) void (^ _Nullable)(id _Nonnull) actionClosure;
 		[NullAllowed, Export("actionClosure", ArgumentSemantic.Copy)]
