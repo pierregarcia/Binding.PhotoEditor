@@ -1144,7 +1144,8 @@ namespace PhotoEditor
 
 	// @protocol MTLSharedEvent <MTLEvent>
 	[Mac(10, 14), iOS(12, 0)]
-	[Protocol, Model]
+	[BaseType(typeof(NSObject))]
+	[Model]
 	interface MTLSharedEvent : IMTLEvent
 	{
 		// @required -(void)notifyListener:(MTLSharedEventListener * _Nonnull)listener atValue:(uint64_t)value block:(MTLSharedEventNotificationBlock _Nonnull)block;
