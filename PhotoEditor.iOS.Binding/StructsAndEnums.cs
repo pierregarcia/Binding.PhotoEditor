@@ -251,4 +251,12 @@ namespace PhotoEditor
 		DefaultCache = 0,
 		WriteCombined = 1
 	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct MTLSamplePosition
+	{
+		public float x;
+
+		public float y;
+	}
 }

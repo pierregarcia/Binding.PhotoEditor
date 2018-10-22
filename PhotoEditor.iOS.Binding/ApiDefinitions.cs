@@ -1090,7 +1090,7 @@ namespace PhotoEditor
 		[Mac(10, 13), iOS(11, 0)]
 		[Abstract]
 		[Export("getDefaultSamplePositions:count:")]
-		unsafe void GetDefaultSamplePositions(MTLSamplePosition* positions, nuint count);
+		unsafe void GetDefaultSamplePositions(MTLSamplePosition positions, nuint count);
 
 		// @required -(id<MTLArgumentEncoder> _Nullable)newArgumentEncoderWithArguments:(NSArray<MTLArgumentDescriptor *> * _Nonnull)arguments __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.13)));
 		[Mac(10, 13), iOS(11, 0)]
