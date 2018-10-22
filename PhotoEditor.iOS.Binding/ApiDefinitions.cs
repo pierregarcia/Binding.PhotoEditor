@@ -894,13 +894,13 @@ namespace PhotoEditor
 		[Abstract]
 		[Export("newBufferWithBytes:length:options:")]
 		[return: NullAllowed]
-		unsafe MTLBuffer NewBufferWithBytes(void* pointer, nuint length, MTLResourceOptions options);
+		unsafe MTLBuffer NewBufferWithBytes(IntPtr pointer, nuint length, MTLResourceOptions options);
 
 		// @required -(id<MTLBuffer> _Nullable)newBufferWithBytesNoCopy:(void * _Nonnull)pointer length:(NSUInteger)length options:(MTLResourceOptions)options deallocator:(void (^ _Nullable)(void * _Nonnull, NSUInteger))deallocator;
 		[Abstract]
 		[Export("newBufferWithBytesNoCopy:length:options:deallocator:")]
 		[return: NullAllowed]
-		unsafe MTLBuffer NewBufferWithBytesNoCopy(void* pointer, nuint length, MTLResourceOptions options, [NullAllowed] Action<IntPtr, nuint> deallocator);
+		unsafe MTLBuffer NewBufferWithBytesNoCopy(IntPtr pointer, nuint length, MTLResourceOptions options, [NullAllowed] Action<IntPtr, nuint> deallocator);
 
 		// @required -(id<MTLDepthStencilState> _Nullable)newDepthStencilStateWithDescriptor:(MTLDepthStencilDescriptor * _Nonnull)descriptor;
 		[Abstract]
@@ -1361,7 +1361,7 @@ namespace PhotoEditor
 		// @required -(void * _Nonnull)constantDataAtIndex:(NSUInteger)index;
 		[Abstract]
 		[Export("constantDataAtIndex:")]
-		unsafe void* ConstantDataAtIndex(nuint index);
+		unsafe IntPtr ConstantDataAtIndex(nuint index);
 
 		// @required -(void)setRenderPipelineState:(id<MTLRenderPipelineState> _Nullable)pipeline atIndex:(NSUInteger)index __attribute__((availability(ios, unavailable))) __attribute__((availability(macos, introduced=10.14)));
 		[NoiOS, Mac(10, 14)]
@@ -1684,22 +1684,22 @@ namespace PhotoEditor
 		// @required -(void)getBytes:(void * _Nonnull)pixelBytes bytesPerRow:(NSUInteger)bytesPerRow bytesPerImage:(NSUInteger)bytesPerImage fromRegion:(MTLRegion)region mipmapLevel:(NSUInteger)level slice:(NSUInteger)slice;
 		[Abstract]
 		[Export("getBytes:bytesPerRow:bytesPerImage:fromRegion:mipmapLevel:slice:")]
-		unsafe void GetBytes(void* pixelBytes, nuint bytesPerRow, nuint bytesPerImage, MTLRegion region, nuint level, nuint slice);
+		unsafe void GetBytes(IntPtr pixelBytes, nuint bytesPerRow, nuint bytesPerImage, MTLRegion region, nuint level, nuint slice);
 
 		// @required -(void)replaceRegion:(MTLRegion)region mipmapLevel:(NSUInteger)level slice:(NSUInteger)slice withBytes:(const void * _Nonnull)pixelBytes bytesPerRow:(NSUInteger)bytesPerRow bytesPerImage:(NSUInteger)bytesPerImage;
 		[Abstract]
 		[Export("replaceRegion:mipmapLevel:slice:withBytes:bytesPerRow:bytesPerImage:")]
-		unsafe void ReplaceRegion(MTLRegion region, nuint level, nuint slice, void* pixelBytes, nuint bytesPerRow, nuint bytesPerImage);
+		unsafe void ReplaceRegion(MTLRegion region, nuint level, nuint slice, IntPtr pixelBytes, nuint bytesPerRow, nuint bytesPerImage);
 
 		// @required -(void)getBytes:(void * _Nonnull)pixelBytes bytesPerRow:(NSUInteger)bytesPerRow fromRegion:(MTLRegion)region mipmapLevel:(NSUInteger)level;
 		[Abstract]
 		[Export("getBytes:bytesPerRow:fromRegion:mipmapLevel:")]
-		unsafe void GetBytes(void* pixelBytes, nuint bytesPerRow, MTLRegion region, nuint level);
+		unsafe void GetBytes(IntPtr pixelBytes, nuint bytesPerRow, MTLRegion region, nuint level);
 
 		// @required -(void)replaceRegion:(MTLRegion)region mipmapLevel:(NSUInteger)level withBytes:(const void * _Nonnull)pixelBytes bytesPerRow:(NSUInteger)bytesPerRow;
 		[Abstract]
 		[Export("replaceRegion:mipmapLevel:withBytes:bytesPerRow:")]
-		unsafe void ReplaceRegion(MTLRegion region, nuint level, void* pixelBytes, nuint bytesPerRow);
+		unsafe void ReplaceRegion(MTLRegion region, nuint level, IntPtr pixelBytes, nuint bytesPerRow);
 
 		// @required -(id<MTLTexture> _Nullable)newTextureViewWithPixelFormat:(MTLPixelFormat)pixelFormat;
 		[Abstract]
@@ -1729,7 +1729,7 @@ namespace PhotoEditor
 		[Abstract]
 		[Export("contents")]
 		//[Verify(MethodToProperty)]
-		unsafe void* Contents { get; }
+		unsafe IntPtr Contents { get; }
 
 		// @required -(void)didModifyRange:(NSRange)range __attribute__((availability(ios, unavailable))) __attribute__((availability(macos, introduced=10.11)));
 		[NoiOS, Mac(10, 11)]
@@ -2041,7 +2041,7 @@ namespace PhotoEditor
 		[Mac(10, 11), iOS(8, 3)]
 		[Abstract]
 		[Export("setBytes:length:atIndex:")]
-		unsafe void SetBytes(void* bytes, nuint length, nuint index);
+		unsafe void SetBytes(IntPtr bytes, nuint length, nuint index);
 
 		// @required -(void)setBuffer:(id<MTLBuffer> _Nullable)buffer offset:(NSUInteger)offset atIndex:(NSUInteger)index;
 		[Abstract]
@@ -2315,7 +2315,7 @@ namespace PhotoEditor
 		[Mac(10, 11), iOS(8, 3)]
 		[Abstract]
 		[Export("setVertexBytes:length:atIndex:")]
-		unsafe void SetVertexBytes(void* bytes, nuint length, nuint index);
+		unsafe void SetVertexBytes(IntPtr bytes, nuint length, nuint index);
 
 		// @required -(void)setVertexBuffer:(id<MTLBuffer> _Nullable)buffer offset:(NSUInteger)offset atIndex:(NSUInteger)index;
 		[Abstract]
@@ -2415,7 +2415,7 @@ namespace PhotoEditor
 		[Mac(10, 11), iOS(8, 3)]
 		[Abstract]
 		[Export("setFragmentBytes:length:atIndex:")]
-		unsafe void SetFragmentBytes(void* bytes, nuint length, nuint index);
+		unsafe void SetFragmentBytes(IntPtr bytes, nuint length, nuint index);
 
 		// @required -(void)setFragmentBuffer:(id<MTLBuffer> _Nullable)buffer offset:(NSUInteger)offset atIndex:(NSUInteger)index;
 		[Abstract]
@@ -2641,7 +2641,7 @@ namespace PhotoEditor
 		[NoMac, iOS(11, 0)]
 		[Abstract]
 		[Export("setTileBytes:length:atIndex:")]
-		unsafe void SetTileBytes(void* bytes, nuint length, nuint index);
+		unsafe void SetTileBytes(IntPtr bytes, nuint length, nuint index);
 
 		// @required -(void)setTileBuffer:(id<MTLBuffer> _Nullable)buffer offset:(NSUInteger)offset atIndex:(NSUInteger)index __attribute__((availability(macos, unavailable))) __attribute__((availability(ios, introduced=11.0)));
 		[NoMac, iOS(11, 0)]
