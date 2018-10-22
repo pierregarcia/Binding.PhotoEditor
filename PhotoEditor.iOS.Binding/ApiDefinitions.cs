@@ -14,8 +14,6 @@ namespace PhotoEditor
 {
 	partial interface IPESDKAnalyticsClient { }
 
-	partial interface IMTLEvent { }
-
 	partial interface IOS_dispatch_object { }
 
 	// typedef void (^MTLNewLibraryCompletionHandler)(id<MTLLibrary> _Nullable, NSError * _Nullable);
@@ -2307,6 +2305,7 @@ namespace PhotoEditor
 
 	// @protocol MTLRenderCommandEncoder <MTLCommandEncoder>
 	[Mac(10, 11), iOS(8, 0)]
+	[BaseType(typeof(NSObject))]
 	[Protocol, Model]
 	interface MTLRenderCommandEncoder : IMTLCommandEncoder
 	{
