@@ -78,6 +78,7 @@ namespace PhotoEditor
 	}
 
 	// @protocol PESDKAnalyticsClient
+	[BaseType(typeof(NSObject))]
 	[Protocol, Model]
 	interface PESDKAnalyticsClient
 	{
@@ -118,6 +119,7 @@ namespace PhotoEditor
 	}
 
 	// @protocol PESDKProgressView
+	[BaseType(typeof(NSObject))]
 	[Protocol, Model]
 	interface PESDKProgressView
 	{
@@ -1500,6 +1502,7 @@ namespace PhotoEditor
 	}
 
 	// @protocol OS_dispatch_data <OS_dispatch_object>
+	[BaseType(typeof(NSObject))]
 	[Protocol, Model]
 	interface OS_dispatch_data : IOS_dispatch_object
 	{
@@ -4042,6 +4045,7 @@ namespace PhotoEditor
 	}
 
 	// @protocol PESDKFrameBuilderProtocol
+	[BaseType(typeof(NSObject))]
 	[Protocol, Model]
 	interface PESDKFrameBuilderProtocol
 	{
