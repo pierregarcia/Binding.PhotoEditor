@@ -2311,7 +2311,7 @@ namespace PhotoEditor
 	// @protocol MTLRenderCommandEncoder <MTLCommandEncoder>
 	[Mac(10, 11), iOS(8, 0)]
 	[BaseType(typeof(NSObject))]
-	[Protocol, Model]
+	[Model]
 	interface MTLRenderCommandEncoder : IMTLCommandEncoder
 	{
 		// @required -(void)setRenderPipelineState:(id<MTLRenderPipelineState> _Nonnull)pipelineState;
