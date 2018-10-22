@@ -168,11 +168,6 @@ namespace PhotoEditor
 		[DesignatedInitializer]
 		IntPtr Constructor(CGRect frame);
 
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
-		[Export("initWithCoder:")]
-		[DesignatedInitializer]
-		IntPtr Constructor(NSCoder aDecoder);
-
 		// -(void)layoutSubviews;
 		[Export("layoutSubviews")]
 		void LayoutSubviews();
@@ -237,11 +232,6 @@ namespace PhotoEditor
 		[Export("initWithConfiguration:")]
 		[DesignatedInitializer]
 		IntPtr Constructor(PESDKConfiguration configuration);
-
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
-		[Export("initWithCoder:")]
-		[DesignatedInitializer]
-		IntPtr Constructor(NSCoder aDecoder);
 
 		// -(void)viewDidLoad;
 		[Export("viewDidLoad")]
@@ -559,12 +549,6 @@ namespace PhotoEditor
 		[Export("initWithNibName:bundle:")]
 		[DesignatedInitializer]
 		IntPtr Constructor([NullAllowed] string nibNameOrNil, [NullAllowed] NSBundle nibBundleOrNil);
-
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((availability(ios, introduced=9.0))) __attribute__((objc_designated_initializer));
-		[iOS(9, 0)]
-		[Export("initWithCoder:")]
-		[DesignatedInitializer]
-		IntPtr Constructor(NSCoder aDecoder);
 	}
 
 	// @interface PESDKSpriteContainerView : UIView
@@ -593,12 +577,6 @@ namespace PhotoEditor
 		[Export("initWithFrame:")]
 		[DesignatedInitializer]
 		IntPtr Constructor(CGRect frame);
-
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((availability(ios, introduced=9.0))) __attribute__((objc_designated_initializer));
-		[iOS(9, 0)]
-		[Export("initWithCoder:")]
-		[DesignatedInitializer]
-		IntPtr Constructor(NSCoder aDecoder);
 	}
 
 	// @protocol PESDKSpriteViewControllerDelegate
@@ -671,11 +649,6 @@ namespace PhotoEditor
 		// @property (copy, nonatomic) void (^ _Nullable)(BOOL) loadingProgressClosure;
 		[NullAllowed, Export("loadingProgressClosure", ArgumentSemantic.Copy)]
 		Action<bool> LoadingProgressClosure { get; set; }
-
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
-		[Export("initWithCoder:")]
-		[DesignatedInitializer]
-		IntPtr Constructor(NSCoder aDecoder);
 
 		// -(void)viewDidLoad;
 		[Export("viewDidLoad")]
@@ -1146,7 +1119,7 @@ namespace PhotoEditor
 	[Mac(10, 14), iOS(12, 0)]
 	[BaseType(typeof(NSObject))]
 	[Protocol, Model]
-	interface MTLSharedEvent : IMTLEvent
+    interface MTLSharedEvent 
 	{
 		// @required -(void)notifyListener:(MTLSharedEventListener * _Nonnull)listener atValue:(uint64_t)value block:(MTLSharedEventNotificationBlock _Nonnull)block;
 		[Abstract]
@@ -1201,7 +1174,7 @@ namespace PhotoEditor
 	[Mac(10, 14), iOS(12, 0)]
 	[BaseType(typeof(NSObject))]
 	[Protocol, Model]
-	interface MTLIndirectCommandBuffer : IMTLResource
+	interface MTLIndirectCommandBuffer
 	{
 		// @required @property (readonly) NSUInteger size;
 		[Abstract]
@@ -1338,7 +1311,7 @@ namespace PhotoEditor
 		// @required -(void)setBuffers:(id<MTLBuffer>  _Nullable const * _Nonnull)buffers offsets:(const NSUInteger * _Nonnull)offsets withRange:(NSRange)range;
 		[Abstract]
 		[Export("setBuffers:offsets:withRange:")]
-		void SetBuffers(MTLBuffer[] buffers, nuint[] offsets, NSRange range);
+        void SetBuffers(MTLBuffer[] buffers, NSNumber[] offsets, NSRange range);
 
 		// @required -(void)setTexture:(id<MTLTexture> _Nullable)texture atIndex:(NSUInteger)index;
 		[Abstract]
@@ -1570,7 +1543,7 @@ namespace PhotoEditor
 	[Mac(10, 11), iOS(8, 0)]
 	[BaseType(typeof(NSObject))]
 	[Protocol, Model]
-	interface MTLTexture : IMTLResource
+	interface MTLTexture
 	{
 		// @required @property (readonly) id<MTLResource> _Nullable rootResource __attribute__((availability(ios, introduced=8.0, deprecated=10.0))) __attribute__((availability(macos, introduced=10.11, deprecated=10.12)));
 		[Introduced(PlatformName.iOS, 8, 0, message: "Use parentTexture or buffer instead")]
@@ -1723,7 +1696,7 @@ namespace PhotoEditor
 	[Mac(10, 11), iOS(8, 0)]
 	[BaseType(typeof(NSObject))]
 	[Protocol, Model]
-	interface MTLBuffer : IMTLResource
+	interface MTLBuffer
 	{
 		// @required @property (readonly) NSUInteger length;
 		[Abstract]
@@ -1982,7 +1955,7 @@ namespace PhotoEditor
 	[Mac(10, 11), iOS(8, 0)]
 	[BaseType(typeof(NSObject))]
 	[Protocol, Model]
-	interface MTLParallelRenderCommandEncoder : IMTLCommandEncoder
+	interface MTLParallelRenderCommandEncoder
 	{
 		// @required -(id<MTLRenderCommandEncoder> _Nullable)renderCommandEncoder;
 		[Abstract]
@@ -2031,7 +2004,7 @@ namespace PhotoEditor
 	[Mac(10, 11), iOS(8, 0)]
 	[BaseType(typeof(NSObject))]
 	[Protocol, Model]
-	interface MTLComputeCommandEncoder : IMTLCommandEncoder
+	interface MTLComputeCommandEncoder
 	{
 		// @required @property (readonly) MTLDispatchType dispatchType __attribute__((availability(ios, introduced=12.0))) __attribute__((availability(macos, introduced=10.14)));
 		[Mac(10, 14), iOS(12, 0)]
@@ -2064,7 +2037,7 @@ namespace PhotoEditor
 		// @required -(void)setBuffers:(id<MTLBuffer>  _Nullable const * _Nonnull)buffers offsets:(const NSUInteger * _Nonnull)offsets withRange:(NSRange)range;
 		[Abstract]
 		[Export("setBuffers:offsets:withRange:")]
-		void SetBuffers(MTLBuffer[] buffers, nuint[] offsets, NSRange range);
+        void SetBuffers(MTLBuffer[] buffers, NSNumber[] offsets, NSRange range);
 
 		// @required -(void)setTexture:(id<MTLTexture> _Nullable)texture atIndex:(NSUInteger)index;
 		[Abstract]
@@ -2094,7 +2067,7 @@ namespace PhotoEditor
 		// @required -(void)setSamplerStates:(id<MTLSamplerState>  _Nullable const * _Nonnull)samplers lodMinClamps:(const float * _Nonnull)lodMinClamps lodMaxClamps:(const float * _Nonnull)lodMaxClamps withRange:(NSRange)range;
 		[Abstract]
 		[Export("setSamplerStates:lodMinClamps:lodMaxClamps:withRange:")]
-		void SetSamplerStates(MTLSamplerState[] samplers, float[] lodMinClamps, float[] lodMaxClamps, NSRange range);
+        void SetSamplerStates(MTLSamplerState[] samplers, NSNumber[] lodMinClamps, NSNumber[] lodMaxClamps, NSRange range);
 
 		// @required -(void)setThreadgroupMemoryLength:(NSUInteger)length atIndex:(NSUInteger)index;
 		[Abstract]
@@ -2311,8 +2284,8 @@ namespace PhotoEditor
 	// @protocol MTLRenderCommandEncoder <MTLCommandEncoder>
 	[Mac(10, 11), iOS(8, 0)]
 	[BaseType(typeof(NSObject))]
-	[Protocol, Model]
-	interface MTLRenderCommandEncoder : IMTLCommandEncoder
+	[Model]
+	interface MTLRenderCommandEncoder
 	{
 		// @required -(void)setRenderPipelineState:(id<MTLRenderPipelineState> _Nonnull)pipelineState;
 		[Abstract]
@@ -2767,7 +2740,7 @@ namespace PhotoEditor
 	[Mac(10, 11), iOS(8, 0)]
 	[BaseType(typeof(NSObject))]
 	[Protocol, Model]
-	interface MTLBlitCommandEncoder : IMTLCommandEncoder
+	interface MTLBlitCommandEncoder
 	{
 		// @required -(void)synchronizeResource:(id<MTLResource> _Nonnull)resource __attribute__((availability(ios, unavailable))) __attribute__((availability(macos, introduced=10.11)));
 		[NoiOS, Mac(10, 11)]
@@ -2937,11 +2910,6 @@ namespace PhotoEditor
 		[Export("initWithNibName:bundle:")]
 		[DesignatedInitializer]
 		IntPtr Constructor([NullAllowed] string nibNameOrNil, [NullAllowed] NSBundle nibBundleOrNil);
-
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
-		[Export("initWithCoder:")]
-		[DesignatedInitializer]
-		IntPtr Constructor(NSCoder aDecoder);
 	}
 
 	// @interface PESDKCameraViewControllerOptionsBuilder : NSObject
@@ -3074,11 +3042,6 @@ namespace PhotoEditor
 		[Export("initWithFrame:")]
 		[DesignatedInitializer]
 		IntPtr Constructor(CGRect frame);
-
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
-		[Export("initWithCoder:")]
-		[DesignatedInitializer]
-		IntPtr Constructor(NSCoder aDecoder);
 	}
 
 	// @interface PESDKSlider : UIControl
@@ -3129,11 +3092,6 @@ namespace PhotoEditor
 		// @property (nonatomic) CGRect bounds;
 		[Export("bounds", ArgumentSemantic.Assign)]
 		CGRect Bounds { get; set; }
-
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
-		[Export("initWithCoder:")]
-		[DesignatedInitializer]
-		IntPtr Constructor(NSCoder aDecoder);
 
 		// -(void)accessibilityIncrement;
 		[Export("accessibilityIncrement")]
@@ -3241,11 +3199,6 @@ namespace PhotoEditor
 		[Export("serializedSettingsWithImageData:")]
 		[return: NullAllowed]
 		NSData SerializedSettingsWithImageData(bool includeImageData);
-
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
-		[Export("initWithCoder:")]
-		[DesignatedInitializer]
-		IntPtr Constructor(NSCoder aDecoder);
 
 		// -(void)viewDidLoad;
 		[Export("viewDidLoad")]
@@ -3410,11 +3363,6 @@ namespace PhotoEditor
 	[BaseType(typeof(UIView))]
 	interface PESDKToolbar
 	{
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
-		[Export("initWithCoder:")]
-		[DesignatedInitializer]
-		IntPtr Constructor(NSCoder aDecoder);
-
 		// -(instancetype _Nonnull)initWithFrame:(CGRect)frame __attribute__((objc_designated_initializer));
 		[Export("initWithFrame:")]
 		[DesignatedInitializer]
@@ -3871,11 +3819,6 @@ namespace PhotoEditor
 		[DesignatedInitializer]
 		IntPtr Constructor(PESDKColorPalette colorPalette);
 
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
-		[Export("initWithCoder:")]
-		[DesignatedInitializer]
-		IntPtr Constructor(NSCoder aDecoder);
-
 		// -(void)selectColorAtIndex:(NSInteger)index animated:(BOOL)animated;
 		[Export("selectColorAtIndex:animated:")]
 		void SelectColorAtIndex(nint index, bool animated);
@@ -4073,11 +4016,6 @@ namespace PhotoEditor
 		[DesignatedInitializer]
 		IntPtr Constructor(CGRect frame);
 
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
-		[Export("initWithCoder:")]
-		[DesignatedInitializer]
-		IntPtr Constructor(NSCoder aDecoder);
-
 		// -(void)tintColorDidChange;
 		[Export("tintColorDidChange")]
 		void TintColorDidChange();
@@ -4112,11 +4050,6 @@ namespace PhotoEditor
 		[Export("initWithFrame:")]
 		[DesignatedInitializer]
 		IntPtr Constructor(CGRect frame);
-
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
-		[Export("initWithCoder:")]
-		[DesignatedInitializer]
-		IntPtr Constructor(NSCoder aDecoder);
 
 		// -(void)tintColorDidChange;
 		[Export("tintColorDidChange")]
@@ -4153,12 +4086,6 @@ namespace PhotoEditor
 		[Export("initWithFrame:")]
 		[DesignatedInitializer]
 		IntPtr Constructor(CGRect frame);
-
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((availability(ios, introduced=9.0))) __attribute__((objc_designated_initializer));
-		[iOS(9, 0)]
-		[Export("initWithCoder:")]
-		[DesignatedInitializer]
-		IntPtr Constructor(NSCoder aDecoder);
 	}
 
 	// @interface PESDKBorderedCollectionViewCell : UICollectionViewCell
@@ -4174,11 +4101,6 @@ namespace PhotoEditor
 		[Export("initWithFrame:")]
 		[DesignatedInitializer]
 		IntPtr Constructor(CGRect frame);
-
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
-		[Export("initWithCoder:")]
-		[DesignatedInitializer]
-		IntPtr Constructor(NSCoder aDecoder);
 
 		// -(void)tintColorDidChange;
 		[Export("tintColorDidChange")]
@@ -4268,11 +4190,6 @@ namespace PhotoEditor
 		[Export("initWithFrame:")]
 		[DesignatedInitializer]
 		IntPtr Constructor(CGRect frame);
-
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
-		[Export("initWithCoder:")]
-		[DesignatedInitializer]
-		IntPtr Constructor(NSCoder aDecoder);
 
 		// -(void)prepareForReuse;
 		[Export("prepareForReuse")]
@@ -4507,11 +4424,6 @@ namespace PhotoEditor
 		[DesignatedInitializer]
 		IntPtr Constructor(CGRect frame);
 
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
-		[Export("initWithCoder:")]
-		[DesignatedInitializer]
-		IntPtr Constructor(NSCoder aDecoder);
-
 		// -(void)tintColorDidChange;
 		[Export("tintColorDidChange")]
 		void TintColorDidChange();
@@ -4632,11 +4544,6 @@ namespace PhotoEditor
 		[DesignatedInitializer]
 		IntPtr Constructor(CGRect frame);
 
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
-		[Export("initWithCoder:")]
-		[DesignatedInitializer]
-		IntPtr Constructor(NSCoder aDecoder);
-
 		// -(void)tintColorDidChange;
 		[Export("tintColorDidChange")]
 		void TintColorDidChange();
@@ -4679,11 +4586,6 @@ namespace PhotoEditor
 		[Export("initWithFrame:")]
 		[DesignatedInitializer]
 		IntPtr Constructor(CGRect frame);
-
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
-		[Export("initWithCoder:")]
-		[DesignatedInitializer]
-		IntPtr Constructor(NSCoder aDecoder);
 
 		// -(void)tintColorDidChange;
 		[Export("tintColorDidChange")]
@@ -4731,11 +4633,6 @@ namespace PhotoEditor
 		[Export("initWithFrame:")]
 		[DesignatedInitializer]
 		IntPtr Constructor(CGRect frame);
-
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
-		[Export("initWithCoder:")]
-		[DesignatedInitializer]
-		IntPtr Constructor(NSCoder aDecoder);
 
 		// -(void)tintColorDidChange;
 		[Export("tintColorDidChange")]
@@ -4981,11 +4878,6 @@ namespace PhotoEditor
 		[DesignatedInitializer]
 		IntPtr Constructor(CGRect frame);
 
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
-		[Export("initWithCoder:")]
-		[DesignatedInitializer]
-		IntPtr Constructor(NSCoder aDecoder);
-
 		// -(void)drawRect:(CGRect)rect;
 		[Export("drawRect:")]
 		void DrawRect(CGRect rect);
@@ -5021,11 +4913,6 @@ namespace PhotoEditor
 		[DesignatedInitializer]
 		IntPtr Constructor(CGRect frame);
 
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
-		[Export("initWithCoder:")]
-		[DesignatedInitializer]
-		IntPtr Constructor(NSCoder aDecoder);
-
 		// -(void)layoutSubviews;
 		[Export("layoutSubviews")]
 		void LayoutSubviews();
@@ -5048,11 +4935,6 @@ namespace PhotoEditor
 		[Export("initWithFrame:")]
 		[DesignatedInitializer]
 		IntPtr Constructor(CGRect frame);
-
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
-		[Export("initWithCoder:")]
-		[DesignatedInitializer]
-		IntPtr Constructor(NSCoder aDecoder);
 
 		// -(void)drawRect:(CGRect)rect;
 		[Export("drawRect:")]
@@ -5184,11 +5066,6 @@ namespace PhotoEditor
 		// @property (nonatomic, weak) id<PESDKScalePickerDelegate> _Nullable delegate;
 		[NullAllowed, Export("delegate", ArgumentSemantic.Weak)]
 		NSObject WeakDelegate { get; set; }
-
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
-		[Export("initWithCoder:")]
-		[DesignatedInitializer]
-		IntPtr Constructor(NSCoder aDecoder);
 
 		// -(void)layoutSubviews;
 		[Export("layoutSubviews")]
@@ -5402,11 +5279,6 @@ namespace PhotoEditor
 		[DesignatedInitializer]
 		IntPtr Constructor(CGRect frame);
 
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
-		[Export("initWithCoder:")]
-		[DesignatedInitializer]
-		IntPtr Constructor(NSCoder aDecoder);
-
 		// -(void)prepareForReuse;
 		[Export("prepareForReuse")]
 		void PrepareForReuse();
@@ -5433,11 +5305,6 @@ namespace PhotoEditor
 		[Export("initWithFrame:")]
 		[DesignatedInitializer]
 		IntPtr Constructor(CGRect frame);
-
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
-		[Export("initWithCoder:")]
-		[DesignatedInitializer]
-		IntPtr Constructor(NSCoder aDecoder);
 
 		// -(void)prepareForReuse;
 		[Export("prepareForReuse")]
@@ -5587,11 +5454,6 @@ namespace PhotoEditor
 		[DesignatedInitializer]
 		IntPtr Constructor(CGRect frame);
 
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
-		[Export("initWithCoder:")]
-		[DesignatedInitializer]
-		IntPtr Constructor(NSCoder aDecoder);
-
 		// -(void)tintColorDidChange;
 		[Export("tintColorDidChange")]
 		void TintColorDidChange();
@@ -5625,11 +5487,6 @@ namespace PhotoEditor
 		[Export("initWithTopColor:bottomColor:")]
 		[DesignatedInitializer]
 		IntPtr Constructor(UIColor topColor, UIColor bottomColor);
-
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
-		[Export("initWithCoder:")]
-		[DesignatedInitializer]
-		IntPtr Constructor(NSCoder aDecoder);
 
 		// @property (readonly, nonatomic, class) Class _Nonnull layerClass;
 		[Static]
