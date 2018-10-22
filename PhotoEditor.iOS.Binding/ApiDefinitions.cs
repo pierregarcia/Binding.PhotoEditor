@@ -1145,7 +1145,7 @@ namespace PhotoEditor
 	// @protocol MTLSharedEvent <MTLEvent>
 	[Mac(10, 14), iOS(12, 0)]
 	[BaseType(typeof(NSObject))]
-	[Model]
+	[Protocol, Model]
 	interface MTLSharedEvent : IMTLEvent
 	{
 		// @required -(void)notifyListener:(MTLSharedEventListener * _Nonnull)listener atValue:(uint64_t)value block:(MTLSharedEventNotificationBlock _Nonnull)block;
@@ -1199,6 +1199,7 @@ namespace PhotoEditor
 
 	// @protocol MTLIndirectCommandBuffer <MTLResource>
 	[Mac(10, 14), iOS(12, 0)]
+	[BaseType(typeof(NSObject))]
 	[Protocol, Model]
 	interface MTLIndirectCommandBuffer : IMTLResource
 	{
@@ -1566,6 +1567,7 @@ namespace PhotoEditor
 
 	// @protocol MTLTexture <MTLResource>
 	[Mac(10, 11), iOS(8, 0)]
+	[BaseType(typeof(NSObject))]
 	[Protocol, Model]
 	interface MTLTexture : IMTLResource
 	{
@@ -1718,6 +1720,7 @@ namespace PhotoEditor
 
 	// @protocol MTLBuffer <MTLResource>
 	[Mac(10, 11), iOS(8, 0)]
+	[BaseType(typeof(NSObject))]
 	[Protocol, Model]
 	interface MTLBuffer : IMTLResource
 	{
