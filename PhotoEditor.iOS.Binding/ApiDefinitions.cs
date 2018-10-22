@@ -8,10 +8,30 @@ using ObjCRuntime;
 using OpenGLES;
 using UIKit;
 using CoreGraphics;
+using CoreFoundation;
 
 namespace PhotoEditor
 {
 	partial interface IPESDKAnalyticsClient { }
+
+	partial interface IMTLEvent { }
+
+	partial interface IOS_dispatch_object { }
+
+	// typedef void (^MTLNewLibraryCompletionHandler)(id<MTLLibrary> _Nullable, NSError * _Nullable);
+	delegate void MTLNewLibraryCompletionHandler([NullAllowed] MTLLibrary arg0, [NullAllowed] NSError arg1);
+
+	// typedef void (^MTLNewRenderPipelineStateCompletionHandler)(id<MTLRenderPipelineState> _Nullable, NSError * _Nullable);
+	delegate void MTLNewRenderPipelineStateCompletionHandler([NullAllowed] MTLRenderPipelineState arg0, [NullAllowed] NSError arg1);
+
+	// typedef void (^MTLNewComputePipelineStateCompletionHandler)(id<MTLComputePipelineState> _Nullable, NSError * _Nullable);
+	delegate void MTLNewComputePipelineStateCompletionHandler([NullAllowed] MTLComputePipelineState arg0, [NullAllowed] NSError arg1);
+
+	// typedef void (^MTLSharedEventNotificationBlock)(id<MTLSharedEvent> _Nonnull, uint64_t);
+	delegate void MTLSharedEventNotificationBlock(MTLSharedEvent arg0, ulong arg1);
+
+	// typedef void (^MTLCommandBufferHandler)(id<MTLCommandBuffer> _Nonnull);
+	delegate void MTLCommandBufferHandler(MTLCommandBuffer arg0);
 
 	// @interface PESDK : NSObject
 	[iOS(9, 0)]
@@ -755,6 +775,2098 @@ namespace PhotoEditor
 		// -(void)drawOutputImageFor:(id<MTLDevice> _Nonnull)device in:(id<CAMetalDrawable> _Nonnull)drawable to:(CGRect)rect commandQueue:(id<MTLCommandQueue> _Nonnull)commandQueue;
 		[Export("drawOutputImageFor:in:to:commandQueue:")]
 		void DrawOutputImageFor(MTLDevice device, ICAMetalDrawable drawable, CGRect rect, IMTLCommandQueue commandQueue);
+	}
+
+	// @protocol MTLDevice <NSObject>
+	[Mac(10, 11), iOS(8, 0)]
+	[Protocol, Model]
+	[BaseType(typeof(NSObject))]
+	interface MTLDevice
+	{
+		// @required @property (readonly) NSString * _Nonnull name;
+		[Abstract]
+		[Export("name")]
+		string Name { get; }
+
+		// @required @property (readonly) uint64_t registryID __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(11, 0)]
+		[Abstract]
+		[Export("registryID")]
+		ulong RegistryID { get; }
+
+		// @required @property (readonly) MTLSize maxThreadsPerThreadgroup __attribute__((availability(ios, introduced=9.0))) __attribute__((availability(macos, introduced=10.11)));
+		[Mac(10, 11), iOS(9, 0)]
+		[Abstract]
+		[Export("maxThreadsPerThreadgroup")]
+		MTLSize MaxThreadsPerThreadgroup { get; }
+
+		// @required @property (readonly, getter = isLowPower) BOOL lowPower __attribute__((availability(ios, unavailable))) __attribute__((availability(macos, introduced=10.11)));
+		[NoiOS, Mac(10, 11)]
+		[Abstract]
+		[Export("lowPower")]
+		bool LowPower { [Bind("isLowPower")] get; }
+
+		// @required @property (readonly, getter = isHeadless) BOOL headless __attribute__((availability(ios, unavailable))) __attribute__((availability(macos, introduced=10.11)));
+		[NoiOS, Mac(10, 11)]
+		[Abstract]
+		[Export("headless")]
+		bool Headless { [Bind("isHeadless")] get; }
+
+		// @required @property (readonly, getter = isRemovable) BOOL removable __attribute__((availability(ios, unavailable))) __attribute__((availability(macos, introduced=10.13)));
+		[NoiOS, Mac(10, 13)]
+		[Abstract]
+		[Export("removable")]
+		bool Removable { [Bind("isRemovable")] get; }
+
+		// @required @property (readonly) uint64_t recommendedMaxWorkingSetSize __attribute__((availability(ios, unavailable))) __attribute__((availability(macos, introduced=10.12)));
+		[NoiOS, Mac(10, 12)]
+		[Abstract]
+		[Export("recommendedMaxWorkingSetSize")]
+		ulong RecommendedMaxWorkingSetSize { get; }
+
+		// @required @property (readonly, getter = isDepth24Stencil8PixelFormatSupported) BOOL depth24Stencil8PixelFormatSupported __attribute__((availability(ios, unavailable))) __attribute__((availability(macos, introduced=10.11)));
+		[NoiOS, Mac(10, 11)]
+		[Abstract]
+		[Export("depth24Stencil8PixelFormatSupported")]
+		bool Depth24Stencil8PixelFormatSupported { [Bind("isDepth24Stencil8PixelFormatSupported")] get; }
+
+		// @required @property (readonly) MTLReadWriteTextureTier readWriteTextureSupport __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(11, 0)]
+		[Abstract]
+		[Export("readWriteTextureSupport")]
+		MTLReadWriteTextureTier ReadWriteTextureSupport { get; }
+
+		// @required @property (readonly) MTLArgumentBuffersTier argumentBuffersSupport __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(11, 0)]
+		[Abstract]
+		[Export("argumentBuffersSupport")]
+		MTLArgumentBuffersTier ArgumentBuffersSupport { get; }
+
+		// @required @property (readonly, getter = areRasterOrderGroupsSupported) BOOL rasterOrderGroupsSupported __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(11, 0)]
+		[Abstract]
+		[Export("rasterOrderGroupsSupported")]
+		bool RasterOrderGroupsSupported { [Bind("areRasterOrderGroupsSupported")] get; }
+
+		// @required @property (readonly) NSUInteger currentAllocatedSize __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(11, 0)]
+		[Abstract]
+		[Export("currentAllocatedSize")]
+		nuint CurrentAllocatedSize { get; }
+
+		// @required -(id<MTLCommandQueue> _Nullable)newCommandQueue;
+		[Abstract]
+		[NullAllowed, Export("newCommandQueue")]
+		MTLCommandQueue NewCommandQueue { get; }
+
+		// @required -(id<MTLCommandQueue> _Nullable)newCommandQueueWithMaxCommandBufferCount:(NSUInteger)maxCommandBufferCount;
+		[Abstract]
+		[Export("newCommandQueueWithMaxCommandBufferCount:")]
+		[return: NullAllowed]
+		MTLCommandQueue NewCommandQueueWithMaxCommandBufferCount(nuint maxCommandBufferCount);
+
+		// @required -(MTLSizeAndAlign)heapTextureSizeAndAlignWithDescriptor:(MTLTextureDescriptor * _Nonnull)desc __attribute__((availability(ios, introduced=10.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(10, 0)]
+		[Abstract]
+		[Export("heapTextureSizeAndAlignWithDescriptor:")]
+		MTLSizeAndAlign HeapTextureSizeAndAlignWithDescriptor(MTLTextureDescriptor desc);
+
+		// @required -(MTLSizeAndAlign)heapBufferSizeAndAlignWithLength:(NSUInteger)length options:(MTLResourceOptions)options __attribute__((availability(ios, introduced=10.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(10, 0)]
+		[Abstract]
+		[Export("heapBufferSizeAndAlignWithLength:options:")]
+		MTLSizeAndAlign HeapBufferSizeAndAlignWithLength(nuint length, MTLResourceOptions options);
+
+		// @required -(id<MTLHeap> _Nullable)newHeapWithDescriptor:(MTLHeapDescriptor * _Nonnull)descriptor __attribute__((availability(ios, introduced=10.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(10, 0)]
+		[Abstract]
+		[Export("newHeapWithDescriptor:")]
+		[return: NullAllowed]
+		MTLHeap NewHeapWithDescriptor(MTLHeapDescriptor descriptor);
+
+		// @required -(id<MTLBuffer> _Nullable)newBufferWithLength:(NSUInteger)length options:(MTLResourceOptions)options;
+		[Abstract]
+		[Export("newBufferWithLength:options:")]
+		[return: NullAllowed]
+		MTLBuffer NewBufferWithLength(nuint length, MTLResourceOptions options);
+
+		// @required -(id<MTLBuffer> _Nullable)newBufferWithBytes:(const void * _Nonnull)pointer length:(NSUInteger)length options:(MTLResourceOptions)options;
+		[Abstract]
+		[Export("newBufferWithBytes:length:options:")]
+		[return: NullAllowed]
+		unsafe MTLBuffer NewBufferWithBytes(void* pointer, nuint length, MTLResourceOptions options);
+
+		// @required -(id<MTLBuffer> _Nullable)newBufferWithBytesNoCopy:(void * _Nonnull)pointer length:(NSUInteger)length options:(MTLResourceOptions)options deallocator:(void (^ _Nullable)(void * _Nonnull, NSUInteger))deallocator;
+		[Abstract]
+		[Export("newBufferWithBytesNoCopy:length:options:deallocator:")]
+		[return: NullAllowed]
+		unsafe MTLBuffer NewBufferWithBytesNoCopy(void* pointer, nuint length, MTLResourceOptions options, [NullAllowed] Action<IntPtr, nuint> deallocator);
+
+		// @required -(id<MTLDepthStencilState> _Nullable)newDepthStencilStateWithDescriptor:(MTLDepthStencilDescriptor * _Nonnull)descriptor;
+		[Abstract]
+		[Export("newDepthStencilStateWithDescriptor:")]
+		[return: NullAllowed]
+		MTLDepthStencilState NewDepthStencilStateWithDescriptor(MTLDepthStencilDescriptor descriptor);
+
+		// @required -(id<MTLTexture> _Nullable)newTextureWithDescriptor:(MTLTextureDescriptor * _Nonnull)descriptor;
+		[Abstract]
+		[Export("newTextureWithDescriptor:")]
+		[return: NullAllowed]
+		MTLTexture NewTextureWithDescriptor(MTLTextureDescriptor descriptor);
+
+		// @required -(id<MTLTexture> _Nullable)newTextureWithDescriptor:(MTLTextureDescriptor * _Nonnull)descriptor iosurface:(IOSurfaceRef _Nonnull)iosurface plane:(NSUInteger)plane __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.11)));
+		[Mac(10, 11), iOS(11, 0)]
+		[Abstract]
+		[Export("newTextureWithDescriptor:iosurface:plane:")]
+		[return: NullAllowed]
+		unsafe MTLTexture NewTextureWithDescriptor(MTLTextureDescriptor descriptor, IOSurface.IOSurface iosurface, nuint plane);
+
+		// @required -(id<MTLSamplerState> _Nullable)newSamplerStateWithDescriptor:(MTLSamplerDescriptor * _Nonnull)descriptor;
+		[Abstract]
+		[Export("newSamplerStateWithDescriptor:")]
+		[return: NullAllowed]
+		MTLSamplerState NewSamplerStateWithDescriptor(MTLSamplerDescriptor descriptor);
+
+		// @required -(id<MTLLibrary> _Nullable)newDefaultLibrary;
+		[Abstract]
+		[NullAllowed, Export("newDefaultLibrary")]
+		MTLLibrary NewDefaultLibrary { get; }
+
+		// @required -(id<MTLLibrary> _Nullable)newDefaultLibraryWithBundle:(NSBundle * _Nonnull)bundle error:(NSError * _Nullable * _Nullable)error __attribute__((availability(ios, introduced=10.0))) __attribute__((availability(macos, introduced=10.12)));
+		[Mac(10, 12), iOS(10, 0)]
+		[Abstract]
+		[Export("newDefaultLibraryWithBundle:error:")]
+		[return: NullAllowed]
+		MTLLibrary NewDefaultLibraryWithBundle(NSBundle bundle, [NullAllowed] out NSError error);
+
+		// @required -(id<MTLLibrary> _Nullable)newLibraryWithFile:(NSString * _Nonnull)filepath error:(NSError * _Nullable * _Nullable)error;
+		[Abstract]
+		[Export("newLibraryWithFile:error:")]
+		[return: NullAllowed]
+		MTLLibrary NewLibraryWithFile(string filepath, [NullAllowed] out NSError error);
+
+		// @required -(id<MTLLibrary> _Nullable)newLibraryWithURL:(NSURL * _Nonnull)url error:(NSError * _Nullable * _Nullable)error __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(11, 0)]
+		[Abstract]
+		[Export("newLibraryWithURL:error:")]
+		[return: NullAllowed]
+		MTLLibrary NewLibraryWithURL(NSUrl url, [NullAllowed] out NSError error);
+
+		// @required -(id<MTLLibrary> _Nullable)newLibraryWithData:(dispatch_data_t _Nonnull)data error:(NSError * _Nullable * _Nullable)error;
+		[Abstract]
+		[Export("newLibraryWithData:error:")]
+		[return: NullAllowed]
+		MTLLibrary NewLibraryWithData(OS_dispatch_data data, [NullAllowed] out NSError error);
+
+		// @required -(id<MTLLibrary> _Nullable)newLibraryWithSource:(NSString * _Nonnull)source options:(MTLCompileOptions * _Nullable)options error:(NSError * _Nullable * _Nullable)error;
+		[Abstract]
+		[Export("newLibraryWithSource:options:error:")]
+		[return: NullAllowed]
+		MTLLibrary NewLibraryWithSource(string source, [NullAllowed] MTLCompileOptions options, [NullAllowed] out NSError error);
+
+		// @required -(void)newLibraryWithSource:(NSString * _Nonnull)source options:(MTLCompileOptions * _Nullable)options completionHandler:(MTLNewLibraryCompletionHandler _Nonnull)completionHandler;
+		[Abstract]
+		[Export("newLibraryWithSource:options:completionHandler:")]
+		void NewLibraryWithSource(string source, [NullAllowed] MTLCompileOptions options, MTLNewLibraryCompletionHandler completionHandler);
+
+		// @required -(id<MTLRenderPipelineState> _Nullable)newRenderPipelineStateWithDescriptor:(MTLRenderPipelineDescriptor * _Nonnull)descriptor error:(NSError * _Nullable * _Nullable)error;
+		[Abstract]
+		[Export("newRenderPipelineStateWithDescriptor:error:")]
+		[return: NullAllowed]
+		MTLRenderPipelineState NewRenderPipelineStateWithDescriptor(MTLRenderPipelineDescriptor descriptor, [NullAllowed] out NSError error);
+
+		// @required -(id<MTLRenderPipelineState> _Nullable)newRenderPipelineStateWithDescriptor:(MTLRenderPipelineDescriptor * _Nonnull)descriptor options:(MTLPipelineOption)options reflection:(MTLAutoreleasedRenderPipelineReflection * _Nullable)reflection error:(NSError * _Nullable * _Nullable)error;
+		[Abstract]
+		[Export("newRenderPipelineStateWithDescriptor:options:reflection:error:")]
+		[return: NullAllowed]
+		MTLRenderPipelineState NewRenderPipelineStateWithDescriptor(MTLRenderPipelineDescriptor descriptor, MTLPipelineOption options, [NullAllowed] out MTLRenderPipelineReflection reflection, [NullAllowed] out NSError error);
+
+		// @required -(void)newRenderPipelineStateWithDescriptor:(MTLRenderPipelineDescriptor * _Nonnull)descriptor completionHandler:(MTLNewRenderPipelineStateCompletionHandler _Nonnull)completionHandler;
+		[Abstract]
+		[Export("newRenderPipelineStateWithDescriptor:completionHandler:")]
+		void NewRenderPipelineStateWithDescriptor(MTLRenderPipelineDescriptor descriptor, MTLNewRenderPipelineStateCompletionHandler completionHandler);
+
+		// @required -(void)newRenderPipelineStateWithDescriptor:(MTLRenderPipelineDescriptor * _Nonnull)descriptor options:(MTLPipelineOption)options completionHandler:(MTLNewRenderPipelineStateWithReflectionCompletionHandler _Nonnull)completionHandler;
+		[Abstract]
+		[Export("newRenderPipelineStateWithDescriptor:options:completionHandler:")]
+		void NewRenderPipelineStateWithDescriptor(MTLRenderPipelineDescriptor descriptor, MTLPipelineOption options, MTLNewRenderPipelineStateWithReflectionCompletionHandler completionHandler);
+
+		// @required -(id<MTLComputePipelineState> _Nullable)newComputePipelineStateWithFunction:(id<MTLFunction> _Nonnull)computeFunction error:(NSError * _Nullable * _Nullable)error;
+		[Abstract]
+		[Export("newComputePipelineStateWithFunction:error:")]
+		[return: NullAllowed]
+		MTLComputePipelineState NewComputePipelineStateWithFunction(IMTLFunction computeFunction, [NullAllowed] out NSError error);
+
+		// @required -(id<MTLComputePipelineState> _Nullable)newComputePipelineStateWithFunction:(id<MTLFunction> _Nonnull)computeFunction options:(MTLPipelineOption)options reflection:(MTLAutoreleasedComputePipelineReflection * _Nullable)reflection error:(NSError * _Nullable * _Nullable)error;
+		[Abstract]
+		[Export("newComputePipelineStateWithFunction:options:reflection:error:")]
+		[return: NullAllowed]
+		MTLComputePipelineState NewComputePipelineStateWithFunction(IMTLFunction computeFunction, MTLPipelineOption options, [NullAllowed] out MTLComputePipelineReflection reflection, [NullAllowed] out NSError error);
+
+		// @required -(void)newComputePipelineStateWithFunction:(id<MTLFunction> _Nonnull)computeFunction completionHandler:(MTLNewComputePipelineStateCompletionHandler _Nonnull)completionHandler;
+		[Abstract]
+		[Export("newComputePipelineStateWithFunction:completionHandler:")]
+		void NewComputePipelineStateWithFunction(IMTLFunction computeFunction, MTLNewComputePipelineStateCompletionHandler completionHandler);
+
+		// @required -(void)newComputePipelineStateWithFunction:(id<MTLFunction> _Nonnull)computeFunction options:(MTLPipelineOption)options completionHandler:(MTLNewComputePipelineStateWithReflectionCompletionHandler _Nonnull)completionHandler;
+		[Abstract]
+		[Export("newComputePipelineStateWithFunction:options:completionHandler:")]
+		void NewComputePipelineStateWithFunction(IMTLFunction computeFunction, MTLPipelineOption options, MTLNewComputePipelineStateWithReflectionCompletionHandler completionHandler);
+
+		// @required -(id<MTLComputePipelineState> _Nullable)newComputePipelineStateWithDescriptor:(MTLComputePipelineDescriptor * _Nonnull)descriptor options:(MTLPipelineOption)options reflection:(MTLAutoreleasedComputePipelineReflection * _Nullable)reflection error:(NSError * _Nullable * _Nullable)error __attribute__((availability(ios, introduced=9.0))) __attribute__((availability(macos, introduced=10.11)));
+		[Mac(10, 11), iOS(9, 0)]
+		[Abstract]
+		[Export("newComputePipelineStateWithDescriptor:options:reflection:error:")]
+		[return: NullAllowed]
+		MTLComputePipelineState NewComputePipelineStateWithDescriptor(MTLComputePipelineDescriptor descriptor, MTLPipelineOption options, [NullAllowed] out MTLComputePipelineReflection reflection, [NullAllowed] out NSError error);
+
+		// @required -(void)newComputePipelineStateWithDescriptor:(MTLComputePipelineDescriptor * _Nonnull)descriptor options:(MTLPipelineOption)options completionHandler:(MTLNewComputePipelineStateWithReflectionCompletionHandler _Nonnull)completionHandler __attribute__((availability(ios, introduced=9.0))) __attribute__((availability(macos, introduced=10.11)));
+		[Mac(10, 11), iOS(9, 0)]
+		[Abstract]
+		[Export("newComputePipelineStateWithDescriptor:options:completionHandler:")]
+		void NewComputePipelineStateWithDescriptor(MTLComputePipelineDescriptor descriptor, MTLPipelineOption options, MTLNewComputePipelineStateWithReflectionCompletionHandler completionHandler);
+
+		// @required -(id<MTLFence> _Nullable)newFence __attribute__((availability(ios, introduced=10.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(10, 0)]
+		[Abstract]
+		[NullAllowed, Export("newFence")]
+		MTLFence NewFence { get; }
+
+		// @required -(BOOL)supportsFeatureSet:(MTLFeatureSet)featureSet;
+		[Abstract]
+		[Export("supportsFeatureSet:")]
+		bool SupportsFeatureSet(MTLFeatureSet featureSet);
+
+		// @required -(BOOL)supportsTextureSampleCount:(NSUInteger)sampleCount __attribute__((availability(ios, introduced=9.0))) __attribute__((availability(macos, introduced=10.11)));
+		[Mac(10, 11), iOS(9, 0)]
+		[Abstract]
+		[Export("supportsTextureSampleCount:")]
+		bool SupportsTextureSampleCount(nuint sampleCount);
+
+		// @required -(NSUInteger)minimumLinearTextureAlignmentForPixelFormat:(MTLPixelFormat)format __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(11, 0)]
+		[Abstract]
+		[Export("minimumLinearTextureAlignmentForPixelFormat:")]
+		nuint MinimumLinearTextureAlignmentForPixelFormat(MTLPixelFormat format);
+
+		// @required -(NSUInteger)minimumTextureBufferAlignmentForPixelFormat:(MTLPixelFormat)format __attribute__((availability(ios, introduced=12.0))) __attribute__((availability(macos, introduced=10.14)));
+		[Mac(10, 14), iOS(12, 0)]
+		[Abstract]
+		[Export("minimumTextureBufferAlignmentForPixelFormat:")]
+		nuint MinimumTextureBufferAlignmentForPixelFormat(MTLPixelFormat format);
+
+		// @required -(id<MTLRenderPipelineState> _Nullable)newRenderPipelineStateWithTileDescriptor:(MTLTileRenderPipelineDescriptor * _Nonnull)descriptor options:(MTLPipelineOption)options reflection:(MTLAutoreleasedRenderPipelineReflection * _Nullable)reflection error:(NSError * _Nullable * _Nullable)error __attribute__((availability(macos, unavailable))) __attribute__((availability(ios, introduced=11.0)));
+		[NoMac, iOS(11, 0)]
+		[Abstract]
+		[Export("newRenderPipelineStateWithTileDescriptor:options:reflection:error:")]
+		[return: NullAllowed]
+		MTLRenderPipelineState NewRenderPipelineStateWithTileDescriptor(MTLTileRenderPipelineDescriptor descriptor, MTLPipelineOption options, [NullAllowed] out MTLRenderPipelineReflection reflection, [NullAllowed] out NSError error);
+
+		// @required -(void)newRenderPipelineStateWithTileDescriptor:(MTLTileRenderPipelineDescriptor * _Nonnull)descriptor options:(MTLPipelineOption)options completionHandler:(MTLNewRenderPipelineStateWithReflectionCompletionHandler _Nonnull)completionHandler __attribute__((availability(macos, unavailable))) __attribute__((availability(ios, introduced=11.0)));
+		[NoMac, iOS(11, 0)]
+		[Abstract]
+		[Export("newRenderPipelineStateWithTileDescriptor:options:completionHandler:")]
+		void NewRenderPipelineStateWithTileDescriptor(MTLTileRenderPipelineDescriptor descriptor, MTLPipelineOption options, MTLNewRenderPipelineStateWithReflectionCompletionHandler completionHandler);
+
+		// @required @property (readonly) NSUInteger maxThreadgroupMemoryLength __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(11, 0)]
+		[Abstract]
+		[Export("maxThreadgroupMemoryLength")]
+		nuint MaxThreadgroupMemoryLength { get; }
+
+		// @required @property (readonly) NSUInteger maxArgumentBufferSamplerCount __attribute__((availability(ios, introduced=12.0))) __attribute__((availability(macos, introduced=10.14)));
+		[Mac(10, 14), iOS(12, 0)]
+		[Abstract]
+		[Export("maxArgumentBufferSamplerCount")]
+		nuint MaxArgumentBufferSamplerCount { get; }
+
+		// @required @property (readonly, getter = areProgrammableSamplePositionsSupported) BOOL programmableSamplePositionsSupported __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(11, 0)]
+		[Abstract]
+		[Export("programmableSamplePositionsSupported")]
+		bool ProgrammableSamplePositionsSupported { [Bind("areProgrammableSamplePositionsSupported")] get; }
+
+		// @required -(void)getDefaultSamplePositions:(MTLSamplePosition * _Nonnull)positions count:(NSUInteger)count __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(11, 0)]
+		[Abstract]
+		[Export("getDefaultSamplePositions:count:")]
+		unsafe void GetDefaultSamplePositions(MTLSamplePosition* positions, nuint count);
+
+		// @required -(id<MTLArgumentEncoder> _Nullable)newArgumentEncoderWithArguments:(NSArray<MTLArgumentDescriptor *> * _Nonnull)arguments __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(11, 0)]
+		[Abstract]
+		[Export("newArgumentEncoderWithArguments:")]
+		[return: NullAllowed]
+		MTLArgumentEncoder NewArgumentEncoderWithArguments(MTLArgumentDescriptor[] arguments);
+
+		// @required -(id<MTLIndirectCommandBuffer> _Nullable)newIndirectCommandBufferWithDescriptor:(MTLIndirectCommandBufferDescriptor * _Nonnull)descriptor maxCommandCount:(NSUInteger)maxCount options:(MTLResourceOptions)options __attribute__((availability(ios, introduced=12.0))) __attribute__((availability(macos, introduced=10.14)));
+		[Mac(10, 14), iOS(12, 0)]
+		[Abstract]
+		[Export("newIndirectCommandBufferWithDescriptor:maxCommandCount:options:")]
+		[return: NullAllowed]
+		MTLIndirectCommandBuffer NewIndirectCommandBufferWithDescriptor(MTLIndirectCommandBufferDescriptor descriptor, nuint maxCount, MTLResourceOptions options);
+
+		// @required -(id<MTLEvent> _Nullable)newEvent __attribute__((availability(ios, introduced=12.0))) __attribute__((availability(macos, introduced=10.14)));
+		[Mac(10, 14), iOS(12, 0)]
+		[Abstract]
+		[NullAllowed, Export("newEvent")]
+		MTLEvent NewEvent { get; }
+
+		// @required -(id<MTLSharedEvent> _Nullable)newSharedEvent __attribute__((availability(ios, introduced=12.0))) __attribute__((availability(macos, introduced=10.14)));
+		[Mac(10, 14), iOS(12, 0)]
+		[Abstract]
+		[NullAllowed, Export("newSharedEvent")]
+		//[Verify(MethodToProperty)]
+		MTLSharedEvent NewSharedEvent { get; }
+
+		// @required -(id<MTLSharedEvent> _Nullable)newSharedEventWithHandle:(MTLSharedEventHandle * _Nonnull)sharedEventHandle __attribute__((availability(ios, introduced=12.0))) __attribute__((availability(macos, introduced=10.14)));
+		[Mac(10, 14), iOS(12, 0)]
+		[Abstract]
+		[Export("newSharedEventWithHandle:")]
+		[return: NullAllowed]
+		MTLSharedEvent NewSharedEventWithHandle(MTLSharedEventHandle sharedEventHandle);
+
+		// @required @property (readonly) NSUInteger maxBufferLength;
+		[Abstract]
+		[Export("maxBufferLength")]
+		nuint MaxBufferLength { get; }
+	}
+
+	// @interface MTLSharedEventHandle : NSObject <NSSecureCoding>
+	[Mac(10, 14), iOS(12, 0)]
+	[BaseType(typeof(NSObject))]
+	interface MTLSharedEventHandle : INSSecureCoding
+	{
+		// @property (readonly) NSString * _Nullable label;
+		[NullAllowed, Export("label")]
+		string Label { get; }
+	}
+
+	// @protocol MTLSharedEvent <MTLEvent>
+	[Mac(10, 14), iOS(12, 0)]
+	[Protocol, Model]
+	interface MTLSharedEvent : IMTLEvent
+	{
+		// @required -(void)notifyListener:(MTLSharedEventListener * _Nonnull)listener atValue:(uint64_t)value block:(MTLSharedEventNotificationBlock _Nonnull)block;
+		[Abstract]
+		[Export("notifyListener:atValue:block:")]
+		void AtValue(MTLSharedEventListener listener, ulong value, MTLSharedEventNotificationBlock block);
+
+		// @required -(MTLSharedEventHandle * _Nonnull)newSharedEventHandle;
+		[Abstract]
+		[Export("newSharedEventHandle")]
+		//[Verify(MethodToProperty)]
+		MTLSharedEventHandle NewSharedEventHandle { get; }
+
+		// @required @property (readwrite) uint64_t signaledValue;
+		[Abstract]
+		[Export("signaledValue")]
+		ulong SignaledValue { get; set; }
+	}
+
+	// @interface MTLSharedEventListener : NSObject
+	[Mac(10, 14), iOS(12, 0)]
+	[BaseType(typeof(NSObject))]
+	interface MTLSharedEventListener
+	{
+		// -(instancetype _Nonnull)initWithDispatchQueue:(dispatch_queue_t _Nonnull)dispatchQueue __attribute__((objc_designated_initializer));
+		[Export("initWithDispatchQueue:")]
+		[DesignatedInitializer]
+		IntPtr Constructor(DispatchQueue dispatchQueue);
+
+		// @property (readonly) dispatch_queue_t _Nonnull dispatchQueue;
+		[Export("dispatchQueue")]
+		DispatchQueue DispatchQueue { get; }
+	}
+
+	// @protocol MTLEvent <NSObject>
+	[Mac(10, 14), iOS(12, 0)]
+	[Protocol, Model]
+	[BaseType(typeof(NSObject))]
+	interface MTLEvent
+	{
+		// @required @property (readonly) id<MTLDevice> _Nullable device;
+		[Abstract]
+		[NullAllowed, Export("device")]
+		MTLDevice Device { get; }
+
+		// @required @property (copy, atomic) NSString * _Nullable label;
+		[Abstract]
+		[NullAllowed, Export("label")]
+		string Label { get; set; }
+	}
+
+	// @protocol MTLIndirectCommandBuffer <MTLResource>
+	[Mac(10, 14), iOS(12, 0)]
+	[Protocol, Model]
+	interface MTLIndirectCommandBuffer : IMTLResource
+	{
+		// @required @property (readonly) NSUInteger size;
+		[Abstract]
+		[Export("size")]
+		nuint Size { get; }
+
+		// @required -(void)resetWithRange:(NSRange)range;
+		[Abstract]
+		[Export("resetWithRange:")]
+		void ResetWithRange(NSRange range);
+
+		// @required -(id<MTLIndirectRenderCommand> _Nonnull)indirectRenderCommandAtIndex:(NSUInteger)commandIndex;
+		[Abstract]
+		[Export("indirectRenderCommandAtIndex:")]
+		MTLIndirectRenderCommand IndirectRenderCommandAtIndex(nuint commandIndex);
+	}
+
+	// @protocol MTLIndirectRenderCommand <NSObject>
+	[Mac(10, 14), iOS(12, 0)]
+	[Protocol, Model]
+	[BaseType(typeof(NSObject))]
+	interface MTLIndirectRenderCommand
+	{
+		// @required -(void)setRenderPipelineState:(id<MTLRenderPipelineState> _Nonnull)pipelineState __attribute__((availability(ios, unavailable))) __attribute__((availability(macos, introduced=10.14)));
+		[NoiOS, Mac(10, 14)]
+		[Abstract]
+		[Export("setRenderPipelineState:")]
+		void SetRenderPipelineState(MTLRenderPipelineState pipelineState);
+
+		// @required -(void)setVertexBuffer:(id<MTLBuffer> _Nonnull)buffer offset:(NSUInteger)offset atIndex:(NSUInteger)index;
+		[Abstract]
+		[Export("setVertexBuffer:offset:atIndex:")]
+		void SetVertexBuffer(MTLBuffer buffer, nuint offset, nuint index);
+
+		// @required -(void)setFragmentBuffer:(id<MTLBuffer> _Nonnull)buffer offset:(NSUInteger)offset atIndex:(NSUInteger)index;
+		[Abstract]
+		[Export("setFragmentBuffer:offset:atIndex:")]
+		void SetFragmentBuffer(MTLBuffer buffer, nuint offset, nuint index);
+
+		// @required -(void)drawPatches:(NSUInteger)numberOfPatchControlPoints patchStart:(NSUInteger)patchStart patchCount:(NSUInteger)patchCount patchIndexBuffer:(id<MTLBuffer> _Nullable)patchIndexBuffer patchIndexBufferOffset:(NSUInteger)patchIndexBufferOffset instanceCount:(NSUInteger)instanceCount baseInstance:(NSUInteger)baseInstance tessellationFactorBuffer:(id<MTLBuffer> _Nonnull)buffer tessellationFactorBufferOffset:(NSUInteger)offset tessellationFactorBufferInstanceStride:(NSUInteger)instanceStride;
+		[Abstract]
+		[Export("drawPatches:patchStart:patchCount:patchIndexBuffer:patchIndexBufferOffset:instanceCount:baseInstance:tessellationFactorBuffer:tessellationFactorBufferOffset:tessellationFactorBufferInstanceStride:")]
+		void DrawPatches(nuint numberOfPatchControlPoints, nuint patchStart, nuint patchCount, [NullAllowed] MTLBuffer patchIndexBuffer, nuint patchIndexBufferOffset, nuint instanceCount, nuint baseInstance, MTLBuffer buffer, nuint offset, nuint instanceStride);
+
+		// @required -(void)drawIndexedPatches:(NSUInteger)numberOfPatchControlPoints patchStart:(NSUInteger)patchStart patchCount:(NSUInteger)patchCount patchIndexBuffer:(id<MTLBuffer> _Nullable)patchIndexBuffer patchIndexBufferOffset:(NSUInteger)patchIndexBufferOffset controlPointIndexBuffer:(id<MTLBuffer> _Nonnull)controlPointIndexBuffer controlPointIndexBufferOffset:(NSUInteger)controlPointIndexBufferOffset instanceCount:(NSUInteger)instanceCount baseInstance:(NSUInteger)baseInstance tessellationFactorBuffer:(id<MTLBuffer> _Nonnull)buffer tessellationFactorBufferOffset:(NSUInteger)offset tessellationFactorBufferInstanceStride:(NSUInteger)instanceStride;
+		[Abstract]
+		[Export("drawIndexedPatches:patchStart:patchCount:patchIndexBuffer:patchIndexBufferOffset:controlPointIndexBuffer:controlPointIndexBufferOffset:instanceCount:baseInstance:tessellationFactorBuffer:tessellationFactorBufferOffset:tessellationFactorBufferInstanceStride:")]
+		void DrawIndexedPatches(nuint numberOfPatchControlPoints, nuint patchStart, nuint patchCount, [NullAllowed] MTLBuffer patchIndexBuffer, nuint patchIndexBufferOffset, MTLBuffer controlPointIndexBuffer, nuint controlPointIndexBufferOffset, nuint instanceCount, nuint baseInstance, MTLBuffer buffer, nuint offset, nuint instanceStride);
+
+		// @required -(void)drawPrimitives:(MTLPrimitiveType)primitiveType vertexStart:(NSUInteger)vertexStart vertexCount:(NSUInteger)vertexCount instanceCount:(NSUInteger)instanceCount baseInstance:(NSUInteger)baseInstance;
+		[Abstract]
+		[Export("drawPrimitives:vertexStart:vertexCount:instanceCount:baseInstance:")]
+		void DrawPrimitives(MTLPrimitiveType primitiveType, nuint vertexStart, nuint vertexCount, nuint instanceCount, nuint baseInstance);
+
+		// @required -(void)drawIndexedPrimitives:(MTLPrimitiveType)primitiveType indexCount:(NSUInteger)indexCount indexType:(MTLIndexType)indexType indexBuffer:(id<MTLBuffer> _Nonnull)indexBuffer indexBufferOffset:(NSUInteger)indexBufferOffset instanceCount:(NSUInteger)instanceCount baseVertex:(NSInteger)baseVertex baseInstance:(NSUInteger)baseInstance;
+		[Abstract]
+		[Export("drawIndexedPrimitives:indexCount:indexType:indexBuffer:indexBufferOffset:instanceCount:baseVertex:baseInstance:")]
+		void DrawIndexedPrimitives(MTLPrimitiveType primitiveType, nuint indexCount, MTLIndexType indexType, MTLBuffer indexBuffer, nuint indexBufferOffset, nuint instanceCount, nint baseVertex, nuint baseInstance);
+
+		// @required -(void)reset;
+		[Abstract]
+		[Export("reset")]
+		void Reset();
+	}
+
+	// @interface MTLIndirectCommandBufferDescriptor : NSObject
+	[Mac(10, 14), iOS(12, 0)]
+	[BaseType(typeof(NSObject))]
+	interface MTLIndirectCommandBufferDescriptor
+	{
+		// @property (readwrite, nonatomic) MTLIndirectCommandType commandTypes;
+		[Export("commandTypes", ArgumentSemantic.Assign)]
+		MTLIndirectCommandType CommandTypes { get; set; }
+
+		// @property (readwrite, nonatomic) BOOL inheritPipelineState __attribute__((availability(ios, unavailable))) __attribute__((availability(macos, introduced=10.14)));
+		[NoiOS, Mac(10, 14)]
+		[Export("inheritPipelineState")]
+		bool InheritPipelineState { get; set; }
+
+		// @property (readwrite, nonatomic) BOOL inheritBuffers;
+		[Export("inheritBuffers")]
+		bool InheritBuffers { get; set; }
+
+		// @property (readwrite, nonatomic) NSUInteger maxVertexBufferBindCount;
+		[Export("maxVertexBufferBindCount")]
+		nuint MaxVertexBufferBindCount { get; set; }
+
+		// @property (readwrite, nonatomic) NSUInteger maxFragmentBufferBindCount;
+		[Export("maxFragmentBufferBindCount")]
+		nuint MaxFragmentBufferBindCount { get; set; }
+	}
+
+	// @protocol MTLArgumentEncoder <NSObject>
+	[Mac(10, 13), iOS(11, 0)]
+	[Protocol, Model]
+	[BaseType(typeof(NSObject))]
+	interface MTLArgumentEncoder
+	{
+		// @required @property (readonly) id<MTLDevice> _Nonnull device;
+		[Abstract]
+		[Export("device")]
+		MTLDevice Device { get; }
+
+		// @required @property (copy, atomic) NSString * _Nullable label;
+		[Abstract]
+		[NullAllowed, Export("label")]
+		string Label { get; set; }
+
+		// @required @property (readonly) NSUInteger encodedLength;
+		[Abstract]
+		[Export("encodedLength")]
+		nuint EncodedLength { get; }
+
+		// @required @property (readonly) NSUInteger alignment;
+		[Abstract]
+		[Export("alignment")]
+		nuint Alignment { get; }
+
+		// @required -(void)setArgumentBuffer:(id<MTLBuffer> _Nullable)argumentBuffer offset:(NSUInteger)offset;
+		[Abstract]
+		[Export("setArgumentBuffer:offset:")]
+		void SetArgumentBuffer([NullAllowed] MTLBuffer argumentBuffer, nuint offset);
+
+		// @required -(void)setArgumentBuffer:(id<MTLBuffer> _Nullable)argumentBuffer startOffset:(NSUInteger)startOffset arrayElement:(NSUInteger)arrayElement;
+		[Abstract]
+		[Export("setArgumentBuffer:startOffset:arrayElement:")]
+		void SetArgumentBuffer([NullAllowed] MTLBuffer argumentBuffer, nuint startOffset, nuint arrayElement);
+
+		// @required -(void)setBuffer:(id<MTLBuffer> _Nullable)buffer offset:(NSUInteger)offset atIndex:(NSUInteger)index;
+		[Abstract]
+		[Export("setBuffer:offset:atIndex:")]
+		void SetBuffer([NullAllowed] MTLBuffer buffer, nuint offset, nuint index);
+
+		// @required -(void)setBuffers:(id<MTLBuffer>  _Nullable const * _Nonnull)buffers offsets:(const NSUInteger * _Nonnull)offsets withRange:(NSRange)range;
+		[Abstract]
+		[Export("setBuffers:offsets:withRange:")]
+		void SetBuffers(MTLBuffer[] buffers, nuint[] offsets, NSRange range);
+
+		// @required -(void)setTexture:(id<MTLTexture> _Nullable)texture atIndex:(NSUInteger)index;
+		[Abstract]
+		[Export("setTexture:atIndex:")]
+		void SetTexture([NullAllowed] MTLTexture texture, nuint index);
+
+		// @required -(void)setTextures:(id<MTLTexture>  _Nullable const * _Nonnull)textures withRange:(NSRange)range;
+		[Abstract]
+		[Export("setTextures:withRange:")]
+		void SetTextures(MTLTexture[] textures, NSRange range);
+
+		// @required -(void)setSamplerState:(id<MTLSamplerState> _Nullable)sampler atIndex:(NSUInteger)index;
+		[Abstract]
+		[Export("setSamplerState:atIndex:")]
+		void SetSamplerState([NullAllowed] MTLSamplerState sampler, nuint index);
+
+		// @required -(void)setSamplerStates:(id<MTLSamplerState>  _Nullable const * _Nonnull)samplers withRange:(NSRange)range;
+		[Abstract]
+		[Export("setSamplerStates:withRange:")]
+		void SetSamplerStates(MTLSamplerState[] samplers, NSRange range);
+
+		// @required -(void * _Nonnull)constantDataAtIndex:(NSUInteger)index;
+		[Abstract]
+		[Export("constantDataAtIndex:")]
+		unsafe void* ConstantDataAtIndex(nuint index);
+
+		// @required -(void)setRenderPipelineState:(id<MTLRenderPipelineState> _Nullable)pipeline atIndex:(NSUInteger)index __attribute__((availability(ios, unavailable))) __attribute__((availability(macos, introduced=10.14)));
+		[NoiOS, Mac(10, 14)]
+		[Abstract]
+		[Export("setRenderPipelineState:atIndex:")]
+		void SetRenderPipelineState([NullAllowed] MTLRenderPipelineState pipeline, nuint index);
+
+		// @required -(void)setRenderPipelineStates:(id<MTLRenderPipelineState>  _Nullable const * _Nonnull)pipelines withRange:(NSRange)range __attribute__((availability(ios, unavailable))) __attribute__((availability(macos, introduced=10.14)));
+		[NoiOS, Mac(10, 14)]
+		[Abstract]
+		[Export("setRenderPipelineStates:withRange:")]
+		void SetRenderPipelineStates(MTLRenderPipelineState[] pipelines, NSRange range);
+
+		// @required -(void)setIndirectCommandBuffer:(id<MTLIndirectCommandBuffer> _Nullable)indirectCommandBuffer atIndex:(NSUInteger)index __attribute__((availability(ios, introduced=12.0))) __attribute__((availability(macos, introduced=10.14)));
+		[Mac(10, 14), iOS(12, 0)]
+		[Abstract]
+		[Export("setIndirectCommandBuffer:atIndex:")]
+		void SetIndirectCommandBuffer([NullAllowed] MTLIndirectCommandBuffer indirectCommandBuffer, nuint index);
+
+		// @required -(void)setIndirectCommandBuffers:(id<MTLIndirectCommandBuffer>  _Nullable const * _Nonnull)buffers withRange:(NSRange)range __attribute__((availability(ios, introduced=12.0))) __attribute__((availability(macos, introduced=10.14)));
+		[Mac(10, 14), iOS(12, 0)]
+		[Abstract]
+		[Export("setIndirectCommandBuffers:withRange:")]
+		void SetIndirectCommandBuffers(MTLIndirectCommandBuffer[] buffers, NSRange range);
+
+		// @required -(id<MTLArgumentEncoder> _Nullable)newArgumentEncoderForBufferAtIndex:(NSUInteger)index __attribute__((availability(ios, introduced=10.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(10, 0)]
+		[Abstract]
+		[Export("newArgumentEncoderForBufferAtIndex:")]
+		[return: NullAllowed]
+		MTLArgumentEncoder NewArgumentEncoderForBufferAtIndex(nuint index);
+	}
+
+	// @protocol MTLFence <NSObject>
+	[Mac(10, 13), iOS(10, 0)]
+	[Protocol, Model]
+	[BaseType(typeof(NSObject))]
+	interface MTLFence
+	{
+		// @required @property (readonly) id<MTLDevice> _Nonnull device;
+		[Abstract]
+		[Export("device")]
+		MTLDevice Device { get; }
+
+		// @required @property (copy, atomic) NSString * _Nullable label;
+		[Abstract]
+		[NullAllowed, Export("label")]
+		string Label { get; set; }
+	}
+
+	// @protocol MTLComputePipelineState <NSObject>
+	[Mac(10, 11), iOS(8, 0)]
+	[Protocol, Model]
+	[BaseType(typeof(NSObject))]
+	interface MTLComputePipelineState
+	{
+		// @required @property (readonly) NSString * _Nullable label __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(11, 0)]
+		[Abstract]
+		[NullAllowed, Export("label")]
+		string Label { get; }
+
+		// @required @property (readonly) id<MTLDevice> _Nonnull device;
+		[Abstract]
+		[Export("device")]
+		MTLDevice Device { get; }
+
+		// @required @property (readonly) NSUInteger maxTotalThreadsPerThreadgroup;
+		[Abstract]
+		[Export("maxTotalThreadsPerThreadgroup")]
+		nuint MaxTotalThreadsPerThreadgroup { get; }
+
+		// @required @property (readonly) NSUInteger threadExecutionWidth;
+		[Abstract]
+		[Export("threadExecutionWidth")]
+		nuint ThreadExecutionWidth { get; }
+
+		// @required @property (readonly) NSUInteger staticThreadgroupMemoryLength __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(11, 0)]
+		[Abstract]
+		[Export("staticThreadgroupMemoryLength")]
+		nuint StaticThreadgroupMemoryLength { get; }
+
+		// @required -(NSUInteger)imageblockMemoryLengthForDimensions:(MTLSize)imageblockDimensions __attribute__((availability(macos, unavailable))) __attribute__((availability(ios, introduced=11.0)));
+		[NoMac, iOS(11, 0)]
+		[Abstract]
+		[Export("imageblockMemoryLengthForDimensions:")]
+		nuint ImageblockMemoryLengthForDimensions(MTLSize imageblockDimensions);
+	}
+
+	// @protocol MTLRenderPipelineState <NSObject>
+	[Mac(10, 11), iOS(8, 0)]
+	[Protocol, Model]
+	[BaseType(typeof(NSObject))]
+	interface MTLRenderPipelineState
+	{
+		// @required @property (readonly) NSString * _Nullable label;
+		[Abstract]
+		[NullAllowed, Export("label")]
+		string Label { get; }
+
+		// @required @property (readonly) id<MTLDevice> _Nonnull device;
+		[Abstract]
+		[Export("device")]
+		MTLDevice Device { get; }
+
+		// @required @property (readonly) NSUInteger maxTotalThreadsPerThreadgroup __attribute__((availability(macos, unavailable))) __attribute__((availability(ios, introduced=11.0)));
+		[NoMac, iOS(11, 0)]
+		[Abstract]
+		[Export("maxTotalThreadsPerThreadgroup")]
+		nuint MaxTotalThreadsPerThreadgroup { get; }
+
+		// @required @property (readonly) BOOL threadgroupSizeMatchesTileSize __attribute__((availability(macos, unavailable))) __attribute__((availability(ios, introduced=11.0)));
+		[NoMac, iOS(11, 0)]
+		[Abstract]
+		[Export("threadgroupSizeMatchesTileSize")]
+		bool ThreadgroupSizeMatchesTileSize { get; }
+
+		// @required @property (readonly) NSUInteger imageblockSampleLength __attribute__((availability(macos, unavailable))) __attribute__((availability(ios, introduced=11.0)));
+		[NoMac, iOS(11, 0)]
+		[Abstract]
+		[Export("imageblockSampleLength")]
+		nuint ImageblockSampleLength { get; }
+
+		// @required -(NSUInteger)imageblockMemoryLengthForDimensions:(MTLSize)imageblockDimensions __attribute__((availability(macos, unavailable))) __attribute__((availability(ios, introduced=11.0)));
+		[NoMac, iOS(11, 0)]
+		[Abstract]
+		[Export("imageblockMemoryLengthForDimensions:")]
+		nuint ImageblockMemoryLengthForDimensions(MTLSize imageblockDimensions);
+
+		// @required @property (readonly) BOOL supportIndirectCommandBuffers __attribute__((availability(ios, introduced=12.0))) __attribute__((availability(macos, introduced=10.14)));
+		[Mac(10, 14), iOS(12, 0)]
+		[Abstract]
+		[Export("supportIndirectCommandBuffers")]
+		bool SupportIndirectCommandBuffers { get; }
+	}
+
+	// @protocol OS_dispatch_data <OS_dispatch_object>
+	[Protocol, Model]
+	interface OS_dispatch_data : IOS_dispatch_object
+	{
+	}
+
+	// @protocol MTLLibrary <NSObject>
+	[Mac(10, 11), iOS(8, 0)]
+	[Protocol, Model]
+	[BaseType(typeof(NSObject))]
+	interface MTLLibrary
+	{
+		// @required @property (copy, atomic) NSString * _Nullable label;
+		[Abstract]
+		[NullAllowed, Export("label")]
+		string Label { get; set; }
+
+		// @required @property (readonly) id<MTLDevice> _Nonnull device;
+		[Abstract]
+		[Export("device")]
+		MTLDevice Device { get; }
+
+		// @required -(id<MTLFunction> _Nullable)newFunctionWithName:(NSString * _Nonnull)functionName;
+		[Abstract]
+		[Export("newFunctionWithName:")]
+		[return: NullAllowed]
+		IMTLFunction NewFunctionWithName(string functionName);
+
+		// @required -(id<MTLFunction> _Nullable)newFunctionWithName:(NSString * _Nonnull)name constantValues:(MTLFunctionConstantValues * _Nonnull)constantValues error:(NSError * _Nullable * _Nullable)error __attribute__((availability(ios, introduced=10.0))) __attribute__((availability(macos, introduced=10.12)));
+		[Mac(10, 12), iOS(10, 0)]
+		[Abstract]
+		[Export("newFunctionWithName:constantValues:error:")]
+		[return: NullAllowed]
+		IMTLFunction NewFunctionWithName(string name, MTLFunctionConstantValues constantValues, [NullAllowed] out NSError error);
+
+		// @required -(void)newFunctionWithName:(NSString * _Nonnull)name constantValues:(MTLFunctionConstantValues * _Nonnull)constantValues completionHandler:(void (^ _Nonnull)(id<MTLFunction> _Nullable, NSError * _Nonnull))completionHandler __attribute__((availability(ios, introduced=10.0))) __attribute__((availability(macos, introduced=10.12)));
+		[Mac(10, 12), iOS(10, 0)]
+		[Abstract]
+		[Export("newFunctionWithName:constantValues:completionHandler:")]
+		void NewFunctionWithName(string name, MTLFunctionConstantValues constantValues, Action<IMTLFunction, NSError> completionHandler);
+
+		// @required @property (readonly) NSArray<NSString *> * _Nonnull functionNames;
+		[Abstract]
+		[Export("functionNames")]
+		string[] FunctionNames { get; }
+	}
+
+	// @protocol MTLSamplerState <NSObject>
+	[Mac(10, 11), iOS(8, 0)]
+	[Protocol, Model]
+	[BaseType(typeof(NSObject))]
+	interface MTLSamplerState
+	{
+		// @required @property (readonly) NSString * _Nullable label;
+		[Abstract]
+		[NullAllowed, Export("label")]
+		string Label { get; }
+
+		// @required @property (readonly) id<MTLDevice> _Nonnull device;
+		[Abstract]
+		[Export("device")]
+		MTLDevice Device { get; }
+	}
+
+	// @protocol MTLTexture <MTLResource>
+	[Mac(10, 11), iOS(8, 0)]
+	[Protocol, Model]
+	interface MTLTexture : IMTLResource
+	{
+		// @required @property (readonly) id<MTLResource> _Nullable rootResource __attribute__((availability(ios, introduced=8.0, deprecated=10.0))) __attribute__((availability(macos, introduced=10.11, deprecated=10.12)));
+		[Introduced(PlatformName.iOS, 8, 0, message: "Use parentTexture or buffer instead")]
+		[Deprecated(PlatformName.iOS, 10, 0, message: "Use parentTexture or buffer instead")]
+		[Introduced(PlatformName.MacOSX, 10, 11, message: "Use parentTexture or buffer instead")]
+		[Deprecated(PlatformName.MacOSX, 10, 12, message: "Use parentTexture or buffer instead")]
+		[Abstract]
+		[NullAllowed, Export("rootResource")]
+		MTLResource RootResource { get; }
+
+		// @required @property (readonly) id<MTLTexture> _Nullable parentTexture __attribute__((availability(ios, introduced=9.0))) __attribute__((availability(macos, introduced=10.11)));
+		[Mac(10, 11), iOS(9, 0)]
+		[Abstract]
+		[NullAllowed, Export("parentTexture")]
+		MTLTexture ParentTexture { get; }
+
+		// @required @property (readonly) NSUInteger parentRelativeLevel __attribute__((availability(ios, introduced=9.0))) __attribute__((availability(macos, introduced=10.11)));
+		[Mac(10, 11), iOS(9, 0)]
+		[Abstract]
+		[Export("parentRelativeLevel")]
+		nuint ParentRelativeLevel { get; }
+
+		// @required @property (readonly) NSUInteger parentRelativeSlice __attribute__((availability(ios, introduced=9.0))) __attribute__((availability(macos, introduced=10.11)));
+		[Mac(10, 11), iOS(9, 0)]
+		[Abstract]
+		[Export("parentRelativeSlice")]
+		nuint ParentRelativeSlice { get; }
+
+		// @required @property (readonly) id<MTLBuffer> _Nullable buffer __attribute__((availability(ios, introduced=9.0))) __attribute__((availability(macos, introduced=10.12)));
+		[Mac(10, 12), iOS(9, 0)]
+		[Abstract]
+		[NullAllowed, Export("buffer")]
+		MTLBuffer Buffer { get; }
+
+		// @required @property (readonly) NSUInteger bufferOffset __attribute__((availability(ios, introduced=9.0))) __attribute__((availability(macos, introduced=10.12)));
+		[Mac(10, 12), iOS(9, 0)]
+		[Abstract]
+		[Export("bufferOffset")]
+		nuint BufferOffset { get; }
+
+		// @required @property (readonly) NSUInteger bufferBytesPerRow __attribute__((availability(ios, introduced=9.0))) __attribute__((availability(macos, introduced=10.12)));
+		[Mac(10, 12), iOS(9, 0)]
+		[Abstract]
+		[Export("bufferBytesPerRow")]
+		nuint BufferBytesPerRow { get; }
+
+		// @required @property (readonly) IOSurfaceRef _Nullable iosurface __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.11)));
+		[Mac(10, 11), iOS(11, 0)]
+		[Abstract]
+		[NullAllowed, Export("iosurface")]
+		unsafe IOSurface.IOSurface Iosurface { get; }
+
+		// @required @property (readonly) NSUInteger iosurfacePlane __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.11)));
+		[Mac(10, 11), iOS(11, 0)]
+		[Abstract]
+		[Export("iosurfacePlane")]
+		nuint IosurfacePlane { get; }
+
+		// @required @property (readonly) MTLTextureType textureType;
+		[Abstract]
+		[Export("textureType")]
+		MTLTextureType TextureType { get; }
+
+		// @required @property (readonly) MTLPixelFormat pixelFormat;
+		[Abstract]
+		[Export("pixelFormat")]
+		MTLPixelFormat PixelFormat { get; }
+
+		// @required @property (readonly) NSUInteger width;
+		[Abstract]
+		[Export("width")]
+		nuint Width { get; }
+
+		// @required @property (readonly) NSUInteger height;
+		[Abstract]
+		[Export("height")]
+		nuint Height { get; }
+
+		// @required @property (readonly) NSUInteger depth;
+		[Abstract]
+		[Export("depth")]
+		nuint Depth { get; }
+
+		// @required @property (readonly) NSUInteger mipmapLevelCount;
+		[Abstract]
+		[Export("mipmapLevelCount")]
+		nuint MipmapLevelCount { get; }
+
+		// @required @property (readonly) NSUInteger sampleCount;
+		[Abstract]
+		[Export("sampleCount")]
+		nuint SampleCount { get; }
+
+		// @required @property (readonly) NSUInteger arrayLength;
+		[Abstract]
+		[Export("arrayLength")]
+		nuint ArrayLength { get; }
+
+		// @required @property (readonly) MTLTextureUsage usage;
+		[Abstract]
+		[Export("usage")]
+		MTLTextureUsage Usage { get; }
+
+		// @required @property (readonly, getter = isFramebufferOnly) BOOL framebufferOnly;
+		[Abstract]
+		[Export("framebufferOnly")]
+		bool FramebufferOnly { [Bind("isFramebufferOnly")] get; }
+
+		// @required @property (readonly) BOOL allowGPUOptimizedContents __attribute__((availability(ios, introduced=12.0))) __attribute__((availability(macos, introduced=10.14)));
+		[Mac(10, 14), iOS(12, 0)]
+		[Abstract]
+		[Export("allowGPUOptimizedContents")]
+		bool AllowGPUOptimizedContents { get; }
+
+		// @required -(void)getBytes:(void * _Nonnull)pixelBytes bytesPerRow:(NSUInteger)bytesPerRow bytesPerImage:(NSUInteger)bytesPerImage fromRegion:(MTLRegion)region mipmapLevel:(NSUInteger)level slice:(NSUInteger)slice;
+		[Abstract]
+		[Export("getBytes:bytesPerRow:bytesPerImage:fromRegion:mipmapLevel:slice:")]
+		unsafe void GetBytes(void* pixelBytes, nuint bytesPerRow, nuint bytesPerImage, MTLRegion region, nuint level, nuint slice);
+
+		// @required -(void)replaceRegion:(MTLRegion)region mipmapLevel:(NSUInteger)level slice:(NSUInteger)slice withBytes:(const void * _Nonnull)pixelBytes bytesPerRow:(NSUInteger)bytesPerRow bytesPerImage:(NSUInteger)bytesPerImage;
+		[Abstract]
+		[Export("replaceRegion:mipmapLevel:slice:withBytes:bytesPerRow:bytesPerImage:")]
+		unsafe void ReplaceRegion(MTLRegion region, nuint level, nuint slice, void* pixelBytes, nuint bytesPerRow, nuint bytesPerImage);
+
+		// @required -(void)getBytes:(void * _Nonnull)pixelBytes bytesPerRow:(NSUInteger)bytesPerRow fromRegion:(MTLRegion)region mipmapLevel:(NSUInteger)level;
+		[Abstract]
+		[Export("getBytes:bytesPerRow:fromRegion:mipmapLevel:")]
+		unsafe void GetBytes(void* pixelBytes, nuint bytesPerRow, MTLRegion region, nuint level);
+
+		// @required -(void)replaceRegion:(MTLRegion)region mipmapLevel:(NSUInteger)level withBytes:(const void * _Nonnull)pixelBytes bytesPerRow:(NSUInteger)bytesPerRow;
+		[Abstract]
+		[Export("replaceRegion:mipmapLevel:withBytes:bytesPerRow:")]
+		unsafe void ReplaceRegion(MTLRegion region, nuint level, void* pixelBytes, nuint bytesPerRow);
+
+		// @required -(id<MTLTexture> _Nullable)newTextureViewWithPixelFormat:(MTLPixelFormat)pixelFormat;
+		[Abstract]
+		[Export("newTextureViewWithPixelFormat:")]
+		[return: NullAllowed]
+		MTLTexture NewTextureViewWithPixelFormat(MTLPixelFormat pixelFormat);
+
+		// @required -(id<MTLTexture> _Nullable)newTextureViewWithPixelFormat:(MTLPixelFormat)pixelFormat textureType:(MTLTextureType)textureType levels:(NSRange)levelRange slices:(NSRange)sliceRange __attribute__((availability(ios, introduced=9.0))) __attribute__((availability(macos, introduced=10.11)));
+		[Mac(10, 11), iOS(9, 0)]
+		[Abstract]
+		[Export("newTextureViewWithPixelFormat:textureType:levels:slices:")]
+		[return: NullAllowed]
+		MTLTexture NewTextureViewWithPixelFormat(MTLPixelFormat pixelFormat, MTLTextureType textureType, NSRange levelRange, NSRange sliceRange);
+	}
+
+	// @protocol MTLBuffer <MTLResource>
+	[Mac(10, 11), iOS(8, 0)]
+	[Protocol, Model]
+	interface MTLBuffer : IMTLResource
+	{
+		// @required @property (readonly) NSUInteger length;
+		[Abstract]
+		[Export("length")]
+		nuint Length { get; }
+
+		// @required -(void * _Nonnull)contents __attribute__((objc_returns_inner_pointer));
+		[Abstract]
+		[Export("contents")]
+		//[Verify(MethodToProperty)]
+		unsafe void* Contents { get; }
+
+		// @required -(void)didModifyRange:(NSRange)range __attribute__((availability(ios, unavailable))) __attribute__((availability(macos, introduced=10.11)));
+		[NoiOS, Mac(10, 11)]
+		[Abstract]
+		[Export("didModifyRange:")]
+		void DidModifyRange(NSRange range);
+
+		// @required -(id<MTLTexture> _Nullable)newTextureWithDescriptor:(MTLTextureDescriptor * _Nonnull)descriptor offset:(NSUInteger)offset bytesPerRow:(NSUInteger)bytesPerRow __attribute__((availability(ios, introduced=8.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(8, 0)]
+		[Abstract]
+		[Export("newTextureWithDescriptor:offset:bytesPerRow:")]
+		[return: NullAllowed]
+		MTLTexture NewTextureWithDescriptor(MTLTextureDescriptor descriptor, nuint offset, nuint bytesPerRow);
+
+		// @required -(void)addDebugMarker:(NSString * _Nonnull)marker range:(NSRange)range __attribute__((availability(ios, introduced=10.0))) __attribute__((availability(macos, introduced=10.12)));
+		[Mac(10, 12), iOS(10, 0)]
+		[Abstract]
+		[Export("addDebugMarker:range:")]
+		void AddDebugMarker(string marker, NSRange range);
+
+		// @required -(void)removeAllDebugMarkers __attribute__((availability(ios, introduced=10.0))) __attribute__((availability(macos, introduced=10.12)));
+		[Mac(10, 12), iOS(10, 0)]
+		[Abstract]
+		[Export("removeAllDebugMarkers")]
+		void RemoveAllDebugMarkers();
+	}
+
+	// @protocol MTLDepthStencilState <NSObject>
+	[Mac(10, 11), iOS(8, 0)]
+	[Protocol, Model]
+	[BaseType(typeof(NSObject))]
+	interface MTLDepthStencilState
+	{
+		// @required @property (readonly) NSString * _Nullable label;
+		[Abstract]
+		[NullAllowed, Export("label")]
+		string Label { get; }
+
+		// @required @property (readonly) id<MTLDevice> _Nonnull device;
+		[Abstract]
+		[Export("device")]
+		MTLDevice Device { get; }
+	}
+
+	// @protocol MTLCommandQueue <NSObject>
+	[Mac(10, 11), iOS(8, 0)]
+	[Protocol, Model]
+	[BaseType(typeof(NSObject))]
+	interface MTLCommandQueue
+	{
+		// @required @property (copy, atomic) NSString * _Nullable label;
+		[Abstract]
+		[NullAllowed, Export("label")]
+		string Label { get; set; }
+
+		// @required @property (readonly) id<MTLDevice> _Nonnull device;
+		[Abstract]
+		[Export("device")]
+		MTLDevice Device { get; }
+
+		// @required -(id<MTLCommandBuffer> _Nullable)commandBuffer;
+		[Abstract]
+		[NullAllowed, Export("commandBuffer")]
+		//[Verify(MethodToProperty)]
+		MTLCommandBuffer CommandBuffer { get; }
+
+		// @required -(id<MTLCommandBuffer> _Nullable)commandBufferWithUnretainedReferences;
+		[Abstract]
+		[NullAllowed, Export("commandBufferWithUnretainedReferences")]
+		//[Verify(MethodToProperty)]
+		MTLCommandBuffer CommandBufferWithUnretainedReferences { get; }
+
+		// @required -(void)insertDebugCaptureBoundary __attribute__((availability(ios, introduced=8.0, deprecated=11.0))) __attribute__((availability(macos, introduced=10.11, deprecated=10.13)));
+		[Introduced(PlatformName.iOS, 8, 0, message: "Use MTLCaptureScope instead")]
+		[Deprecated(PlatformName.iOS, 11, 0, message: "Use MTLCaptureScope instead")]
+		[Introduced(PlatformName.MacOSX, 10, 11, message: "Use MTLCaptureScope instead")]
+		[Deprecated(PlatformName.MacOSX, 10, 13, message: "Use MTLCaptureScope instead")]
+		[Abstract]
+		[Export("insertDebugCaptureBoundary")]
+		void InsertDebugCaptureBoundary();
+	}
+
+	// @protocol MTLCommandBuffer <NSObject>
+	[Mac(10, 11), iOS(8, 0)]
+	[Protocol, Model]
+	[BaseType(typeof(NSObject))]
+	interface MTLCommandBuffer
+	{
+		// @required @property (readonly) id<MTLDevice> _Nonnull device;
+		[Abstract]
+		[Export("device")]
+		MTLDevice Device { get; }
+
+		// @required @property (readonly) id<MTLCommandQueue> _Nonnull commandQueue;
+		[Abstract]
+		[Export("commandQueue")]
+		MTLCommandQueue CommandQueue { get; }
+
+		// @required @property (readonly) BOOL retainedReferences;
+		[Abstract]
+		[Export("retainedReferences")]
+		bool RetainedReferences { get; }
+
+		// @required @property (copy, atomic) NSString * _Nullable label;
+		[Abstract]
+		[NullAllowed, Export("label")]
+		string Label { get; set; }
+
+		// @required @property (readonly) CFTimeInterval kernelStartTime __attribute__((availability(macos, unavailable))) __attribute__((availability(ios, introduced=10.3)));
+		[NoMac, iOS(10, 3)]
+		[Abstract]
+		[Export("kernelStartTime")]
+		double KernelStartTime { get; }
+
+		// @required @property (readonly) CFTimeInterval kernelEndTime __attribute__((availability(macos, unavailable))) __attribute__((availability(ios, introduced=10.3)));
+		[NoMac, iOS(10, 3)]
+		[Abstract]
+		[Export("kernelEndTime")]
+		double KernelEndTime { get; }
+
+		// @required @property (readonly) CFTimeInterval GPUStartTime __attribute__((availability(macos, unavailable))) __attribute__((availability(ios, introduced=10.3)));
+		[NoMac, iOS(10, 3)]
+		[Abstract]
+		[Export("GPUStartTime")]
+		double GPUStartTime { get; }
+
+		// @required @property (readonly) CFTimeInterval GPUEndTime __attribute__((availability(macos, unavailable))) __attribute__((availability(ios, introduced=10.3)));
+		[NoMac, iOS(10, 3)]
+		[Abstract]
+		[Export("GPUEndTime")]
+		double GPUEndTime { get; }
+
+		// @required -(void)enqueue;
+		[Abstract]
+		[Export("enqueue")]
+		void Enqueue();
+
+		// @required -(void)commit;
+		[Abstract]
+		[Export("commit")]
+		void Commit();
+
+		// @required -(void)addScheduledHandler:(MTLCommandBufferHandler _Nonnull)block;
+		[Abstract]
+		[Export("addScheduledHandler:")]
+		void AddScheduledHandler(MTLCommandBufferHandler block);
+
+		// @required -(void)presentDrawable:(id<MTLDrawable> _Nonnull)drawable;
+		[Abstract]
+		[Export("presentDrawable:")]
+		void PresentDrawable(MTLDrawable drawable);
+
+		// @required -(void)presentDrawable:(id<MTLDrawable> _Nonnull)drawable atTime:(CFTimeInterval)presentationTime;
+		[Abstract]
+		[Export("presentDrawable:atTime:")]
+		void PresentDrawable(MTLDrawable drawable, double presentationTime);
+
+		// @required -(void)presentDrawable:(id<MTLDrawable> _Nonnull)drawable afterMinimumDuration:(CFTimeInterval)duration;
+		[Abstract]
+		[Export("presentDrawable:afterMinimumDuration:")]
+		void PresentDrawableAfterMinimumDuration(MTLDrawable drawable, double duration);
+
+		// @required -(void)waitUntilScheduled;
+		[Abstract]
+		[Export("waitUntilScheduled")]
+		void WaitUntilScheduled();
+
+		// @required -(void)addCompletedHandler:(MTLCommandBufferHandler _Nonnull)block;
+		[Abstract]
+		[Export("addCompletedHandler:")]
+		void AddCompletedHandler(MTLCommandBufferHandler block);
+
+		// @required -(void)waitUntilCompleted;
+		[Abstract]
+		[Export("waitUntilCompleted")]
+		void WaitUntilCompleted();
+
+		// @required @property (readonly) MTLCommandBufferStatus status;
+		[Abstract]
+		[Export("status")]
+		MTLCommandBufferStatus Status { get; }
+
+		// @required @property (readonly) NSError * _Nullable error;
+		[Abstract]
+		[NullAllowed, Export("error")]
+		NSError Error { get; }
+
+		// @required -(id<MTLBlitCommandEncoder> _Nullable)blitCommandEncoder;
+		[Abstract]
+		[NullAllowed, Export("blitCommandEncoder")]
+		//[Verify(MethodToProperty)]
+		MTLBlitCommandEncoder BlitCommandEncoder { get; }
+
+		// @required -(id<MTLRenderCommandEncoder> _Nullable)renderCommandEncoderWithDescriptor:(MTLRenderPassDescriptor * _Nonnull)renderPassDescriptor;
+		[Abstract]
+		[Export("renderCommandEncoderWithDescriptor:")]
+		[return: NullAllowed]
+		MTLRenderCommandEncoder RenderCommandEncoderWithDescriptor(MTLRenderPassDescriptor renderPassDescriptor);
+
+		// @required -(id<MTLComputeCommandEncoder> _Nullable)computeCommandEncoder;
+		[Abstract]
+		[NullAllowed, Export("computeCommandEncoder")]
+		//[Verify(MethodToProperty)]
+		MTLComputeCommandEncoder ComputeCommandEncoder { get; }
+
+		// @required -(id<MTLComputeCommandEncoder> _Nullable)computeCommandEncoderWithDispatchType:(MTLDispatchType)dispatchType __attribute__((availability(ios, introduced=12.0))) __attribute__((availability(macos, introduced=10.14)));
+		[Mac(10, 14), iOS(12, 0)]
+		[Abstract]
+		[Export("computeCommandEncoderWithDispatchType:")]
+		[return: NullAllowed]
+		MTLComputeCommandEncoder ComputeCommandEncoderWithDispatchType(MTLDispatchType dispatchType);
+
+		// @required -(void)encodeWaitForEvent:(id<MTLEvent> _Nonnull)event value:(uint64_t)value __attribute__((availability(ios, introduced=12.0))) __attribute__((availability(macos, introduced=10.14)));
+		[Mac(10, 14), iOS(12, 0)]
+		[Abstract]
+		[Export("encodeWaitForEvent:value:")]
+		void EncodeWaitForEvent(MTLEvent @event, ulong value);
+
+		// @required -(void)encodeSignalEvent:(id<MTLEvent> _Nonnull)event value:(uint64_t)value __attribute__((availability(ios, introduced=12.0))) __attribute__((availability(macos, introduced=10.14)));
+		[Mac(10, 14), iOS(12, 0)]
+		[Abstract]
+		[Export("encodeSignalEvent:value:")]
+		void EncodeSignalEvent(MTLEvent @event, ulong value);
+
+		// @required -(id<MTLParallelRenderCommandEncoder> _Nullable)parallelRenderCommandEncoderWithDescriptor:(MTLRenderPassDescriptor * _Nonnull)renderPassDescriptor;
+		[Abstract]
+		[Export("parallelRenderCommandEncoderWithDescriptor:")]
+		[return: NullAllowed]
+		MTLParallelRenderCommandEncoder ParallelRenderCommandEncoderWithDescriptor(MTLRenderPassDescriptor renderPassDescriptor);
+
+		// @required -(void)pushDebugGroup:(NSString * _Nonnull)string __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(11, 0)]
+		[Abstract]
+		[Export("pushDebugGroup:")]
+		void PushDebugGroup(string @string);
+
+		// @required -(void)popDebugGroup __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(11, 0)]
+		[Abstract]
+		[Export("popDebugGroup")]
+		void PopDebugGroup();
+	}
+
+	// @protocol MTLParallelRenderCommandEncoder <MTLCommandEncoder>
+	[Mac(10, 11), iOS(8, 0)]
+	[Protocol, Model]
+	interface MTLParallelRenderCommandEncoder : IMTLCommandEncoder
+	{
+		// @required -(id<MTLRenderCommandEncoder> _Nullable)renderCommandEncoder;
+		[Abstract]
+		[NullAllowed, Export("renderCommandEncoder")]
+		//[Verify(MethodToProperty)]
+		MTLRenderCommandEncoder RenderCommandEncoder { get; }
+
+		// @required -(void)setColorStoreAction:(MTLStoreAction)storeAction atIndex:(NSUInteger)colorAttachmentIndex __attribute__((availability(ios, introduced=10.0))) __attribute__((availability(macos, introduced=10.12)));
+		[Mac(10, 12), iOS(10, 0)]
+		[Abstract]
+		[Export("setColorStoreAction:atIndex:")]
+		void SetColorStoreAction(MTLStoreAction storeAction, nuint colorAttachmentIndex);
+
+		// @required -(void)setDepthStoreAction:(MTLStoreAction)storeAction __attribute__((availability(ios, introduced=10.0))) __attribute__((availability(macos, introduced=10.12)));
+		[Mac(10, 12), iOS(10, 0)]
+		[Abstract]
+		[Export("setDepthStoreAction:")]
+		void SetDepthStoreAction(MTLStoreAction storeAction);
+
+		// @required -(void)setStencilStoreAction:(MTLStoreAction)storeAction __attribute__((availability(ios, introduced=10.0))) __attribute__((availability(macos, introduced=10.12)));
+		[Mac(10, 12), iOS(10, 0)]
+		[Abstract]
+		[Export("setStencilStoreAction:")]
+		void SetStencilStoreAction(MTLStoreAction storeAction);
+
+		// @required -(void)setColorStoreActionOptions:(MTLStoreActionOptions)storeActionOptions atIndex:(NSUInteger)colorAttachmentIndex __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(11, 0)]
+		[Abstract]
+		[Export("setColorStoreActionOptions:atIndex:")]
+		void SetColorStoreActionOptions(MTLStoreActionOptions storeActionOptions, nuint colorAttachmentIndex);
+
+		// @required -(void)setDepthStoreActionOptions:(MTLStoreActionOptions)storeActionOptions __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(11, 0)]
+		[Abstract]
+		[Export("setDepthStoreActionOptions:")]
+		void SetDepthStoreActionOptions(MTLStoreActionOptions storeActionOptions);
+
+		// @required -(void)setStencilStoreActionOptions:(MTLStoreActionOptions)storeActionOptions __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(11, 0)]
+		[Abstract]
+		[Export("setStencilStoreActionOptions:")]
+		void SetStencilStoreActionOptions(MTLStoreActionOptions storeActionOptions);
+	}
+
+	// @protocol MTLComputeCommandEncoder <MTLCommandEncoder>
+	[Mac(10, 11), iOS(8, 0)]
+	[Protocol, Model]
+	interface MTLComputeCommandEncoder : IMTLCommandEncoder
+	{
+		// @required @property (readonly) MTLDispatchType dispatchType __attribute__((availability(ios, introduced=12.0))) __attribute__((availability(macos, introduced=10.14)));
+		[Mac(10, 14), iOS(12, 0)]
+		[Abstract]
+		[Export("dispatchType")]
+		MTLDispatchType DispatchType { get; }
+
+		// @required -(void)setComputePipelineState:(id<MTLComputePipelineState> _Nonnull)state;
+		[Abstract]
+		[Export("setComputePipelineState:")]
+		void SetComputePipelineState(MTLComputePipelineState state);
+
+		// @required -(void)setBytes:(const void * _Nonnull)bytes length:(NSUInteger)length atIndex:(NSUInteger)index __attribute__((availability(ios, introduced=8.3))) __attribute__((availability(macos, introduced=10.11)));
+		[Mac(10, 11), iOS(8, 3)]
+		[Abstract]
+		[Export("setBytes:length:atIndex:")]
+		unsafe void SetBytes(void* bytes, nuint length, nuint index);
+
+		// @required -(void)setBuffer:(id<MTLBuffer> _Nullable)buffer offset:(NSUInteger)offset atIndex:(NSUInteger)index;
+		[Abstract]
+		[Export("setBuffer:offset:atIndex:")]
+		void SetBuffer([NullAllowed] MTLBuffer buffer, nuint offset, nuint index);
+
+		// @required -(void)setBufferOffset:(NSUInteger)offset atIndex:(NSUInteger)index __attribute__((availability(ios, introduced=8.3))) __attribute__((availability(macos, introduced=10.11)));
+		[Mac(10, 11), iOS(8, 3)]
+		[Abstract]
+		[Export("setBufferOffset:atIndex:")]
+		void SetBufferOffset(nuint offset, nuint index);
+
+		// @required -(void)setBuffers:(id<MTLBuffer>  _Nullable const * _Nonnull)buffers offsets:(const NSUInteger * _Nonnull)offsets withRange:(NSRange)range;
+		[Abstract]
+		[Export("setBuffers:offsets:withRange:")]
+		void SetBuffers(MTLBuffer[] buffers, nuint[] offsets, NSRange range);
+
+		// @required -(void)setTexture:(id<MTLTexture> _Nullable)texture atIndex:(NSUInteger)index;
+		[Abstract]
+		[Export("setTexture:atIndex:")]
+		void SetTexture([NullAllowed] MTLTexture texture, nuint index);
+
+		// @required -(void)setTextures:(id<MTLTexture>  _Nullable const * _Nonnull)textures withRange:(NSRange)range;
+		[Abstract]
+		[Export("setTextures:withRange:")]
+		void SetTextures(MTLTexture[] textures, NSRange range);
+
+		// @required -(void)setSamplerState:(id<MTLSamplerState> _Nullable)sampler atIndex:(NSUInteger)index;
+		[Abstract]
+		[Export("setSamplerState:atIndex:")]
+		void SetSamplerState([NullAllowed] MTLSamplerState sampler, nuint index);
+
+		// @required -(void)setSamplerStates:(id<MTLSamplerState>  _Nullable const * _Nonnull)samplers withRange:(NSRange)range;
+		[Abstract]
+		[Export("setSamplerStates:withRange:")]
+		void SetSamplerStates(MTLSamplerState[] samplers, NSRange range);
+
+		// @required -(void)setSamplerState:(id<MTLSamplerState> _Nullable)sampler lodMinClamp:(float)lodMinClamp lodMaxClamp:(float)lodMaxClamp atIndex:(NSUInteger)index;
+		[Abstract]
+		[Export("setSamplerState:lodMinClamp:lodMaxClamp:atIndex:")]
+		void SetSamplerState([NullAllowed] MTLSamplerState sampler, float lodMinClamp, float lodMaxClamp, nuint index);
+
+		// @required -(void)setSamplerStates:(id<MTLSamplerState>  _Nullable const * _Nonnull)samplers lodMinClamps:(const float * _Nonnull)lodMinClamps lodMaxClamps:(const float * _Nonnull)lodMaxClamps withRange:(NSRange)range;
+		[Abstract]
+		[Export("setSamplerStates:lodMinClamps:lodMaxClamps:withRange:")]
+		void SetSamplerStates(MTLSamplerState[] samplers, float[] lodMinClamps, float[] lodMaxClamps, NSRange range);
+
+		// @required -(void)setThreadgroupMemoryLength:(NSUInteger)length atIndex:(NSUInteger)index;
+		[Abstract]
+		[Export("setThreadgroupMemoryLength:atIndex:")]
+		void SetThreadgroupMemoryLength(nuint length, nuint index);
+
+		// @required -(void)setImageblockWidth:(NSUInteger)width height:(NSUInteger)height __attribute__((availability(macos, unavailable))) __attribute__((availability(ios, introduced=11.0)));
+		[NoMac, iOS(11, 0)]
+		[Abstract]
+		[Export("setImageblockWidth:height:")]
+		void SetImageblockWidth(nuint width, nuint height);
+
+		// @required -(void)setStageInRegion:(MTLRegion)region __attribute__((availability(ios, introduced=10.0))) __attribute__((availability(macos, introduced=10.12)));
+		[Mac(10, 12), iOS(10, 0)]
+		[Abstract]
+		[Export("setStageInRegion:")]
+		void SetStageInRegion(MTLRegion region);
+
+		// @required -(void)setStageInRegionWithIndirectBuffer:(id<MTLBuffer> _Nonnull)indirectBuffer indirectBufferOffset:(NSUInteger)indirectBufferOffset __attribute__((availability(ios, introduced=12.0))) __attribute__((availability(macos, introduced=10.14)));
+		[Mac(10, 14), iOS(12, 0)]
+		[Abstract]
+		[Export("setStageInRegionWithIndirectBuffer:indirectBufferOffset:")]
+		void SetStageInRegionWithIndirectBuffer(MTLBuffer indirectBuffer, nuint indirectBufferOffset);
+
+		// @required -(void)dispatchThreadgroups:(MTLSize)threadgroupsPerGrid threadsPerThreadgroup:(MTLSize)threadsPerThreadgroup;
+		[Abstract]
+		[Export("dispatchThreadgroups:threadsPerThreadgroup:")]
+		void DispatchThreadgroups(MTLSize threadgroupsPerGrid, MTLSize threadsPerThreadgroup);
+
+		// @required -(void)dispatchThreadgroupsWithIndirectBuffer:(id<MTLBuffer> _Nonnull)indirectBuffer indirectBufferOffset:(NSUInteger)indirectBufferOffset threadsPerThreadgroup:(MTLSize)threadsPerThreadgroup __attribute__((availability(ios, introduced=9.0))) __attribute__((availability(macos, introduced=10.11)));
+		[Mac(10, 11), iOS(9, 0)]
+		[Abstract]
+		[Export("dispatchThreadgroupsWithIndirectBuffer:indirectBufferOffset:threadsPerThreadgroup:")]
+		void DispatchThreadgroupsWithIndirectBuffer(MTLBuffer indirectBuffer, nuint indirectBufferOffset, MTLSize threadsPerThreadgroup);
+
+		// @required -(void)dispatchThreads:(MTLSize)threadsPerGrid threadsPerThreadgroup:(MTLSize)threadsPerThreadgroup __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(11, 0)]
+		[Abstract]
+		[Export("dispatchThreads:threadsPerThreadgroup:")]
+		void DispatchThreads(MTLSize threadsPerGrid, MTLSize threadsPerThreadgroup);
+
+		// @required -(void)updateFence:(id<MTLFence> _Nonnull)fence __attribute__((availability(ios, introduced=10.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(10, 0)]
+		[Abstract]
+		[Export("updateFence:")]
+		void UpdateFence(MTLFence fence);
+
+		// @required -(void)waitForFence:(id<MTLFence> _Nonnull)fence __attribute__((availability(ios, introduced=10.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(10, 0)]
+		[Abstract]
+		[Export("waitForFence:")]
+		void WaitForFence(MTLFence fence);
+
+		// @required -(void)useResource:(id<MTLResource> _Nonnull)resource usage:(MTLResourceUsage)usage __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(11, 0)]
+		[Abstract]
+		[Export("useResource:usage:")]
+		void UseResource(MTLResource resource, MTLResourceUsage usage);
+
+		// @required -(void)useResources:(id<MTLResource>  _Nonnull const * _Nonnull)resources count:(NSUInteger)count usage:(MTLResourceUsage)usage __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(11, 0)]
+		[Abstract]
+		[Export("useResources:count:usage:")]
+		void UseResources(MTLResource[] resources, nuint count, MTLResourceUsage usage);
+
+		// @required -(void)useHeap:(id<MTLHeap> _Nonnull)heap __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(11, 0)]
+		[Abstract]
+		[Export("useHeap:")]
+		void UseHeap(MTLHeap heap);
+
+		// @required -(void)useHeaps:(id<MTLHeap>  _Nonnull const * _Nonnull)heaps count:(NSUInteger)count __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(11, 0)]
+		[Abstract]
+		[Export("useHeaps:count:")]
+		void UseHeaps(MTLHeap[] heaps, nuint count);
+
+		// @required -(void)memoryBarrierWithScope:(MTLBarrierScope)scope __attribute__((availability(ios, introduced=12.0))) __attribute__((availability(macos, introduced=10.14)));
+		[Mac(10, 14), iOS(12, 0)]
+		[Abstract]
+		[Export("memoryBarrierWithScope:")]
+		void MemoryBarrierWithScope(MTLBarrierScope scope);
+
+		// @required -(void)memoryBarrierWithResources:(id<MTLResource>  _Nonnull const * _Nonnull)resources count:(NSUInteger)count __attribute__((availability(ios, introduced=12.0))) __attribute__((availability(macos, introduced=10.14)));
+		[Mac(10, 14), iOS(12, 0)]
+		[Abstract]
+		[Export("memoryBarrierWithResources:count:")]
+		void MemoryBarrierWithResources(MTLResource[] resources, nuint count);
+	}
+
+	// @protocol MTLHeap <NSObject>
+	[Mac(10, 13), iOS(10, 0)]
+	[Protocol, Model]
+	[BaseType(typeof(NSObject))]
+	interface MTLHeap
+	{
+		// @required @property (copy, atomic) NSString * _Nullable label;
+		[Abstract]
+		[NullAllowed, Export("label")]
+		string Label { get; set; }
+
+		// @required @property (readonly) id<MTLDevice> _Nonnull device;
+		[Abstract]
+		[Export("device")]
+		MTLDevice Device { get; }
+
+		// @required @property (readonly) MTLStorageMode storageMode;
+		[Abstract]
+		[Export("storageMode")]
+		MTLStorageMode StorageMode { get; }
+
+		// @required @property (readonly) MTLCPUCacheMode cpuCacheMode;
+		[Abstract]
+		[Export("cpuCacheMode")]
+		MTLCPUCacheMode CpuCacheMode { get; }
+
+		// @required @property (readonly) NSUInteger size;
+		[Abstract]
+		[Export("size")]
+		nuint Size { get; }
+
+		// @required @property (readonly) NSUInteger usedSize;
+		[Abstract]
+		[Export("usedSize")]
+		nuint UsedSize { get; }
+
+		// @required @property (readonly) NSUInteger currentAllocatedSize __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(11, 0)]
+		[Abstract]
+		[Export("currentAllocatedSize")]
+		nuint CurrentAllocatedSize { get; }
+
+		// @required -(NSUInteger)maxAvailableSizeWithAlignment:(NSUInteger)alignment;
+		[Abstract]
+		[Export("maxAvailableSizeWithAlignment:")]
+		nuint MaxAvailableSizeWithAlignment(nuint alignment);
+
+		// @required -(id<MTLBuffer> _Nullable)newBufferWithLength:(NSUInteger)length options:(MTLResourceOptions)options;
+		[Abstract]
+		[Export("newBufferWithLength:options:")]
+		[return: NullAllowed]
+		MTLBuffer NewBufferWithLength(nuint length, MTLResourceOptions options);
+
+		// @required -(id<MTLTexture> _Nullable)newTextureWithDescriptor:(MTLTextureDescriptor * _Nonnull)desc;
+		[Abstract]
+		[Export("newTextureWithDescriptor:")]
+		[return: NullAllowed]
+		MTLTexture NewTextureWithDescriptor(MTLTextureDescriptor desc);
+
+		// @required -(MTLPurgeableState)setPurgeableState:(MTLPurgeableState)state;
+		[Abstract]
+		[Export("setPurgeableState:")]
+		MTLPurgeableState SetPurgeableState(MTLPurgeableState state);
+	}
+
+	// @protocol MTLResource <NSObject>
+	[Mac(10, 11), iOS(8, 0)]
+	[Protocol, Model]
+	[BaseType(typeof(NSObject))]
+	interface MTLResource
+	{
+		// @required @property (copy, atomic) NSString * _Nullable label;
+		[Abstract]
+		[NullAllowed, Export("label")]
+		string Label { get; set; }
+
+		// @required @property (readonly) id<MTLDevice> _Nonnull device;
+		[Abstract]
+		[Export("device")]
+		MTLDevice Device { get; }
+
+		// @required @property (readonly) MTLCPUCacheMode cpuCacheMode;
+		[Abstract]
+		[Export("cpuCacheMode")]
+		MTLCPUCacheMode CpuCacheMode { get; }
+
+		// @required @property (readonly) MTLStorageMode storageMode __attribute__((availability(ios, introduced=9.0))) __attribute__((availability(macos, introduced=10.11)));
+		[Mac(10, 11), iOS(9, 0)]
+		[Abstract]
+		[Export("storageMode")]
+		MTLStorageMode StorageMode { get; }
+
+		// @required -(MTLPurgeableState)setPurgeableState:(MTLPurgeableState)state;
+		[Abstract]
+		[Export("setPurgeableState:")]
+		MTLPurgeableState SetPurgeableState(MTLPurgeableState state);
+
+		// @required @property (readonly) id<MTLHeap> _Nullable heap __attribute__((availability(ios, introduced=10.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(10, 0)]
+		[Abstract]
+		[NullAllowed, Export("heap")]
+		MTLHeap Heap { get; }
+
+		// @required @property (readonly) NSUInteger allocatedSize __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(11, 0)]
+		[Abstract]
+		[Export("allocatedSize")]
+		nuint AllocatedSize { get; }
+
+		// @required -(void)makeAliasable __attribute__((availability(ios, introduced=10.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(10, 0)]
+		[Abstract]
+		[Export("makeAliasable")]
+		void MakeAliasable();
+
+		// @required -(BOOL)isAliasable __attribute__((availability(ios, introduced=10.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(10, 0)]
+		[Abstract]
+		[Export("isAliasable")]
+		//[Verify(MethodToProperty)]
+		bool IsAliasable { get; }
+	}
+
+	// @protocol MTLRenderCommandEncoder <MTLCommandEncoder>
+	[Mac(10, 11), iOS(8, 0)]
+	[Protocol, Model]
+	interface MTLRenderCommandEncoder : IMTLCommandEncoder
+	{
+		// @required -(void)setRenderPipelineState:(id<MTLRenderPipelineState> _Nonnull)pipelineState;
+		[Abstract]
+		[Export("setRenderPipelineState:")]
+		void SetRenderPipelineState(MTLRenderPipelineState pipelineState);
+
+		// @required -(void)setVertexBytes:(const void * _Nonnull)bytes length:(NSUInteger)length atIndex:(NSUInteger)index __attribute__((availability(ios, introduced=8.3))) __attribute__((availability(macos, introduced=10.11)));
+		[Mac(10, 11), iOS(8, 3)]
+		[Abstract]
+		[Export("setVertexBytes:length:atIndex:")]
+		unsafe void SetVertexBytes(void* bytes, nuint length, nuint index);
+
+		// @required -(void)setVertexBuffer:(id<MTLBuffer> _Nullable)buffer offset:(NSUInteger)offset atIndex:(NSUInteger)index;
+		[Abstract]
+		[Export("setVertexBuffer:offset:atIndex:")]
+		void SetVertexBuffer([NullAllowed] MTLBuffer buffer, nuint offset, nuint index);
+
+		// @required -(void)setVertexBufferOffset:(NSUInteger)offset atIndex:(NSUInteger)index __attribute__((availability(ios, introduced=8.3))) __attribute__((availability(macos, introduced=10.11)));
+		[Mac(10, 11), iOS(8, 3)]
+		[Abstract]
+		[Export("setVertexBufferOffset:atIndex:")]
+		void SetVertexBufferOffset(nuint offset, nuint index);
+
+		// @required -(void)setVertexBuffers:(id<MTLBuffer>  _Nullable const * _Nonnull)buffers offsets:(const NSUInteger * _Nonnull)offsets withRange:(NSRange)range;
+		[Abstract]
+		[Export("setVertexBuffers:offsets:withRange:")]
+		void SetVertexBuffers(MTLBuffer[] buffers, nuint[] offsets, NSRange range);
+
+		// @required -(void)setVertexTexture:(id<MTLTexture> _Nullable)texture atIndex:(NSUInteger)index;
+		[Abstract]
+		[Export("setVertexTexture:atIndex:")]
+		void SetVertexTexture([NullAllowed] MTLTexture texture, nuint index);
+
+		// @required -(void)setVertexTextures:(id<MTLTexture>  _Nullable const * _Nonnull)textures withRange:(NSRange)range;
+		[Abstract]
+		[Export("setVertexTextures:withRange:")]
+		void SetVertexTextures(MTLTexture[] textures, NSRange range);
+
+		// @required -(void)setVertexSamplerState:(id<MTLSamplerState> _Nullable)sampler atIndex:(NSUInteger)index;
+		[Abstract]
+		[Export("setVertexSamplerState:atIndex:")]
+		void SetVertexSamplerState([NullAllowed] MTLSamplerState sampler, nuint index);
+
+		// @required -(void)setVertexSamplerStates:(id<MTLSamplerState>  _Nullable const * _Nonnull)samplers withRange:(NSRange)range;
+		[Abstract]
+		[Export("setVertexSamplerStates:withRange:")]
+		void SetVertexSamplerStates(MTLSamplerState[] samplers, NSRange range);
+
+		// @required -(void)setVertexSamplerState:(id<MTLSamplerState> _Nullable)sampler lodMinClamp:(float)lodMinClamp lodMaxClamp:(float)lodMaxClamp atIndex:(NSUInteger)index;
+		[Abstract]
+		[Export("setVertexSamplerState:lodMinClamp:lodMaxClamp:atIndex:")]
+		void SetVertexSamplerState([NullAllowed] MTLSamplerState sampler, float lodMinClamp, float lodMaxClamp, nuint index);
+
+		// @required -(void)setVertexSamplerStates:(id<MTLSamplerState>  _Nullable const * _Nonnull)samplers lodMinClamps:(const float * _Nonnull)lodMinClamps lodMaxClamps:(const float * _Nonnull)lodMaxClamps withRange:(NSRange)range;
+		[Abstract]
+		[Export("setVertexSamplerStates:lodMinClamps:lodMaxClamps:withRange:")]
+		void SetVertexSamplerStates(MTLSamplerState[] samplers, float[] lodMinClamps, float[] lodMaxClamps, NSRange range);
+
+		// @required -(void)setViewport:(MTLViewport)viewport;
+		[Abstract]
+		[Export("setViewport:")]
+		void SetViewport(MTLViewport viewport);
+
+		// @required -(void)setViewports:(const MTLViewport * _Nonnull)viewports count:(NSUInteger)count __attribute__((availability(ios, introduced=12.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(12, 0)]
+		[Abstract]
+		[Export("setViewports:count:")]
+		void SetViewports(MTLViewport[] viewports, nuint count);
+
+		// @required -(void)setFrontFacingWinding:(MTLWinding)frontFacingWinding;
+		[Abstract]
+		[Export("setFrontFacingWinding:")]
+		void SetFrontFacingWinding(MTLWinding frontFacingWinding);
+
+		// @required -(void)setCullMode:(MTLCullMode)cullMode;
+		[Abstract]
+		[Export("setCullMode:")]
+		void SetCullMode(MTLCullMode cullMode);
+
+		// @required -(void)setDepthClipMode:(MTLDepthClipMode)depthClipMode __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.11)));
+		[Mac(10, 11), iOS(11, 0)]
+		[Abstract]
+		[Export("setDepthClipMode:")]
+		void SetDepthClipMode(MTLDepthClipMode depthClipMode);
+
+		// @required -(void)setDepthBias:(float)depthBias slopeScale:(float)slopeScale clamp:(float)clamp;
+		[Abstract]
+		[Export("setDepthBias:slopeScale:clamp:")]
+		void SetDepthBias(float depthBias, float slopeScale, float clamp);
+
+		// @required -(void)setScissorRect:(MTLScissorRect)rect;
+		[Abstract]
+		[Export("setScissorRect:")]
+		void SetScissorRect(MTLScissorRect rect);
+
+		// @required -(void)setScissorRects:(const MTLScissorRect * _Nonnull)scissorRects count:(NSUInteger)count __attribute__((availability(ios, introduced=12.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(12, 0)]
+		[Abstract]
+		[Export("setScissorRects:count:")]
+		void SetScissorRects(MTLScissorRect[] scissorRects, nuint count);
+
+		// @required -(void)setTriangleFillMode:(MTLTriangleFillMode)fillMode;
+		[Abstract]
+		[Export("setTriangleFillMode:")]
+		void SetTriangleFillMode(MTLTriangleFillMode fillMode);
+
+		// @required -(void)setFragmentBytes:(const void * _Nonnull)bytes length:(NSUInteger)length atIndex:(NSUInteger)index __attribute__((availability(ios, introduced=8.3))) __attribute__((availability(macos, introduced=10.11)));
+		[Mac(10, 11), iOS(8, 3)]
+		[Abstract]
+		[Export("setFragmentBytes:length:atIndex:")]
+		unsafe void SetFragmentBytes(void* bytes, nuint length, nuint index);
+
+		// @required -(void)setFragmentBuffer:(id<MTLBuffer> _Nullable)buffer offset:(NSUInteger)offset atIndex:(NSUInteger)index;
+		[Abstract]
+		[Export("setFragmentBuffer:offset:atIndex:")]
+		void SetFragmentBuffer([NullAllowed] MTLBuffer buffer, nuint offset, nuint index);
+
+		// @required -(void)setFragmentBufferOffset:(NSUInteger)offset atIndex:(NSUInteger)index __attribute__((availability(ios, introduced=8.3))) __attribute__((availability(macos, introduced=10.11)));
+		[Mac(10, 11), iOS(8, 3)]
+		[Abstract]
+		[Export("setFragmentBufferOffset:atIndex:")]
+		void SetFragmentBufferOffset(nuint offset, nuint index);
+
+		// @required -(void)setFragmentBuffers:(id<MTLBuffer>  _Nullable const * _Nonnull)buffers offsets:(const NSUInteger * _Nonnull)offsets withRange:(NSRange)range;
+		[Abstract]
+		[Export("setFragmentBuffers:offsets:withRange:")]
+		void SetFragmentBuffers(MTLBuffer[] buffers, nuint[] offsets, NSRange range);
+
+		// @required -(void)setFragmentTexture:(id<MTLTexture> _Nullable)texture atIndex:(NSUInteger)index;
+		[Abstract]
+		[Export("setFragmentTexture:atIndex:")]
+		void SetFragmentTexture([NullAllowed] MTLTexture texture, nuint index);
+
+		// @required -(void)setFragmentTextures:(id<MTLTexture>  _Nullable const * _Nonnull)textures withRange:(NSRange)range;
+		[Abstract]
+		[Export("setFragmentTextures:withRange:")]
+		void SetFragmentTextures(MTLTexture[] textures, NSRange range);
+
+		// @required -(void)setFragmentSamplerState:(id<MTLSamplerState> _Nullable)sampler atIndex:(NSUInteger)index;
+		[Abstract]
+		[Export("setFragmentSamplerState:atIndex:")]
+		void SetFragmentSamplerState([NullAllowed] MTLSamplerState sampler, nuint index);
+
+		// @required -(void)setFragmentSamplerStates:(id<MTLSamplerState>  _Nullable const * _Nonnull)samplers withRange:(NSRange)range;
+		[Abstract]
+		[Export("setFragmentSamplerStates:withRange:")]
+		void SetFragmentSamplerStates(MTLSamplerState[] samplers, NSRange range);
+
+		// @required -(void)setFragmentSamplerState:(id<MTLSamplerState> _Nullable)sampler lodMinClamp:(float)lodMinClamp lodMaxClamp:(float)lodMaxClamp atIndex:(NSUInteger)index;
+		[Abstract]
+		[Export("setFragmentSamplerState:lodMinClamp:lodMaxClamp:atIndex:")]
+		void SetFragmentSamplerState([NullAllowed] MTLSamplerState sampler, float lodMinClamp, float lodMaxClamp, nuint index);
+
+		// @required -(void)setFragmentSamplerStates:(id<MTLSamplerState>  _Nullable const * _Nonnull)samplers lodMinClamps:(const float * _Nonnull)lodMinClamps lodMaxClamps:(const float * _Nonnull)lodMaxClamps withRange:(NSRange)range;
+		[Abstract]
+		[Export("setFragmentSamplerStates:lodMinClamps:lodMaxClamps:withRange:")]
+		void SetFragmentSamplerStates(MTLSamplerState[] samplers, float[] lodMinClamps, float[] lodMaxClamps, NSRange range);
+
+		// @required -(void)setBlendColorRed:(float)red green:(float)green blue:(float)blue alpha:(float)alpha;
+		[Abstract]
+		[Export("setBlendColorRed:green:blue:alpha:")]
+		void SetBlendColorRed(float red, float green, float blue, float alpha);
+
+		// @required -(void)setDepthStencilState:(id<MTLDepthStencilState> _Nullable)depthStencilState;
+		[Abstract]
+		[Export("setDepthStencilState:")]
+		void SetDepthStencilState([NullAllowed] MTLDepthStencilState depthStencilState);
+
+		// @required -(void)setStencilReferenceValue:(uint32_t)referenceValue;
+		[Abstract]
+		[Export("setStencilReferenceValue:")]
+		void SetStencilReferenceValue(uint referenceValue);
+
+		// @required -(void)setStencilFrontReferenceValue:(uint32_t)frontReferenceValue backReferenceValue:(uint32_t)backReferenceValue __attribute__((availability(ios, introduced=9.0))) __attribute__((availability(macos, introduced=10.11)));
+		[Mac(10, 11), iOS(9, 0)]
+		[Abstract]
+		[Export("setStencilFrontReferenceValue:backReferenceValue:")]
+		void SetStencilFrontReferenceValue(uint frontReferenceValue, uint backReferenceValue);
+
+		// @required -(void)setVisibilityResultMode:(MTLVisibilityResultMode)mode offset:(NSUInteger)offset;
+		[Abstract]
+		[Export("setVisibilityResultMode:offset:")]
+		void SetVisibilityResultMode(MTLVisibilityResultMode mode, nuint offset);
+
+		// @required -(void)setColorStoreAction:(MTLStoreAction)storeAction atIndex:(NSUInteger)colorAttachmentIndex __attribute__((availability(ios, introduced=10.0))) __attribute__((availability(macos, introduced=10.12)));
+		[Mac(10, 12), iOS(10, 0)]
+		[Abstract]
+		[Export("setColorStoreAction:atIndex:")]
+		void SetColorStoreAction(MTLStoreAction storeAction, nuint colorAttachmentIndex);
+
+		// @required -(void)setDepthStoreAction:(MTLStoreAction)storeAction __attribute__((availability(ios, introduced=10.0))) __attribute__((availability(macos, introduced=10.12)));
+		[Mac(10, 12), iOS(10, 0)]
+		[Abstract]
+		[Export("setDepthStoreAction:")]
+		void SetDepthStoreAction(MTLStoreAction storeAction);
+
+		// @required -(void)setStencilStoreAction:(MTLStoreAction)storeAction __attribute__((availability(ios, introduced=10.0))) __attribute__((availability(macos, introduced=10.12)));
+		[Mac(10, 12), iOS(10, 0)]
+		[Abstract]
+		[Export("setStencilStoreAction:")]
+		void SetStencilStoreAction(MTLStoreAction storeAction);
+
+		// @required -(void)setColorStoreActionOptions:(MTLStoreActionOptions)storeActionOptions atIndex:(NSUInteger)colorAttachmentIndex __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(11, 0)]
+		[Abstract]
+		[Export("setColorStoreActionOptions:atIndex:")]
+		void SetColorStoreActionOptions(MTLStoreActionOptions storeActionOptions, nuint colorAttachmentIndex);
+
+		// @required -(void)setDepthStoreActionOptions:(MTLStoreActionOptions)storeActionOptions __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(11, 0)]
+		[Abstract]
+		[Export("setDepthStoreActionOptions:")]
+		void SetDepthStoreActionOptions(MTLStoreActionOptions storeActionOptions);
+
+		// @required -(void)setStencilStoreActionOptions:(MTLStoreActionOptions)storeActionOptions __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(11, 0)]
+		[Abstract]
+		[Export("setStencilStoreActionOptions:")]
+		void SetStencilStoreActionOptions(MTLStoreActionOptions storeActionOptions);
+
+		// @required -(void)drawPrimitives:(MTLPrimitiveType)primitiveType vertexStart:(NSUInteger)vertexStart vertexCount:(NSUInteger)vertexCount instanceCount:(NSUInteger)instanceCount;
+		[Abstract]
+		[Export("drawPrimitives:vertexStart:vertexCount:instanceCount:")]
+		void DrawPrimitives(MTLPrimitiveType primitiveType, nuint vertexStart, nuint vertexCount, nuint instanceCount);
+
+		// @required -(void)drawPrimitives:(MTLPrimitiveType)primitiveType vertexStart:(NSUInteger)vertexStart vertexCount:(NSUInteger)vertexCount;
+		[Abstract]
+		[Export("drawPrimitives:vertexStart:vertexCount:")]
+		void DrawPrimitives(MTLPrimitiveType primitiveType, nuint vertexStart, nuint vertexCount);
+
+		// @required -(void)drawIndexedPrimitives:(MTLPrimitiveType)primitiveType indexCount:(NSUInteger)indexCount indexType:(MTLIndexType)indexType indexBuffer:(id<MTLBuffer> _Nonnull)indexBuffer indexBufferOffset:(NSUInteger)indexBufferOffset instanceCount:(NSUInteger)instanceCount;
+		[Abstract]
+		[Export("drawIndexedPrimitives:indexCount:indexType:indexBuffer:indexBufferOffset:instanceCount:")]
+		void DrawIndexedPrimitives(MTLPrimitiveType primitiveType, nuint indexCount, MTLIndexType indexType, MTLBuffer indexBuffer, nuint indexBufferOffset, nuint instanceCount);
+
+		// @required -(void)drawIndexedPrimitives:(MTLPrimitiveType)primitiveType indexCount:(NSUInteger)indexCount indexType:(MTLIndexType)indexType indexBuffer:(id<MTLBuffer> _Nonnull)indexBuffer indexBufferOffset:(NSUInteger)indexBufferOffset;
+		[Abstract]
+		[Export("drawIndexedPrimitives:indexCount:indexType:indexBuffer:indexBufferOffset:")]
+		void DrawIndexedPrimitives(MTLPrimitiveType primitiveType, nuint indexCount, MTLIndexType indexType, MTLBuffer indexBuffer, nuint indexBufferOffset);
+
+		// @required -(void)drawPrimitives:(MTLPrimitiveType)primitiveType vertexStart:(NSUInteger)vertexStart vertexCount:(NSUInteger)vertexCount instanceCount:(NSUInteger)instanceCount baseInstance:(NSUInteger)baseInstance __attribute__((availability(ios, introduced=9.0))) __attribute__((availability(macos, introduced=10.11)));
+		[Mac(10, 11), iOS(9, 0)]
+		[Abstract]
+		[Export("drawPrimitives:vertexStart:vertexCount:instanceCount:baseInstance:")]
+		void DrawPrimitives(MTLPrimitiveType primitiveType, nuint vertexStart, nuint vertexCount, nuint instanceCount, nuint baseInstance);
+
+		// @required -(void)drawIndexedPrimitives:(MTLPrimitiveType)primitiveType indexCount:(NSUInteger)indexCount indexType:(MTLIndexType)indexType indexBuffer:(id<MTLBuffer> _Nonnull)indexBuffer indexBufferOffset:(NSUInteger)indexBufferOffset instanceCount:(NSUInteger)instanceCount baseVertex:(NSInteger)baseVertex baseInstance:(NSUInteger)baseInstance __attribute__((availability(ios, introduced=9.0))) __attribute__((availability(macos, introduced=10.11)));
+		[Mac(10, 11), iOS(9, 0)]
+		[Abstract]
+		[Export("drawIndexedPrimitives:indexCount:indexType:indexBuffer:indexBufferOffset:instanceCount:baseVertex:baseInstance:")]
+		void DrawIndexedPrimitives(MTLPrimitiveType primitiveType, nuint indexCount, MTLIndexType indexType, MTLBuffer indexBuffer, nuint indexBufferOffset, nuint instanceCount, nint baseVertex, nuint baseInstance);
+
+		// @required -(void)drawPrimitives:(MTLPrimitiveType)primitiveType indirectBuffer:(id<MTLBuffer> _Nonnull)indirectBuffer indirectBufferOffset:(NSUInteger)indirectBufferOffset __attribute__((availability(ios, introduced=9.0))) __attribute__((availability(macos, introduced=10.11)));
+		[Mac(10, 11), iOS(9, 0)]
+		[Abstract]
+		[Export("drawPrimitives:indirectBuffer:indirectBufferOffset:")]
+		void DrawPrimitives(MTLPrimitiveType primitiveType, MTLBuffer indirectBuffer, nuint indirectBufferOffset);
+
+		// @required -(void)drawIndexedPrimitives:(MTLPrimitiveType)primitiveType indexType:(MTLIndexType)indexType indexBuffer:(id<MTLBuffer> _Nonnull)indexBuffer indexBufferOffset:(NSUInteger)indexBufferOffset indirectBuffer:(id<MTLBuffer> _Nonnull)indirectBuffer indirectBufferOffset:(NSUInteger)indirectBufferOffset __attribute__((availability(ios, introduced=9.0))) __attribute__((availability(macos, introduced=10.11)));
+		[Mac(10, 11), iOS(9, 0)]
+		[Abstract]
+		[Export("drawIndexedPrimitives:indexType:indexBuffer:indexBufferOffset:indirectBuffer:indirectBufferOffset:")]
+		void DrawIndexedPrimitives(MTLPrimitiveType primitiveType, MTLIndexType indexType, MTLBuffer indexBuffer, nuint indexBufferOffset, MTLBuffer indirectBuffer, nuint indirectBufferOffset);
+
+		// @required -(void)textureBarrier __attribute__((availability(tvos, unavailable))) __attribute__((availability(ios, unavailable))) __attribute__((availability(macos, introduced=10.11, deprecated=10.14)));
+		[Introduced(PlatformName.MacOSX, 10, 11)]
+		[Deprecated(PlatformName.MacOSX, 10, 14)]
+		[NoTV, NoiOS]
+		[Abstract]
+		[Export("textureBarrier")]
+		void TextureBarrier();
+
+		// @required -(void)updateFence:(id<MTLFence> _Nonnull)fence afterStages:(MTLRenderStages)stages __attribute__((availability(ios, introduced=10.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(10, 0)]
+		[Abstract]
+		[Export("updateFence:afterStages:")]
+		void UpdateFence(MTLFence fence, MTLRenderStages stages);
+
+		// @required -(void)waitForFence:(id<MTLFence> _Nonnull)fence beforeStages:(MTLRenderStages)stages __attribute__((availability(ios, introduced=10.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(10, 0)]
+		[Abstract]
+		[Export("waitForFence:beforeStages:")]
+		void WaitForFence(MTLFence fence, MTLRenderStages stages);
+
+		// @required -(void)setTessellationFactorBuffer:(id<MTLBuffer> _Nullable)buffer offset:(NSUInteger)offset instanceStride:(NSUInteger)instanceStride __attribute__((availability(ios, introduced=10.0))) __attribute__((availability(macos, introduced=10.12)));
+		[Mac(10, 12), iOS(10, 0)]
+		[Abstract]
+		[Export("setTessellationFactorBuffer:offset:instanceStride:")]
+		void SetTessellationFactorBuffer([NullAllowed] MTLBuffer buffer, nuint offset, nuint instanceStride);
+
+		// @required -(void)setTessellationFactorScale:(float)scale __attribute__((availability(ios, introduced=10.0))) __attribute__((availability(macos, introduced=10.12)));
+		[Mac(10, 12), iOS(10, 0)]
+		[Abstract]
+		[Export("setTessellationFactorScale:")]
+		void SetTessellationFactorScale(float scale);
+
+		// @required -(void)drawPatches:(NSUInteger)numberOfPatchControlPoints patchStart:(NSUInteger)patchStart patchCount:(NSUInteger)patchCount patchIndexBuffer:(id<MTLBuffer> _Nullable)patchIndexBuffer patchIndexBufferOffset:(NSUInteger)patchIndexBufferOffset instanceCount:(NSUInteger)instanceCount baseInstance:(NSUInteger)baseInstance __attribute__((availability(ios, introduced=10.0))) __attribute__((availability(macos, introduced=10.12)));
+		[Mac(10, 12), iOS(10, 0)]
+		[Abstract]
+		[Export("drawPatches:patchStart:patchCount:patchIndexBuffer:patchIndexBufferOffset:instanceCount:baseInstance:")]
+		void DrawPatches(nuint numberOfPatchControlPoints, nuint patchStart, nuint patchCount, [NullAllowed] MTLBuffer patchIndexBuffer, nuint patchIndexBufferOffset, nuint instanceCount, nuint baseInstance);
+
+		// @required -(void)drawPatches:(NSUInteger)numberOfPatchControlPoints patchIndexBuffer:(id<MTLBuffer> _Nullable)patchIndexBuffer patchIndexBufferOffset:(NSUInteger)patchIndexBufferOffset indirectBuffer:(id<MTLBuffer> _Nonnull)indirectBuffer indirectBufferOffset:(NSUInteger)indirectBufferOffset __attribute__((availability(ios, introduced=12.0))) __attribute__((availability(macos, introduced=10.12)));
+		[Mac(10, 12), iOS(12, 0)]
+		[Abstract]
+		[Export("drawPatches:patchIndexBuffer:patchIndexBufferOffset:indirectBuffer:indirectBufferOffset:")]
+		void DrawPatches(nuint numberOfPatchControlPoints, [NullAllowed] MTLBuffer patchIndexBuffer, nuint patchIndexBufferOffset, MTLBuffer indirectBuffer, nuint indirectBufferOffset);
+
+		// @required -(void)drawIndexedPatches:(NSUInteger)numberOfPatchControlPoints patchStart:(NSUInteger)patchStart patchCount:(NSUInteger)patchCount patchIndexBuffer:(id<MTLBuffer> _Nullable)patchIndexBuffer patchIndexBufferOffset:(NSUInteger)patchIndexBufferOffset controlPointIndexBuffer:(id<MTLBuffer> _Nonnull)controlPointIndexBuffer controlPointIndexBufferOffset:(NSUInteger)controlPointIndexBufferOffset instanceCount:(NSUInteger)instanceCount baseInstance:(NSUInteger)baseInstance __attribute__((availability(ios, introduced=10.0))) __attribute__((availability(macos, introduced=10.12)));
+		[Mac(10, 12), iOS(10, 0)]
+		[Abstract]
+		[Export("drawIndexedPatches:patchStart:patchCount:patchIndexBuffer:patchIndexBufferOffset:controlPointIndexBuffer:controlPointIndexBufferOffset:instanceCount:baseInstance:")]
+		void DrawIndexedPatches(nuint numberOfPatchControlPoints, nuint patchStart, nuint patchCount, [NullAllowed] MTLBuffer patchIndexBuffer, nuint patchIndexBufferOffset, MTLBuffer controlPointIndexBuffer, nuint controlPointIndexBufferOffset, nuint instanceCount, nuint baseInstance);
+
+		// @required -(void)drawIndexedPatches:(NSUInteger)numberOfPatchControlPoints patchIndexBuffer:(id<MTLBuffer> _Nullable)patchIndexBuffer patchIndexBufferOffset:(NSUInteger)patchIndexBufferOffset controlPointIndexBuffer:(id<MTLBuffer> _Nonnull)controlPointIndexBuffer controlPointIndexBufferOffset:(NSUInteger)controlPointIndexBufferOffset indirectBuffer:(id<MTLBuffer> _Nonnull)indirectBuffer indirectBufferOffset:(NSUInteger)indirectBufferOffset __attribute__((availability(ios, introduced=12.0))) __attribute__((availability(macos, introduced=10.12)));
+		[Mac(10, 12), iOS(12, 0)]
+		[Abstract]
+		[Export("drawIndexedPatches:patchIndexBuffer:patchIndexBufferOffset:controlPointIndexBuffer:controlPointIndexBufferOffset:indirectBuffer:indirectBufferOffset:")]
+		void DrawIndexedPatches(nuint numberOfPatchControlPoints, [NullAllowed] MTLBuffer patchIndexBuffer, nuint patchIndexBufferOffset, MTLBuffer controlPointIndexBuffer, nuint controlPointIndexBufferOffset, MTLBuffer indirectBuffer, nuint indirectBufferOffset);
+
+		// @required @property (readonly) NSUInteger tileWidth __attribute__((availability(macos, unavailable))) __attribute__((availability(ios, introduced=11.0)));
+		[NoMac, iOS(11, 0)]
+		[Abstract]
+		[Export("tileWidth")]
+		nuint TileWidth { get; }
+
+		// @required @property (readonly) NSUInteger tileHeight __attribute__((availability(macos, unavailable))) __attribute__((availability(ios, introduced=11.0)));
+		[NoMac, iOS(11, 0)]
+		[Abstract]
+		[Export("tileHeight")]
+		nuint TileHeight { get; }
+
+		// @required -(void)setTileBytes:(const void * _Nonnull)bytes length:(NSUInteger)length atIndex:(NSUInteger)index __attribute__((availability(macos, unavailable))) __attribute__((availability(ios, introduced=11.0)));
+		[NoMac, iOS(11, 0)]
+		[Abstract]
+		[Export("setTileBytes:length:atIndex:")]
+		unsafe void SetTileBytes(void* bytes, nuint length, nuint index);
+
+		// @required -(void)setTileBuffer:(id<MTLBuffer> _Nullable)buffer offset:(NSUInteger)offset atIndex:(NSUInteger)index __attribute__((availability(macos, unavailable))) __attribute__((availability(ios, introduced=11.0)));
+		[NoMac, iOS(11, 0)]
+		[Abstract]
+		[Export("setTileBuffer:offset:atIndex:")]
+		void SetTileBuffer([NullAllowed] MTLBuffer buffer, nuint offset, nuint index);
+
+		// @required -(void)setTileBufferOffset:(NSUInteger)offset atIndex:(NSUInteger)index __attribute__((availability(macos, unavailable))) __attribute__((availability(ios, introduced=11.0)));
+		[NoMac, iOS(11, 0)]
+		[Abstract]
+		[Export("setTileBufferOffset:atIndex:")]
+		void SetTileBufferOffset(nuint offset, nuint index);
+
+		// @required -(void)setTileBuffers:(id<MTLBuffer>  _Nullable const * _Nonnull)buffers offsets:(const NSUInteger * _Nonnull)offsets withRange:(NSRange)range __attribute__((availability(macos, unavailable))) __attribute__((availability(ios, introduced=11.0)));
+		[NoMac, iOS(11, 0)]
+		[Abstract]
+		[Export("setTileBuffers:offsets:withRange:")]
+		void SetTileBuffers(MTLBuffer[] buffers, nuint[] offsets, NSRange range);
+
+		// @required -(void)setTileTexture:(id<MTLTexture> _Nullable)texture atIndex:(NSUInteger)index __attribute__((availability(macos, unavailable))) __attribute__((availability(ios, introduced=11.0)));
+		[NoMac, iOS(11, 0)]
+		[Abstract]
+		[Export("setTileTexture:atIndex:")]
+		void SetTileTexture([NullAllowed] MTLTexture texture, nuint index);
+
+		// @required -(void)setTileTextures:(id<MTLTexture>  _Nullable const * _Nonnull)textures withRange:(NSRange)range __attribute__((availability(macos, unavailable))) __attribute__((availability(ios, introduced=11.0)));
+		[NoMac, iOS(11, 0)]
+		[Abstract]
+		[Export("setTileTextures:withRange:")]
+		void SetTileTextures(MTLTexture[] textures, NSRange range);
+
+		// @required -(void)setTileSamplerState:(id<MTLSamplerState> _Nullable)sampler atIndex:(NSUInteger)index __attribute__((availability(macos, unavailable))) __attribute__((availability(ios, introduced=11.0)));
+		[NoMac, iOS(11, 0)]
+		[Abstract]
+		[Export("setTileSamplerState:atIndex:")]
+		void SetTileSamplerState([NullAllowed] MTLSamplerState sampler, nuint index);
+
+		// @required -(void)setTileSamplerStates:(id<MTLSamplerState>  _Nullable const * _Nonnull)samplers withRange:(NSRange)range __attribute__((availability(macos, unavailable))) __attribute__((availability(ios, introduced=11.0)));
+		[NoMac, iOS(11, 0)]
+		[Abstract]
+		[Export("setTileSamplerStates:withRange:")]
+		void SetTileSamplerStates(MTLSamplerState[] samplers, NSRange range);
+
+		// @required -(void)setTileSamplerState:(id<MTLSamplerState> _Nullable)sampler lodMinClamp:(float)lodMinClamp lodMaxClamp:(float)lodMaxClamp atIndex:(NSUInteger)index __attribute__((availability(macos, unavailable))) __attribute__((availability(ios, introduced=11.0)));
+		[NoMac, iOS(11, 0)]
+		[Abstract]
+		[Export("setTileSamplerState:lodMinClamp:lodMaxClamp:atIndex:")]
+		void SetTileSamplerState([NullAllowed] MTLSamplerState sampler, float lodMinClamp, float lodMaxClamp, nuint index);
+
+		// @required -(void)setTileSamplerStates:(id<MTLSamplerState>  _Nullable const * _Nonnull)samplers lodMinClamps:(const float * _Nonnull)lodMinClamps lodMaxClamps:(const float * _Nonnull)lodMaxClamps withRange:(NSRange)range;
+		[Abstract]
+		[Export("setTileSamplerStates:lodMinClamps:lodMaxClamps:withRange:")]
+		void SetTileSamplerStates(MTLSamplerState[] samplers, float[] lodMinClamps, float[] lodMaxClamps, NSRange range);
+
+		// @required -(void)dispatchThreadsPerTile:(MTLSize)threadsPerTile;
+		[Abstract]
+		[Export("dispatchThreadsPerTile:")]
+		void DispatchThreadsPerTile(MTLSize threadsPerTile);
+
+		// @required -(void)setThreadgroupMemoryLength:(NSUInteger)length offset:(NSUInteger)offset atIndex:(NSUInteger)index;
+		[Abstract]
+		[Export("setThreadgroupMemoryLength:offset:atIndex:")]
+		void SetThreadgroupMemoryLength(nuint length, nuint offset, nuint index);
+
+		// @required -(void)useResource:(id<MTLResource> _Nonnull)resource usage:(MTLResourceUsage)usage __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(11, 0)]
+		[Abstract]
+		[Export("useResource:usage:")]
+		void UseResource(MTLResource resource, MTLResourceUsage usage);
+
+		// @required -(void)useResources:(id<MTLResource>  _Nonnull const * _Nonnull)resources count:(NSUInteger)count usage:(MTLResourceUsage)usage __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(11, 0)]
+		[Abstract]
+		[Export("useResources:count:usage:")]
+		void UseResources(MTLResource[] resources, nuint count, MTLResourceUsage usage);
+
+		// @required -(void)useHeap:(id<MTLHeap> _Nonnull)heap __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(11, 0)]
+		[Abstract]
+		[Export("useHeap:")]
+		void UseHeap(MTLHeap heap);
+
+		// @required -(void)useHeaps:(id<MTLHeap>  _Nonnull const * _Nonnull)heaps count:(NSUInteger)count __attribute__((availability(ios, introduced=11.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(11, 0)]
+		[Abstract]
+		[Export("useHeaps:count:")]
+		void UseHeaps(MTLHeap[] heaps, nuint count);
+
+		// @required -(void)executeCommandsInBuffer:(id<MTLIndirectCommandBuffer> _Nonnull)indirectCommandBuffer withRange:(NSRange)executionRange __attribute__((availability(ios, introduced=12.0))) __attribute__((availability(macos, introduced=10.14)));
+		[Mac(10, 14), iOS(12, 0)]
+		[Abstract]
+		[Export("executeCommandsInBuffer:withRange:")]
+		void ExecuteCommandsInBuffer(MTLIndirectCommandBuffer indirectCommandBuffer, NSRange executionRange);
+
+		// @required -(void)executeCommandsInBuffer:(id<MTLIndirectCommandBuffer> _Nonnull)indirectCommandbuffer indirectBuffer:(id<MTLBuffer> _Nonnull)indirectRangeBuffer indirectBufferOffset:(NSUInteger)indirectBufferOffset __attribute__((availability(ios, unavailable))) __attribute__((availability(macos, introduced=10.14)));
+		[NoiOS, Mac(10, 14)]
+		[Abstract]
+		[Export("executeCommandsInBuffer:indirectBuffer:indirectBufferOffset:")]
+		void ExecuteCommandsInBuffer(MTLIndirectCommandBuffer indirectCommandbuffer, MTLBuffer indirectRangeBuffer, nuint indirectBufferOffset);
+
+		// @required -(void)memoryBarrierWithScope:(MTLBarrierScope)scope afterStages:(MTLRenderStages)after beforeStages:(MTLRenderStages)before __attribute__((availability(ios, unavailable))) __attribute__((availability(macos, introduced=10.14)));
+		[NoiOS, Mac(10, 14)]
+		[Abstract]
+		[Export("memoryBarrierWithScope:afterStages:beforeStages:")]
+		void MemoryBarrierWithScope(MTLBarrierScope scope, MTLRenderStages after, MTLRenderStages before);
+
+		// @required -(void)memoryBarrierWithResources:(id<MTLResource>  _Nonnull const * _Nonnull)resources count:(NSUInteger)count afterStages:(MTLRenderStages)after beforeStages:(MTLRenderStages)before __attribute__((availability(ios, unavailable))) __attribute__((availability(macos, introduced=10.14)));
+		[NoiOS, Mac(10, 14)]
+		[Abstract]
+		[Export("memoryBarrierWithResources:count:afterStages:beforeStages:")]
+		void MemoryBarrierWithResources(MTLResource[] resources, nuint count, MTLRenderStages after, MTLRenderStages before);
+	}
+
+	// @protocol MTLBlitCommandEncoder <MTLCommandEncoder>
+	[Mac(10, 11), iOS(8, 0)]
+	[Protocol, Model]
+	interface MTLBlitCommandEncoder : IMTLCommandEncoder
+	{
+		// @required -(void)synchronizeResource:(id<MTLResource> _Nonnull)resource __attribute__((availability(ios, unavailable))) __attribute__((availability(macos, introduced=10.11)));
+		[NoiOS, Mac(10, 11)]
+		[Abstract]
+		[Export("synchronizeResource:")]
+		void SynchronizeResource(MTLResource resource);
+
+		// @required -(void)synchronizeTexture:(id<MTLTexture> _Nonnull)texture slice:(NSUInteger)slice level:(NSUInteger)level __attribute__((availability(ios, unavailable))) __attribute__((availability(macos, introduced=10.11)));
+		[NoiOS, Mac(10, 11)]
+		[Abstract]
+		[Export("synchronizeTexture:slice:level:")]
+		void SynchronizeTexture(MTLTexture texture, nuint slice, nuint level);
+
+		// @required -(void)copyFromTexture:(id<MTLTexture> _Nonnull)sourceTexture sourceSlice:(NSUInteger)sourceSlice sourceLevel:(NSUInteger)sourceLevel sourceOrigin:(MTLOrigin)sourceOrigin sourceSize:(MTLSize)sourceSize toTexture:(id<MTLTexture> _Nonnull)destinationTexture destinationSlice:(NSUInteger)destinationSlice destinationLevel:(NSUInteger)destinationLevel destinationOrigin:(MTLOrigin)destinationOrigin;
+		[Abstract]
+		[Export("copyFromTexture:sourceSlice:sourceLevel:sourceOrigin:sourceSize:toTexture:destinationSlice:destinationLevel:destinationOrigin:")]
+		void CopyFromTexture(MTLTexture sourceTexture, nuint sourceSlice, nuint sourceLevel, MTLOrigin sourceOrigin, MTLSize sourceSize, MTLTexture destinationTexture, nuint destinationSlice, nuint destinationLevel, MTLOrigin destinationOrigin);
+
+		// @required -(void)copyFromBuffer:(id<MTLBuffer> _Nonnull)sourceBuffer sourceOffset:(NSUInteger)sourceOffset sourceBytesPerRow:(NSUInteger)sourceBytesPerRow sourceBytesPerImage:(NSUInteger)sourceBytesPerImage sourceSize:(MTLSize)sourceSize toTexture:(id<MTLTexture> _Nonnull)destinationTexture destinationSlice:(NSUInteger)destinationSlice destinationLevel:(NSUInteger)destinationLevel destinationOrigin:(MTLOrigin)destinationOrigin;
+		[Abstract]
+		[Export("copyFromBuffer:sourceOffset:sourceBytesPerRow:sourceBytesPerImage:sourceSize:toTexture:destinationSlice:destinationLevel:destinationOrigin:")]
+		void CopyFromBuffer(MTLBuffer sourceBuffer, nuint sourceOffset, nuint sourceBytesPerRow, nuint sourceBytesPerImage, MTLSize sourceSize, MTLTexture destinationTexture, nuint destinationSlice, nuint destinationLevel, MTLOrigin destinationOrigin);
+
+		// @required -(void)copyFromBuffer:(id<MTLBuffer> _Nonnull)sourceBuffer sourceOffset:(NSUInteger)sourceOffset sourceBytesPerRow:(NSUInteger)sourceBytesPerRow sourceBytesPerImage:(NSUInteger)sourceBytesPerImage sourceSize:(MTLSize)sourceSize toTexture:(id<MTLTexture> _Nonnull)destinationTexture destinationSlice:(NSUInteger)destinationSlice destinationLevel:(NSUInteger)destinationLevel destinationOrigin:(MTLOrigin)destinationOrigin options:(MTLBlitOption)options __attribute__((availability(ios, introduced=9.0))) __attribute__((availability(macos, introduced=10.11)));
+		[Mac(10, 11), iOS(9, 0)]
+		[Abstract]
+		[Export("copyFromBuffer:sourceOffset:sourceBytesPerRow:sourceBytesPerImage:sourceSize:toTexture:destinationSlice:destinationLevel:destinationOrigin:options:")]
+		void CopyFromBuffer(MTLBuffer sourceBuffer, nuint sourceOffset, nuint sourceBytesPerRow, nuint sourceBytesPerImage, MTLSize sourceSize, MTLTexture destinationTexture, nuint destinationSlice, nuint destinationLevel, MTLOrigin destinationOrigin, MTLBlitOption options);
+
+		// @required -(void)copyFromTexture:(id<MTLTexture> _Nonnull)sourceTexture sourceSlice:(NSUInteger)sourceSlice sourceLevel:(NSUInteger)sourceLevel sourceOrigin:(MTLOrigin)sourceOrigin sourceSize:(MTLSize)sourceSize toBuffer:(id<MTLBuffer> _Nonnull)destinationBuffer destinationOffset:(NSUInteger)destinationOffset destinationBytesPerRow:(NSUInteger)destinationBytesPerRow destinationBytesPerImage:(NSUInteger)destinationBytesPerImage;
+		[Abstract]
+		[Export("copyFromTexture:sourceSlice:sourceLevel:sourceOrigin:sourceSize:toBuffer:destinationOffset:destinationBytesPerRow:destinationBytesPerImage:")]
+		void CopyFromTexture(MTLTexture sourceTexture, nuint sourceSlice, nuint sourceLevel, MTLOrigin sourceOrigin, MTLSize sourceSize, MTLBuffer destinationBuffer, nuint destinationOffset, nuint destinationBytesPerRow, nuint destinationBytesPerImage);
+
+		// @required -(void)copyFromTexture:(id<MTLTexture> _Nonnull)sourceTexture sourceSlice:(NSUInteger)sourceSlice sourceLevel:(NSUInteger)sourceLevel sourceOrigin:(MTLOrigin)sourceOrigin sourceSize:(MTLSize)sourceSize toBuffer:(id<MTLBuffer> _Nonnull)destinationBuffer destinationOffset:(NSUInteger)destinationOffset destinationBytesPerRow:(NSUInteger)destinationBytesPerRow destinationBytesPerImage:(NSUInteger)destinationBytesPerImage options:(MTLBlitOption)options __attribute__((availability(ios, introduced=9.0))) __attribute__((availability(macos, introduced=10.11)));
+		[Mac(10, 11), iOS(9, 0)]
+		[Abstract]
+		[Export("copyFromTexture:sourceSlice:sourceLevel:sourceOrigin:sourceSize:toBuffer:destinationOffset:destinationBytesPerRow:destinationBytesPerImage:options:")]
+		void CopyFromTexture(MTLTexture sourceTexture, nuint sourceSlice, nuint sourceLevel, MTLOrigin sourceOrigin, MTLSize sourceSize, MTLBuffer destinationBuffer, nuint destinationOffset, nuint destinationBytesPerRow, nuint destinationBytesPerImage, MTLBlitOption options);
+
+		// @required -(void)generateMipmapsForTexture:(id<MTLTexture> _Nonnull)texture;
+		[Abstract]
+		[Export("generateMipmapsForTexture:")]
+		void GenerateMipmapsForTexture(MTLTexture texture);
+
+		// @required -(void)fillBuffer:(id<MTLBuffer> _Nonnull)buffer range:(NSRange)range value:(uint8_t)value;
+		[Abstract]
+		[Export("fillBuffer:range:value:")]
+		void FillBuffer(MTLBuffer buffer, NSRange range, byte value);
+
+		// @required -(void)copyFromBuffer:(id<MTLBuffer> _Nonnull)sourceBuffer sourceOffset:(NSUInteger)sourceOffset toBuffer:(id<MTLBuffer> _Nonnull)destinationBuffer destinationOffset:(NSUInteger)destinationOffset size:(NSUInteger)size;
+		[Abstract]
+		[Export("copyFromBuffer:sourceOffset:toBuffer:destinationOffset:size:")]
+		void CopyFromBuffer(MTLBuffer sourceBuffer, nuint sourceOffset, MTLBuffer destinationBuffer, nuint destinationOffset, nuint size);
+
+		// @required -(void)updateFence:(id<MTLFence> _Nonnull)fence __attribute__((availability(ios, introduced=10.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(10, 0)]
+		[Abstract]
+		[Export("updateFence:")]
+		void UpdateFence(MTLFence fence);
+
+		// @required -(void)waitForFence:(id<MTLFence> _Nonnull)fence __attribute__((availability(ios, introduced=10.0))) __attribute__((availability(macos, introduced=10.13)));
+		[Mac(10, 13), iOS(10, 0)]
+		[Abstract]
+		[Export("waitForFence:")]
+		void WaitForFence(MTLFence fence);
+
+		// @required -(void)optimizeContentsForGPUAccess:(id<MTLTexture> _Nonnull)texture __attribute__((availability(ios, introduced=12.0))) __attribute__((availability(macos, introduced=10.14)));
+		[Mac(10, 14), iOS(12, 0)]
+		[Abstract]
+		[Export("optimizeContentsForGPUAccess:")]
+		void OptimizeContentsForGPUAccess(MTLTexture texture);
+
+		// @required -(void)optimizeContentsForGPUAccess:(id<MTLTexture> _Nonnull)texture slice:(NSUInteger)slice level:(NSUInteger)level __attribute__((availability(ios, introduced=12.0))) __attribute__((availability(macos, introduced=10.14)));
+		[Mac(10, 14), iOS(12, 0)]
+		[Abstract]
+		[Export("optimizeContentsForGPUAccess:slice:level:")]
+		void OptimizeContentsForGPUAccess(MTLTexture texture, nuint slice, nuint level);
+
+		// @required -(void)optimizeContentsForCPUAccess:(id<MTLTexture> _Nonnull)texture __attribute__((availability(ios, introduced=12.0))) __attribute__((availability(macos, introduced=10.14)));
+		[Mac(10, 14), iOS(12, 0)]
+		[Abstract]
+		[Export("optimizeContentsForCPUAccess:")]
+		void OptimizeContentsForCPUAccess(MTLTexture texture);
+
+		// @required -(void)optimizeContentsForCPUAccess:(id<MTLTexture> _Nonnull)texture slice:(NSUInteger)slice level:(NSUInteger)level __attribute__((availability(ios, introduced=12.0))) __attribute__((availability(macos, introduced=10.14)));
+		[Mac(10, 14), iOS(12, 0)]
+		[Abstract]
+		[Export("optimizeContentsForCPUAccess:slice:level:")]
+		void OptimizeContentsForCPUAccess(MTLTexture texture, nuint slice, nuint level);
+
+		// @required -(void)resetCommandsInBuffer:(id<MTLIndirectCommandBuffer> _Nonnull)buffer withRange:(NSRange)range __attribute__((availability(ios, introduced=12.0))) __attribute__((availability(macos, introduced=10.14)));
+		[Mac(10, 14), iOS(12, 0)]
+		[Abstract]
+		[Export("resetCommandsInBuffer:withRange:")]
+		void ResetCommandsInBuffer(MTLIndirectCommandBuffer buffer, NSRange range);
+
+		// @required -(void)copyIndirectCommandBuffer:(id<MTLIndirectCommandBuffer> _Nonnull)source sourceRange:(NSRange)sourceRange destination:(id<MTLIndirectCommandBuffer> _Nonnull)destination destinationIndex:(NSUInteger)destinationIndex __attribute__((availability(ios, introduced=12.0))) __attribute__((availability(macos, introduced=10.14)));
+		[Mac(10, 14), iOS(12, 0)]
+		[Abstract]
+		[Export("copyIndirectCommandBuffer:sourceRange:destination:destinationIndex:")]
+		void CopyIndirectCommandBuffer(MTLIndirectCommandBuffer source, NSRange sourceRange, MTLIndirectCommandBuffer destination, nuint destinationIndex);
+
+		// @required -(void)optimizeIndirectCommandBuffer:(id<MTLIndirectCommandBuffer> _Nonnull)indirectCommandBuffer withRange:(NSRange)range __attribute__((availability(ios, introduced=12.0))) __attribute__((availability(macos, introduced=10.14)));
+		[Mac(10, 14), iOS(12, 0)]
+		[Abstract]
+		[Export("optimizeIndirectCommandBuffer:withRange:")]
+		void OptimizeIndirectCommandBuffer(MTLIndirectCommandBuffer indirectCommandBuffer, NSRange range);
 	}
 
 	// @protocol PESDKPhotoEditPreviewControllerDelegate

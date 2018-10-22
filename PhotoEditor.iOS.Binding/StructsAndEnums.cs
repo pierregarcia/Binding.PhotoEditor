@@ -216,4 +216,39 @@ namespace PhotoEditor
 		Low = 0,
 		High = 1
 	}
+
+	[Mac(10, 14), iOS(12, 0)]
+	[Native]
+	public enum MTLIndirectCommandType : ulong
+	{
+		MTLIndirectCommandTypeDraw = (1 << 0),
+		Indexed = (1 << 1),
+		Patches = (1 << 2),
+		IndexedPatches = (1 << 3)
+	}
+
+	[Mac(10, 14), iOS(12, 0)]
+	[Native]
+	public enum MTLDispatchType : ulong
+	{
+		Serial,
+		Concurrent
+	}
+
+	[Mac(10, 14), iOS(12, 0)]
+	[Native]
+	public enum MTLBarrierScope : ulong
+	{
+		Buffers = 1 << 0,
+		Textures = 1 << 1,
+		RenderTargets = 1 << 2
+	}
+
+	[Mac(10, 11), iOS(8, 0)]
+	[Native]
+	public enum MTLCPUCacheMode : ulong
+	{
+		DefaultCache = 0,
+		WriteCombined = 1
+	}
 }
