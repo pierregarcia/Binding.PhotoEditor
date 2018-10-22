@@ -1977,6 +1977,7 @@ namespace PhotoEditor
 
 	// @protocol MTLParallelRenderCommandEncoder <MTLCommandEncoder>
 	[Mac(10, 11), iOS(8, 0)]
+	[BaseType(typeof(NSObject))]
 	[Protocol, Model]
 	interface MTLParallelRenderCommandEncoder : IMTLCommandEncoder
 	{
@@ -2025,6 +2026,7 @@ namespace PhotoEditor
 
 	// @protocol MTLComputeCommandEncoder <MTLCommandEncoder>
 	[Mac(10, 11), iOS(8, 0)]
+	[BaseType(typeof(NSObject))]
 	[Protocol, Model]
 	interface MTLComputeCommandEncoder : IMTLCommandEncoder
 	{
@@ -2760,6 +2762,7 @@ namespace PhotoEditor
 
 	// @protocol MTLBlitCommandEncoder <MTLCommandEncoder>
 	[Mac(10, 11), iOS(8, 0)]
+	[BaseType(typeof(NSObject))]
 	[Protocol, Model]
 	interface MTLBlitCommandEncoder : IMTLCommandEncoder
 	{
