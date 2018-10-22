@@ -3335,6 +3335,11 @@ namespace PhotoEditor
 		[DesignatedInitializer]
 		IntPtr Constructor(CGRect frame);
 
+		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
+		[Export("initWithCoder:")]
+		[DesignatedInitializer]
+		IntPtr Constructor(NSCoder aDecoder);
+
 		// @property (readonly, nonatomic) CGSize intrinsicContentSize;
 		[Export("intrinsicContentSize")]
 		CGSize IntrinsicContentSize { get; }
