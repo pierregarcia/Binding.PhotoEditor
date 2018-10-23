@@ -1077,7 +1077,7 @@ namespace PhotoEditor
 		[Abstract]
 		[Export("newIndirectCommandBufferWithDescriptor:maxCommandCount:options:")]
 		[return: NullAllowed]
-		MTLIndirectCommandBuffer NewIndirectCommandBufferWithDescriptor(MTLIndirectCommandBufferDescriptor descriptor, nuint maxCount, MTLResourceOptions options);
+		MTLIndirectCommandBuffer NewIndirectCommandBufferWithDescriptor(PhotoEditor.MTLIndirectCommandBufferDescriptor descriptor, nuint maxCount, MTLResourceOptions options);
 
 		// @required -(id<MTLEvent> _Nullable)newEvent __attribute__((availability(ios, introduced=12.0))) __attribute__((availability(macos, introduced=10.14)));
 		[Mac(10, 14), iOS(12, 0)]
@@ -3276,6 +3276,30 @@ namespace PhotoEditor
 		[Export("popViewControllerAnimated:completion:")]
 		[return: NullAllowed]
 		PESDKPhotoEditToolController PopViewControllerAnimated(bool animated, [NullAllowed] Action completion);
+
+		// -(instancetype _Nullable)initWithData:(NSData * _Nonnull)data configuration:(PESDKConfiguration * _Nonnull)configuration __attribute__((deprecated("Use `init(photoAsset:configuration:)` instead.")));
+		[Export("initWithData:configuration:")]
+		IntPtr Constructor(NSData data, PESDKConfiguration configuration);
+
+		// -(instancetype _Nullable)initWithData:(NSData * _Nonnull)data configuration:(PESDKConfiguration * _Nonnull)configuration menuItems:(NSArray<PESDKPhotoEditMenuItem *> * _Nonnull)menuItems photoEditModel:(PESDKPhotoEditModel * _Nonnull)photoEditModel __attribute__((deprecated("Use `init(photoAsset:configuration:menuItems:photoEditModel:)` instead.")));
+		[Export("initWithData:configuration:menuItems:photoEditModel:")]
+		IntPtr Constructor(NSData data, PESDKConfiguration configuration, PESDKPhotoEditMenuItem[] menuItems, PESDKPhotoEditModel photoEditModel);
+
+		// -(instancetype _Nonnull)initWithPhoto:(UIImage * _Nonnull)photo configuration:(PESDKConfiguration * _Nonnull)configuration __attribute__((deprecated("Use `init(photoAsset:configuration:)` instead.")));
+		[Export("initWithPhoto:configuration:")]
+		IntPtr Constructor(UIImage photo, PESDKConfiguration configuration);
+
+		// -(instancetype _Nonnull)initWithPhoto:(UIImage * _Nonnull)photo configuration:(PESDKConfiguration * _Nonnull)configuration menuItems:(NSArray<PESDKPhotoEditMenuItem *> * _Nonnull)menuItems photoEditModel:(PESDKPhotoEditModel * _Nonnull)photoEditModel __attribute__((deprecated("Use `init(photoAsset:configuration:menuItems:photoEditModel:)` instead.")));
+		[Export("initWithPhoto:configuration:menuItems:photoEditModel:")]
+		IntPtr Constructor(UIImage photo, PESDKConfiguration configuration, PESDKPhotoEditMenuItem[] menuItems, PESDKPhotoEditModel photoEditModel);
+
+		// -(instancetype _Nonnull)initWithPhotoAsset:(PESDKPhoto * _Nonnull)photoAsset configuration:(PESDKConfiguration * _Nonnull)configuration;
+		[Export("initWithPhotoAsset:configuration:")]
+		IntPtr Constructor(PESDKPhoto photoAsset, PESDKConfiguration configuration);
+
+		// -(instancetype _Nonnull)initWithPhotoAsset:(PESDKPhoto * _Nonnull)photoAsset configuration:(PESDKConfiguration * _Nonnull)configuration menuItems:(NSArray<PESDKPhotoEditMenuItem *> * _Nonnull)menuItems photoEditModel:(PESDKPhotoEditModel * _Nonnull)photoEditModel;
+		[Export("initWithPhotoAsset:configuration:menuItems:photoEditModel:")]
+		IntPtr Constructor(PESDKPhoto photoAsset, PESDKConfiguration configuration, PESDKPhotoEditMenuItem[] menuItems, PESDKPhotoEditModel photoEditModel);
 	}
 
 	// @interface PESDKOverlayButton : PESDKButton
