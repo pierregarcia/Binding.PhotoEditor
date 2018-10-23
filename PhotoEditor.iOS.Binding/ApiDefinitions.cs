@@ -1077,7 +1077,7 @@ namespace PhotoEditor
 		[Abstract]
 		[Export("newIndirectCommandBufferWithDescriptor:maxCommandCount:options:")]
 		[return: NullAllowed]
-		MTLIndirectCommandBuffer NewIndirectCommandBufferWithDescriptor(PhotoEditor.MTLIndirectCommandBufferDescriptor descriptor, nuint maxCount, MTLResourceOptions options);
+		MTLIndirectCommandBuffer NewIndirectCommandBufferWithDescriptor(MTLIndirectCommandBufferDescriptorForBinding descriptor, nuint maxCount, MTLResourceOptions options);
 
 		// @required -(id<MTLEvent> _Nullable)newEvent __attribute__((availability(ios, introduced=12.0))) __attribute__((availability(macos, introduced=10.14)));
 		[Mac(10, 14), iOS(12, 0)]
@@ -1243,7 +1243,7 @@ namespace PhotoEditor
 	// @interface MTLIndirectCommandBufferDescriptor : NSObject
 	[Mac(10, 14), iOS(12, 0)]
 	[BaseType(typeof(NSObject))]
-	interface MTLIndirectCommandBufferDescriptor
+	interface MTLIndirectCommandBufferDescriptorForBinding
 	{
 		// @property (readwrite, nonatomic) MTLIndirectCommandType commandTypes;
 		[Export("commandTypes", ArgumentSemantic.Assign)]
@@ -3299,6 +3299,7 @@ namespace PhotoEditor
 
 		// -(instancetype _Nonnull)initWithPhotoAsset:(PESDKPhoto * _Nonnull)photoAsset configuration:(PESDKConfiguration * _Nonnull)configuration menuItems:(NSArray<PESDKPhotoEditMenuItem *> * _Nonnull)menuItems photoEditModel:(PESDKPhotoEditModel * _Nonnull)photoEditModel;
 		[Export("initWithPhotoAsset:configuration:menuItems:photoEditModel:")]
+		[DesignatedInitializer]
 		IntPtr Constructor(PESDKPhoto photoAsset, PESDKConfiguration configuration, PESDKPhotoEditMenuItem[] menuItems, PESDKPhotoEditModel photoEditModel);
 	}
 
