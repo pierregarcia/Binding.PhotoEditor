@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFrameworks>xamarinios10</TargetFrameworks>
-		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
 
 	<ItemGroup>
