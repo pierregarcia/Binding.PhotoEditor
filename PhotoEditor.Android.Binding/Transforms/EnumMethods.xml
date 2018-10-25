@@ -11,7 +11,7 @@
 	</mapping>
 	-->
 
-	<mapping jni-class="ly/img/android/sdk/operator/Priority">
+	<!--<mapping jni-class="ly/img/android/sdk/operator/Priority">
 		<method jni-name="getPriority" parameter="return" clr-enum-type="ly.img.android.sdk.operator.OperationPriority" />
-	</mapping>
+	</mapping>-->
 </enum-method-mappings>

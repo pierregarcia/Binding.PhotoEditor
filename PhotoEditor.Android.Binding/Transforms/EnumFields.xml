@@ -12,7 +12,7 @@
 	</mapping>
 	-->
   
-	<mapping jni-class="ly/img/android/sdk/operator/Priority" clr-enum-type="LY.Img.Android.Sdk.Operator.OperationPriority">
+	<!--<mapping jni-class="ly/img/android/sdk/operator/Priority" clr-enum-type="LY.Img.Android.Sdk.Operator.OperationPriority">
 		<field jni-name="LOAD" clr-name="Load" value="0" />
 		<field jni-name="ENHANCEMENT" clr-name="Enhancement" value="1" />
 		<field jni-name="FILTER" clr-name="Filter" value="2" />
@@ -25,5 +25,5 @@
 		<field jni-name="LAYER" clr-name="Layer" value="9" />
 		<field jni-name="SAVE" clr-name="Save" value="10" />
 		<field jni-name="SHOW" clr-name="Show" value="11" />
-	</mapping>
+	</mapping>-->
 </enum-field-mappings>

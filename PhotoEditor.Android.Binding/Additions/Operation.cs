@@ -140,7 +140,7 @@
 //		}
 //#pragma warning restore 0169
 
-//		protected abstract T RawPriority
+//		protected abstract LY.Img.Android.Sdk.Operator.OperationPriority RawPriority
 //		{
 //			// Metadata.xml XPath method reference: path="/api/package[@name='ly.img.android.sdk.operator.export']/class[@name='Operation']/method[@name='getPriority' and count(parameter)=0]"
 //			[global::Java.Interop.JavaTypeParameters(new string[] { "T extends java.lang.Enum" })]
@@ -160,7 +160,7 @@
 //		static int n_CompareTo_Lly_img_android_sdk_operator_export_Operation_(IntPtr jnienv, IntPtr native__this, IntPtr native_p0)
 //		{
 //			global::LY.Img.Android.Sdk.Operator.Export.Operation<T> __this = global::Java.Lang.Object.GetObject<global::LY.Img.Android.Sdk.Operator.Export.Operation<T>>(jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-//			global::LY.Img.Android.Sdk.Operator.Export.Operation<T> p0 = global::Java.Lang.Object.GetObject<global::LY.Img.Android.Sdk.Operator.Export.Operation<T>>(native_p0, JniHandleOwnership.DoNotTransfer);
+//			global::Java.Lang.Object p0 = global::Java.Lang.Object.GetObject<global::LY.Img.Android.Sdk.Operator.Export.Operation<T>>(native_p0, JniHandleOwnership.DoNotTransfer);
 //			int __ret = __this.CompareTo(p0);
 //			return __ret;
 //		}
@@ -169,7 +169,7 @@
 //		static IntPtr id_compareTo_Lly_img_android_sdk_operator_export_Operation_;
 //		// Metadata.xml XPath method reference: path="/api/package[@name='ly.img.android.sdk.operator.export']/class[@name='Operation']/method[@name='compareTo' and count(parameter)=1 and parameter[1][@type='ly.img.android.sdk.operator.export.Operation']]"
 //		[Register("compareTo", "(Lly/img/android/sdk/operator/export/Operation;)I", "GetCompareTo_Lly_img_android_sdk_operator_export_Operation_Handler")]
-//		public unsafe int CompareTo(global::LY.Img.Android.Sdk.Operator.Export.Operation<T> p0)
+//		public unsafe int CompareTo(global::Java.Lang.Object p0)
 //		{
 //			if (id_compareTo_Lly_img_android_sdk_operator_export_Operation_ == IntPtr.Zero)
 //				id_compareTo_Lly_img_android_sdk_operator_export_Operation_ = JNIEnv.GetMethodID(class_ref, "compareTo", "(Lly/img/android/sdk/operator/export/Operation;)I");
@@ -664,26 +664,26 @@
 //			}
 //		}
 
-//		static Delegate cb_compareTo_Ljava_lang_Object_;
-//#pragma warning disable 0169
-//		static Delegate GetCompareTo_Ljava_lang_Object_Handler()
-//		{
-//			if (cb_compareTo_Ljava_lang_Object_ == null)
-//				cb_compareTo_Ljava_lang_Object_ = JNINativeWrapper.CreateDelegate((Func<IntPtr, IntPtr, IntPtr, int>)n_CompareTo_Ljava_lang_Object_);
-//			return cb_compareTo_Ljava_lang_Object_;
-//		}
+//		//		static Delegate cb_compareTo_Ljava_lang_Object_;
+//		//#pragma warning disable 0169
+//		//		static Delegate GetCompareTo_Ljava_lang_Object_Handler()
+//		//		{
+//		//			if (cb_compareTo_Ljava_lang_Object_ == null)
+//		//				cb_compareTo_Ljava_lang_Object_ = JNINativeWrapper.CreateDelegate((Func<IntPtr, IntPtr, IntPtr, int>)n_CompareTo_Ljava_lang_Object_);
+//		//			return cb_compareTo_Ljava_lang_Object_;
+//		//		}
 
-//		static int n_CompareTo_Ljava_lang_Object_(IntPtr jnienv, IntPtr native__this, IntPtr native_o)
-//		{
-//			global::LY.Img.Android.Sdk.Operator.Export.Operation<T> __this = global::Java.Lang.Object.GetObject<global::LY.Img.Android.Sdk.Operator.Export.Operation<T>>(jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-//			global::Java.Lang.Object o = global::Java.Lang.Object.GetObject<global::Java.Lang.Object>(native_o, JniHandleOwnership.DoNotTransfer);
-//			int __ret = __this.CompareTo(o);
-//			return __ret;
-//		}
-//#pragma warning restore 0169
+//		//		static int n_CompareTo_Ljava_lang_Object_(IntPtr jnienv, IntPtr native__this, IntPtr native_o)
+//		//		{
+//		//			global::LY.Img.Android.Sdk.Operator.Export.Operation<T> __this = global::Java.Lang.Object.GetObject<global::LY.Img.Android.Sdk.Operator.Export.Operation<T>>(jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+//		//			global::Java.Lang.Object o = global::Java.Lang.Object.GetObject<global::Java.Lang.Object>(native_o, JniHandleOwnership.DoNotTransfer);
+//		//			int __ret = __this.CompareTo(o);
+//		//			return __ret;
+//		//		}
+//		//#pragma warning restore 0169
 
-//		[Register("compareTo", "(Ljava/lang/Object;)I", "GetCompareTo_Ljava_lang_Object_Handler")]
-//		public abstract global::System.Int32 CompareTo(global::Java.Lang.Object o);
+//		//		[Register("compareTo", "(Ljava/lang/Object;)I", "GetCompareTo_Ljava_lang_Object_Handler")]
+//		//		public abstract global::System.Int32 CompareTo(global::Java.Lang.Object o);
 
 //	}
 
@@ -822,23 +822,23 @@
 //			}
 //		}
 
-//		static IntPtr id_compareTo_Ljava_lang_Object_;
-//		[Register("compareTo", "(Ljava/lang/Object;)I", "GetCompareTo_Ljava_lang_Object_Handler")]
-//		public override unsafe global::System.Int32 CompareTo(global::Java.Lang.Object o)
-//		{
-//			if (id_compareTo_Ljava_lang_Object_ == IntPtr.Zero)
-//				id_compareTo_Ljava_lang_Object_ = JNIEnv.GetMethodID(class_ref, "compareTo", "(Ljava/lang/Object;)I");
-//			try
-//			{
-//				JValue* __args = stackalloc JValue[1];
-//				__args[0] = new JValue(o);
-//				global::System.Int32 __ret = JNIEnv.CallIntMethod(((global::Java.Lang.Object)this).Handle, id_compareTo_Ljava_lang_Object_, __args);
-//				return __ret;
-//			}
-//			finally
-//			{
-//			}
-//		}
+//		//static IntPtr id_compareTo_Ljava_lang_Object_;
+//		//[Register("compareTo", "(Ljava/lang/Object;)I", "GetCompareTo_Ljava_lang_Object_Handler")]
+//		//public override unsafe global::System.Int32 CompareTo(global::Java.Lang.Object o)
+//		//{
+//		//	if (id_compareTo_Ljava_lang_Object_ == IntPtr.Zero)
+//		//		id_compareTo_Ljava_lang_Object_ = JNIEnv.GetMethodID(class_ref, "compareTo", "(Ljava/lang/Object;)I");
+//		//	try
+//		//	{
+//		//		JValue* __args = stackalloc JValue[1];
+//		//		__args[0] = new JValue(o);
+//		//		global::System.Int32 __ret = JNIEnv.CallIntMethod(((global::Java.Lang.Object)this).Handle, id_compareTo_Ljava_lang_Object_, __args);
+//		//		return __ret;
+//		//	}
+//		//	finally
+//		//	{
+//		//	}
+//		//}
 
 //	}
 

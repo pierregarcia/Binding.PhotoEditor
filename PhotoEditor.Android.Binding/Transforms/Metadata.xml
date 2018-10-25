@@ -2,7 +2,7 @@
 
 	<!-- Error fixing -->
 	<attr path="/api/package[@name='ly.img.android.sdk.decoder.system']/class[@name='NativeSupportedDecoder']/method[@name='decodeSize' and count(parameter)=0]" name="visibility">protected</attr>
-	<attr path="/api/package[@name='ly.img.android.sdk.operator.preview']/class[@name='GlAdjustOperation']/method[@name='doOperation' and count(parameter)=1 and parameter[1][@type='ly.img.android.opengl.textures.GlTexture']]" name="visibility">protected</attr>
+	<!--<attr path="/api/package[@name='ly.img.android.sdk.operator.preview']/class[@name='GlAdjustOperation']/method[@name='doOperation' and count(parameter)=1 and parameter[1][@type='ly.img.android.opengl.textures.GlTexture']]" name="visibility">protected</attr>
 	<attr path="/api/package[@name='ly.img.android.sdk.operator.preview']/class[@name='GlCameraDrawOperation']/method[@name='doOperation' and count(parameter)=3 and parameter[1][@type='ly.img.android.opengl.textures.GlTexture'] and parameter[2][@type='boolean'] and parameter[3][@type='ly.img.android.opengl.textures.GlFrameBufferTexture']]" name="visibility">protected</attr>
 	<attr path="/api/package[@name='ly.img.android.sdk.operator.preview']/class[@name='GlCameraInputCorrectionOperation']/method[@name='doOperation' and count(parameter)=1 and parameter[1][@type='ly.img.android.opengl.textures.GlTexture']]" name="visibility">protected</attr>
 	<attr path="/api/package[@name='ly.img.android.sdk.operator.preview']/class[@name='GlFocusOperation']/method[@name='doOperation' and count(parameter)=1 and parameter[1][@type='ly.img.android.opengl.textures.GlTexture']]" name="visibility">protected</attr>
@@ -10,16 +10,44 @@
 	<attr path="/api/package[@name='ly.img.android.sdk.operator.preview']/class[@name='GlLoadOperation']/method[@name='doOperation' and count(parameter)=1 and parameter[1][@type='ly.img.android.opengl.textures.GlTexture']]" name="visibility">protected</attr>
 	<attr path="/api/package[@name='ly.img.android.sdk.operator.preview']/class[@name='GlOperation']/method[@name='onRelease' and count(parameter)=0]" name="visibility">protected</attr>
 	<attr path="/api/package[@name='ly.img.android.sdk.operator.preview']/class[@name='GlClarityOperation']/method[@name='doOperation' and count(parameter)=1 and parameter[1][@type='ly.img.android.opengl.textures.GlTexture']]" name="visibility">protected</attr>
-	<attr path="/api/package[@name='ly.img.android.sdk.operator.preview']/class[@name='GlFilterOperation']/method[@name='doOperation' and count(parameter)=1 and parameter[1][@type='ly.img.android.opengl.textures.GlTexture']]" name="visibility">protected</attr>
+	<attr path="/api/package[@name='ly.img.android.sdk.operator.preview']/class[@name='GlFilterOperation']/method[@name='doOperation' and count(parameter)=1 and parameter[1][@type='ly.img.android.opengl.textures.GlTexture']]" name="visibility">protected</attr>-->
 	
-	<attr path="/api/package[@name='ly.img.android.opengl.programs']/class[@name[starts-with(., 'GlProgramBase_')]]" name="visibility">public</attr>
+	<!--<attr path="/api/package[@name='ly.img.android.opengl.programs']/class[@name[starts-with(., 'GlProgramBase_')]]" name="visibility">public</attr>-->
 	
-	<attr path="/api/package[@name='ly.img.android.sdk.exif']/class[@name='IOUtils']/method[@name='closeQuietly' and count(parameter)=1 and parameter[1][@type='java.io.InputStream']]" name="managedName">closeQuietlyInput</attr>
+	<!--<attr path="/api/package[@name='ly.img.android.sdk.exif']/class[@name='IOUtils']/method[@name='closeQuietly' and count(parameter)=1 and parameter[1][@type='java.io.InputStream']]" name="managedName">closeQuietlyInput</attr>
 	<attr path="/api/package[@name='ly.img.android.sdk.exif']/class[@name='IOUtils']/method[@name='closeQuietly' and count(parameter)=1 and parameter[1][@type='java.io.OutputStream']]" name="managedName">closeQuietlyOutput</attr>
-	<attr path="/api/package[@name='ly.img.android.sdk.exif']/class[@name='Exify']/method[@name='getJpegProcess' and count(parameter)=0]" name="managedName">JpegProcessId</attr>
+	<attr path="/api/package[@name='ly.img.android.sdk.exif']/class[@name='Exify']/method[@name='getJpegProcess' and count(parameter)=0]" name="managedName">JpegProcessId</attr>-->
+	<attr path="/api/package[@name='ly.img.android.sdk.models.state.manager']/class[@name='SettingsList']/field[@name='settingsList']" name="managedName">SettingsListDict</attr>
 
 	<remove-node path="/api/package[@name='ly.img.android.sdk.utils']/class[@name='ThreadUtils.WorkerThreadRunnable']/method[@name='run' and count(parameter)=0]"/>
 	<remove-node path="/api/package[@name='ly.img.android.sdk.utils']/class[@name='ThreadUtils.MainThreadRunnable']/method[@name='run' and count(parameter)=0]"/>
+
+	<remove-node path="/api/package[@name='ly.img.android.sdk.utils']/class[@name='CallSet']"/>
+	<remove-node path="/api/package[@name='ly.img.android.sdk.utils']/class[@name='WeakCallSet']"/>
+
+	<remove-node path="/api/package[@name='ly.img.android.sdk.models.state.manager']/class[@name='StateHandler']"/>
+	<remove-node path="/api/package[@name='ly.img.android.sdk.models.state.manager']/class[@name='StateListener']"/>
+
+	<remove-node path="/api/package[starts-with(@name, 'ly.img.android.acs')]"/>
+	<remove-node path="/api/package[starts-with(@name, 'ly.img.android.events')]"/>
+	<remove-node path="/api/package[starts-with(@name, 'ly.img.android.opengl')]"/>
+	<remove-node path="/api/package[starts-with(@name, 'ly.img.android.rs')]"/>
+
+	<remove-node path="/api/package[starts-with(@name, 'ly.img.android.sdk.annotations')]"/>
+	<remove-node path="/api/package[starts-with(@name, 'ly.img.android.sdk.brush')]"/>
+	<remove-node path="/api/package[starts-with(@name, 'ly.img.android.sdk.encoder')]"/>
+	<remove-node path="/api/package[starts-with(@name, 'ly.img.android.sdk.exif')]"/>
+	<remove-node path="/api/package[starts-with(@name, 'ly.img.android.sdk.filter')]"/>
+	<remove-node path="/api/package[starts-with(@name, 'ly.img.android.sdk.layer')]"/>
+	<remove-node path="/api/package[starts-with(@name, 'ly.img.android.sdk.operator')]"/>
+	<remove-node path="/api/package[starts-with(@name, 'ly.img.android.sdk.renderer')]"/>
+	<remove-node path="/api/package[starts-with(@name, 'ly.img.android.sdk.text')]"/>
+	<remove-node path="/api/package[starts-with(@name, 'ly.img.android.sdk.views')]"/>
+
+	<remove-node path="/api/package[starts-with(@name, 'ly.img.android.ui.adpater')]"/>
+	<remove-node path="/api/package[starts-with(@name, 'ly.img.android.ui.panels')]"/>
+	<remove-node path="/api/package[starts-with(@name, 'ly.img.android.ui.viewholder')]"/>
+	<remove-node path="/api/package[starts-with(@name, 'ly.img.android.ui.widgets')]"/>
 
 	<add-node path="/api/package[@name='ly.img.android.sdk.models.chunk']/interface[@name='RequestI']">
 		<method abstract="true" deprecated="not deprecated" final="false" name="getMatrix" native="false" return="android.graphics.Matrix" static="false" synchronized="false" visibility="public">

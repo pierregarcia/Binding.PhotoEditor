@@ -250,7 +250,7 @@
 //		static bool n_Add_Lly_img_android_sdk_operator_export_Operation_(IntPtr jnienv, IntPtr native__this, IntPtr native_p0)
 //		{
 //			global::LY.Img.Android.Sdk.Operator.Export.Operator __this = global::Java.Lang.Object.GetObject<global::LY.Img.Android.Sdk.Operator.Export.Operator>(jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-//			global::LY.Img.Android.Sdk.Operator.Export.OperationInvoker p0 = global::Java.Lang.Object.GetObject<global::LY.Img.Android.Sdk.Operator.Export.OperationInvoker>(native_p0, JniHandleOwnership.DoNotTransfer);
+//			global::LY.Img.Android.Sdk.Operator.Export.Operation p0 = global::Java.Lang.Object.GetObject<global::LY.Img.Android.Sdk.Operator.Export.Operation>(native_p0, JniHandleOwnership.DoNotTransfer);
 //			bool __ret = __this.Add(p0);
 //			return __ret;
 //		}
@@ -260,7 +260,7 @@
 //		// Metadata.xml XPath method reference: path="/api/package[@name='ly.img.android.sdk.operator.export']/class[@name='Operator']/method[@name='add' and count(parameter)=1 and parameter[1][@type='ly.img.android.sdk.operator.export.Operation']]"
 //		[Obsolete(@"deprecated")]
 //		[Register("add", "(Lly/img/android/sdk/operator/export/Operation;)Z", "GetAdd_Lly_img_android_sdk_operator_export_Operation_Handler")]
-//		public virtual unsafe bool Add(global::LY.Img.Android.Sdk.Operator.Export.OperationInvoker p0)
+//		public virtual unsafe bool Add(global::LY.Img.Android.Sdk.Operator.Export.Operation p0)
 //		{
 //			if (id_add_Lly_img_android_sdk_operator_export_Operation_ == IntPtr.Zero)
 //				id_add_Lly_img_android_sdk_operator_export_Operation_ = JNIEnv.GetMethodID(class_ref, "add", "(Lly/img/android/sdk/operator/export/Operation;)Z");
@@ -293,8 +293,8 @@
 //		static void n_BindOperation_Lly_img_android_sdk_operator_export_Operation_arrayLly_img_android_sdk_operator_export_Operation_(IntPtr jnienv, IntPtr native__this, IntPtr native_p0, IntPtr native_p1)
 //		{
 //			global::LY.Img.Android.Sdk.Operator.Export.Operator __this = global::Java.Lang.Object.GetObject<global::LY.Img.Android.Sdk.Operator.Export.Operator>(jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-//			global::LY.Img.Android.Sdk.Operator.Export.OperationInvoker p0 = global::Java.Lang.Object.GetObject<global::LY.Img.Android.Sdk.Operator.Export.OperationInvoker>(native_p0, JniHandleOwnership.DoNotTransfer);
-//			global::LY.Img.Android.Sdk.Operator.Export.OperationInvoker[] p1 = (global::LY.Img.Android.Sdk.Operator.Export.OperationInvoker[])JNIEnv.GetArray(native_p1, JniHandleOwnership.DoNotTransfer, typeof(global::LY.Img.Android.Sdk.Operator.Export.OperationInvoker));
+//			global::LY.Img.Android.Sdk.Operator.Export.Operation p0 = global::Java.Lang.Object.GetObject<global::LY.Img.Android.Sdk.Operator.Export.Operation>(native_p0, JniHandleOwnership.DoNotTransfer);
+//			global::LY.Img.Android.Sdk.Operator.Export.Operation[] p1 = (global::LY.Img.Android.Sdk.Operator.Export.Operation[])JNIEnv.GetArray(native_p1, JniHandleOwnership.DoNotTransfer, typeof(global::LY.Img.Android.Sdk.Operator.Export.Operation));
 //			__this.BindOperation(p0, p1);
 //			if (p1 != null)
 //				JNIEnv.CopyArray(p1, native_p1);
@@ -304,7 +304,7 @@
 //		static IntPtr id_bindOperation_Lly_img_android_sdk_operator_export_Operation_arrayLly_img_android_sdk_operator_export_Operation_;
 //		// Metadata.xml XPath method reference: path="/api/package[@name='ly.img.android.sdk.operator.export']/class[@name='Operator']/method[@name='bindOperation' and count(parameter)=2 and parameter[1][@type='ly.img.android.sdk.operator.export.Operation'] and parameter[2][@type='ly.img.android.sdk.operator.export.Operation...']]"
 //		[Register("bindOperation", "(Lly/img/android/sdk/operator/export/Operation;[Lly/img/android/sdk/operator/export/Operation;)V", "GetBindOperation_Lly_img_android_sdk_operator_export_Operation_arrayLly_img_android_sdk_operator_export_Operation_Handler")]
-//		public virtual unsafe void BindOperation(global::LY.Img.Android.Sdk.Operator.Export.OperationInvoker p0, params global::LY.Img.Android.Sdk.Operator.Export.OperationInvoker[] p1)
+//		public virtual unsafe void BindOperation(global::LY.Img.Android.Sdk.Operator.Export.Operation p0, params global::LY.Img.Android.Sdk.Operator.Export.Operation[] p1)
 //		{
 //			if (id_bindOperation_Lly_img_android_sdk_operator_export_Operation_arrayLly_img_android_sdk_operator_export_Operation_ == IntPtr.Zero)
 //				id_bindOperation_Lly_img_android_sdk_operator_export_Operation_arrayLly_img_android_sdk_operator_export_Operation_ = JNIEnv.GetMethodID(class_ref, "bindOperation", "(Lly/img/android/sdk/operator/export/Operation;[Lly/img/android/sdk/operator/export/Operation;)V");
@@ -342,7 +342,7 @@
 //		static IntPtr n_Ceiling_Lly_img_android_sdk_operator_export_Operation_(IntPtr jnienv, IntPtr native__this, IntPtr native_p0)
 //		{
 //			global::LY.Img.Android.Sdk.Operator.Export.Operator __this = global::Java.Lang.Object.GetObject<global::LY.Img.Android.Sdk.Operator.Export.Operator>(jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-//			global::LY.Img.Android.Sdk.Operator.Export.OperationInvoker p0 = global::Java.Lang.Object.GetObject<global::LY.Img.Android.Sdk.Operator.Export.OperationInvoker>(native_p0, JniHandleOwnership.DoNotTransfer);
+//			global::LY.Img.Android.Sdk.Operator.Export.Operation p0 = global::Java.Lang.Object.GetObject<global::LY.Img.Android.Sdk.Operator.Export.Operation>(native_p0, JniHandleOwnership.DoNotTransfer);
 //			IntPtr __ret = JNIEnv.ToLocalJniHandle(__this.Ceiling(p0));
 //			return __ret;
 //		}
@@ -352,7 +352,7 @@
 //		// Metadata.xml XPath method reference: path="/api/package[@name='ly.img.android.sdk.operator.export']/class[@name='Operator']/method[@name='ceiling' and count(parameter)=1 and parameter[1][@type='ly.img.android.sdk.operator.export.Operation']]"
 //		[Obsolete(@"deprecated")]
 //		[Register("ceiling", "(Lly/img/android/sdk/operator/export/Operation;)Lly/img/android/sdk/operator/export/Operation;", "GetCeiling_Lly_img_android_sdk_operator_export_Operation_Handler")]
-//		public virtual unsafe global::LY.Img.Android.Sdk.Operator.Export.OperationInvoker Ceiling(global::LY.Img.Android.Sdk.Operator.Export.OperationInvoker p0)
+//		public virtual unsafe global::LY.Img.Android.Sdk.Operator.Export.Operation Ceiling(global::LY.Img.Android.Sdk.Operator.Export.Operation p0)
 //		{
 //			if (id_ceiling_Lly_img_android_sdk_operator_export_Operation_ == IntPtr.Zero)
 //				id_ceiling_Lly_img_android_sdk_operator_export_Operation_ = JNIEnv.GetMethodID(class_ref, "ceiling", "(Lly/img/android/sdk/operator/export/Operation;)Lly/img/android/sdk/operator/export/Operation;");
@@ -361,11 +361,11 @@
 //				JValue* __args = stackalloc JValue[1];
 //				__args[0] = new JValue(p0);
 
-//				global::LY.Img.Android.Sdk.Operator.Export.OperationInvoker __ret;
+//				global::LY.Img.Android.Sdk.Operator.Export.Operation __ret;
 //				if (((object)this).GetType() == ThresholdType)
-//					__ret = global::Java.Lang.Object.GetObject<global::LY.Img.Android.Sdk.Operator.Export.OperationInvoker>(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_ceiling_Lly_img_android_sdk_operator_export_Operation_, __args), JniHandleOwnership.TransferLocalRef);
+//					__ret = global::Java.Lang.Object.GetObject<global::LY.Img.Android.Sdk.Operator.Export.Operation>(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_ceiling_Lly_img_android_sdk_operator_export_Operation_, __args), JniHandleOwnership.TransferLocalRef);
 //				else
-//					__ret = global::Java.Lang.Object.GetObject<global::LY.Img.Android.Sdk.Operator.Export.OperationInvoker>(JNIEnv.CallNonvirtualObjectMethod(((global::Java.Lang.Object)this).Handle, ThresholdClass, JNIEnv.GetMethodID(ThresholdClass, "ceiling", "(Lly/img/android/sdk/operator/export/Operation;)Lly/img/android/sdk/operator/export/Operation;"), __args), JniHandleOwnership.TransferLocalRef);
+//					__ret = global::Java.Lang.Object.GetObject<global::LY.Img.Android.Sdk.Operator.Export.Operation>(JNIEnv.CallNonvirtualObjectMethod(((global::Java.Lang.Object)this).Handle, ThresholdClass, JNIEnv.GetMethodID(ThresholdClass, "ceiling", "(Lly/img/android/sdk/operator/export/Operation;)Lly/img/android/sdk/operator/export/Operation;"), __args), JniHandleOwnership.TransferLocalRef);
 //				return __ret;
 //			}
 //			finally
