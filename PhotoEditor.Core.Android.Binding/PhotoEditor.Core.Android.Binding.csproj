@@ -8,17 +8,16 @@
 	<Import Project="../Xamarin.Android.Common.props" />
 
 	<ItemGroup>
-		<LibraryProjectZip Include="Jars/photo-editor-sdk-5.1.8.aar" />
-		<PackageReference Include="Xamarin.Android.Support.v4" Version="25.3.1" />
-		<PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="25.3.1" />
-		<PackageReference Include="Xamarin.Android.Support.v7.RecyclerView" Version="25.3.1" />
+		<LibraryProjectZip Include="Jars/core-6.0.8.aar" />
+		<PackageReference Include="Xamarin.Android.Support.v4" Version="27.0.2.1" />
+		<PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="27.0.2.1" />
+		<PackageReference Include="Xamarin.Android.Support.v8.RenderScript" Version="27.0.2.1" />
 		<Reference Include="Mono.Android" />
 	</ItemGroup>
+
 	<ItemGroup>
 		<TransformFile Include="Transforms\Metadata.xml" />
-		<TransformFile Include="Transforms\EnumFields.xml" />
-		<TransformFile Include="Transforms\EnumMethods.xml" />
 	</ItemGroup>
-	
+
 	<Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
 </Project>

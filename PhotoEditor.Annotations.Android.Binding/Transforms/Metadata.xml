@@ -1,0 +1,11 @@
+<metadata>
+
+	<!-- Error fixing -->
+	<remove-node path="/api/package[starts-with(@name, 'ly.img.android.events')]"/>
+	<remove-node path="/api/package[starts-with(@name, 'ly.img.android.opengl')]"/>
+	<remove-node path="/api/package[starts-with(@name, 'ly.img.android.rs')]"/>
+
+	<remove-node path="/api/package[starts-with(@name, 'ly.img.android.pesdk.kotlin')]"/>
+	<remove-node path="/api/package[starts-with(@name, 'ly.img.android.pesdk.backend')]"/>
+
+</metadata>
