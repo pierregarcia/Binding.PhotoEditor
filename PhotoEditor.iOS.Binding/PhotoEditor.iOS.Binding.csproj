@@ -15,15 +15,6 @@
 	</ItemGroup>
 	
 	<ItemGroup>
-		<Compile Remove="ApiDefinitions.cs" />
-		<Compile Remove="StructsAndEnums.cs" />
-		<None Include="ApiDefinitions.cs" />
-		<None Include="StructsAndEnums.cs" />
-		<ObjcBindingApiDefinition Include="ApiDefinitions.cs" />
-		<ObjcBindingCoreSource Include="StructsAndEnums.cs" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<NativeReference Include="PhotoEditorSDK.framework">
 			<Kind>Framework</Kind>
 			<Frameworks>Foundation CoreGraphics CoreMedia UIKit</Frameworks>
@@ -32,7 +23,16 @@
 		</NativeReference>
 	</ItemGroup>
 
-
+	<ItemGroup>
+	  <Compile Remove="ApiDefinitions.cs" />
+	  <Compile Remove="StructsAndEnums.cs" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ObjcBindingApiDefinition Include="ApiDefinitions.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
+	</ItemGroup>
+	<ItemGroup>
+	  <ObjcBindingCoreSource Include="StructsAndEnums.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
+	</ItemGroup>
 	<Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 
 	<!-- Copied from C:\Program Files (x86)\Microsoft Visual Studio\Preview\Professional\MSBuild\15.0\Bin\Microsoft.Common.CurrentVersion.targets -->
@@ -71,7 +71,7 @@
 
 		<!-- Convert intermediate items into final items; this way we can get the full path for each item -->
 		<ItemGroup>
-			<BuiltProjectOutputGroupOutput Include="@(_BuiltProjectOutputGroupOutputIntermediate->'%(FullPath)')">
+			<BuiltProjectOutputGroupOutput Include="@(_BuiltProjectOutputGroupOutputIntermediate-&gt;'%(FullPath)')">
 				<!-- For compatibility with 2.0 -->
 				<OriginalItemSpec Condition="'%(_BuiltProjectOutputGroupOutputIntermediate.OriginalItemSpec)' == ''">%(_BuiltProjectOutputGroupOutputIntermediate.FullPath)</OriginalItemSpec>
 			</BuiltProjectOutputGroupOutput>
