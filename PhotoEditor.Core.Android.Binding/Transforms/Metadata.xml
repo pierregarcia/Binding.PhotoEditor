@@ -17,7 +17,10 @@
 	<!--<attr path="/api/package[@name='ly.img.android.sdk.exif']/class[@name='IOUtils']/method[@name='closeQuietly' and count(parameter)=1 and parameter[1][@type='java.io.InputStream']]" name="managedName">closeQuietlyInput</attr>
 	<attr path="/api/package[@name='ly.img.android.sdk.exif']/class[@name='IOUtils']/method[@name='closeQuietly' and count(parameter)=1 and parameter[1][@type='java.io.OutputStream']]" name="managedName">closeQuietlyOutput</attr>
 	<attr path="/api/package[@name='ly.img.android.sdk.exif']/class[@name='Exify']/method[@name='getJpegProcess' and count(parameter)=0]" name="managedName">JpegProcessId</attr>-->
-	<!--<attr path="/api/package[@name='ly.img.android.pesdk.models.state.manager']/class[@name='SettingsList']/field[@name='settingsList']" name="managedName">SettingsListDict</attr>-->
+
+	<attr path="/api/package[@name='ly.img.android.pesdk.backend.decoder.system']/class[@name='NativeSupportedDecoder']/method[@name='decodeSize' and count(parameter)=0]" name="visibility">protected</attr>
+
+	<attr path="/api/package[@name='ly.img.android.pesdk.backend.model.state.manager']/class[@name='SettingsList']/field[@name='settingsList']" name="managedName">SettingsListDict</attr>
 
 	<remove-node path="/api/package[@name='ly.img.android.pesdk.utils']/class[@name='ThreadUtils.WorkerThreadRunnable']/method[@name='run' and count(parameter)=0]"/>
 	<remove-node path="/api/package[@name='ly.img.android.pesdk.utils']/class[@name='ThreadUtils.MainThreadRunnable']/method[@name='run' and count(parameter)=0]"/>
@@ -25,8 +28,9 @@
 	<remove-node path="/api/package[@name='ly.img.android.pesdk.utils']/class[@name='CallSet']"/>
 	<remove-node path="/api/package[@name='ly.img.android.pesdk.utils']/class[@name='WeakCallSet']"/>
 
-	<remove-node path="/api/package[@name='ly.img.android.pesdk.models.state.manager']/class[@name='StateHandler']"/>
-	<remove-node path="/api/package[@name='ly.img.android.pesdk.models.state.manager']/class[@name='StateListener']"/>
+	<remove-node path="/api/package[@name='ly.img.android.pesdk.backend.model.state.manager']/class[@name='StateHandler']"/>
+	<remove-node path="/api/package[@name='ly.img.android.pesdk.backend.model.state.manager']/class[@name='StateListener']"/>
+	<remove-node path="/api/package[@name='ly.img.android.pesdk.backend.model.state.manager']/class[@name='LayerList']"/>
 
 	<!--<remove-node path="/api/package[starts-with(@name, 'ly.img.android.acs')]"/>-->
 	<remove-node path="/api/package[starts-with(@name, 'ly.img.android.events')]"/>

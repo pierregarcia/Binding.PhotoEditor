@@ -3,12 +3,11 @@ using Android.Widget;
 using Android.OS;
 using Android.Content.PM;
 using Android.Views;
-using LY.Img.Android.Pesdk..Sdk.Models.State.Manager;
-using LY.Img.Android.UI.Activities;
-using LY.Img.Android.Sdk.Models.State;
 using System;
-using LY.Img.Android.Sdk.Models.Constant;
 using LY.Img.Android;
+using LY.Img.Android.Pesdk.Backend.Model.State.Manager;
+using LY.Img.Android.Pesdk.Backend.Model.State;
+using LY.Img.Android.Pesdk.Backend.Model.Constant;
 
 namespace PhotoEditor.Uno.Samples.Droid
 {

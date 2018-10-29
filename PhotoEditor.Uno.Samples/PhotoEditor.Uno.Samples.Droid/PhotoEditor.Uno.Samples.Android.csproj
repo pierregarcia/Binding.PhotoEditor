@@ -66,7 +66,7 @@
     <Compile Include="Main.cs" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\android_license" />
+    <None Include="Assets\LICENSE" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>
