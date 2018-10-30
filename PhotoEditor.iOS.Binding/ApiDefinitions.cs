@@ -1105,16 +1105,6 @@ namespace PhotoEditor
 		nuint MaxBufferLength { get; }
 	}
 
-	// @interface MTLSharedEventHandle : NSObject <NSSecureCoding>
-	[Mac(10, 14), iOS(12, 0)]
-	[BaseType(typeof(NSObject))]
-	interface MTLSharedEventHandle : INSSecureCoding
-	{
-		// @property (readonly) NSString * _Nullable label;
-		[NullAllowed, Export("label")]
-		string Label { get; }
-	}
-
 	// @protocol MTLSharedEvent <MTLEvent>
 	[Mac(10, 14), iOS(12, 0)]
 	[BaseType(typeof(NSObject))]
@@ -1136,21 +1126,6 @@ namespace PhotoEditor
 		[Abstract]
 		[Export("signaledValue")]
 		ulong SignaledValue { get; set; }
-	}
-
-	// @interface MTLSharedEventListener : NSObject
-	[Mac(10, 14), iOS(12, 0)]
-	[BaseType(typeof(NSObject))]
-	interface MTLSharedEventListener
-	{
-		// -(instancetype _Nonnull)initWithDispatchQueue:(dispatch_queue_t _Nonnull)dispatchQueue __attribute__((objc_designated_initializer));
-		[Export("initWithDispatchQueue:")]
-		[DesignatedInitializer]
-		IntPtr Constructor(DispatchQueue dispatchQueue);
-
-		// @property (readonly) dispatch_queue_t _Nonnull dispatchQueue;
-		[Export("dispatchQueue")]
-		DispatchQueue DispatchQueue { get; }
 	}
 
 	// @protocol MTLEvent <NSObject>
