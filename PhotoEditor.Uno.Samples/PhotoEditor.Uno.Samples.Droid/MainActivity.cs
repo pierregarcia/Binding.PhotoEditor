@@ -8,6 +8,7 @@ using LY.Img.Android;
 using LY.Img.Android.Pesdk.Backend.Model.State.Manager;
 using LY.Img.Android.Pesdk.Backend.Model.State;
 using LY.Img.Android.Pesdk.Backend.Model.Constant;
+using LY.Img.Android.Pesdk.UI.Activity;
 
 namespace PhotoEditor.Uno.Samples.Droid
 {
@@ -21,8 +22,6 @@ namespace PhotoEditor.Uno.Samples.Droid
 		protected override void OnCreate(Bundle bundle)
 		{
 			base.OnCreate(bundle);
-
-			//PESDK.Init(this, "android_license");
 
 			SettingsList settingsList = new SettingsList();
 

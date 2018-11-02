@@ -15,7 +15,6 @@
     <AndroidApplication>true</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-    <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <AndroidUseIntermediateDesignerFile>True</AndroidUseIntermediateDesignerFile>
@@ -66,7 +65,7 @@
     <Compile Include="Main.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\LICENSE" />
+    <AndroidAsset Include="Assets\LICENSE" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>
@@ -96,6 +95,14 @@
     <ProjectReference Include="..\..\PhotoEditor.Core.Android.Binding\PhotoEditor.Core.Android.Binding.csproj">
       <Project>{dc146f33-e770-4dbc-8123-51dd2ae498d0}</Project>
       <Name>PhotoEditor.Core.Android.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\PhotoEditor.UI.Android.Binding\PhotoEditor.UI.Android.Binding.csproj">
+      <Project>{7618b747-7cc5-4031-96cf-71f09a388409}</Project>
+      <Name>PhotoEditor.UI.Android.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\PhotoEditor.UI.Core.Android.Binding\PhotoEditor.UI.Core.Android.Binding.csproj">
+      <Project>{21f895ea-3448-470b-a8ee-b965bf6faa6c}</Project>
+      <Name>PhotoEditor.UI.Core.Android.Binding</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="..\PhotoEditor.Uno.Samples.Shared\PhotoEditor.Uno.Samples.Shared.projitems" Label="Shared" Condition="Exists('..\PhotoEditor.Uno.Samples.Shared\PhotoEditor.Uno.Samples.Shared.projitems')" />
