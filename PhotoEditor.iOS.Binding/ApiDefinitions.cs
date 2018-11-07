@@ -34,6 +34,7 @@ namespace PhotoEditor
 	// @interface PESDK : NSObject
 	[iOS(9, 0)]
 	[BaseType(typeof(NSObject))]
+    [Model]
 	interface PESDK
 	{
 		// +(void)unlockWithLicenseAt:(NSURL * _Nonnull)url;
@@ -1077,7 +1078,7 @@ namespace PhotoEditor
 		[Abstract]
 		[Export("newIndirectCommandBufferWithDescriptor:maxCommandCount:options:")]
 		[return: NullAllowed]
-		MTLIndirectCommandBuffer NewIndirectCommandBufferWithDescriptor(MTLIndirectCommandBufferDescriptorForBinding descriptor, nuint maxCount, MTLResourceOptions options);
+		MTLIndirectCommandBuffer NewIndirectCommandBufferWithDescriptor(MTLIndirectCommandBufferDescriptor descriptor, nuint maxCount, MTLResourceOptions options);
 
 		// @required -(id<MTLEvent> _Nullable)newEvent __attribute__((availability(ios, introduced=12.0))) __attribute__((availability(macos, introduced=10.14)));
 		[Mac(10, 14), iOS(12, 0)]
@@ -1215,32 +1216,32 @@ namespace PhotoEditor
 		void Reset();
 	}
 
-	// @interface MTLIndirectCommandBufferDescriptor : NSObject
-	[Mac(10, 14), iOS(12, 0)]
-	[BaseType(typeof(NSObject))]
-	interface MTLIndirectCommandBufferDescriptorForBinding
-	{
-		// @property (readwrite, nonatomic) MTLIndirectCommandType commandTypes;
-		[Export("commandTypes", ArgumentSemantic.Assign)]
-		MTLIndirectCommandType CommandTypes { get; set; }
+	//// @interface MTLIndirectCommandBufferDescriptor : NSObject
+	//[Mac(10, 14), iOS(12, 0)]
+	//[BaseType(typeof(NSObject))]
+	//interface MTLIndirectCommandBufferDescriptor
+	//{
+	//	// @property (readwrite, nonatomic) MTLIndirectCommandType commandTypes;
+	//	[Export("commandTypes", ArgumentSemantic.Assign)]
+	//	MTLIndirectCommandType CommandTypes { get; set; }
 
-		// @property (readwrite, nonatomic) BOOL inheritPipelineState __attribute__((availability(ios, unavailable))) __attribute__((availability(macos, introduced=10.14)));
-		[NoiOS, Mac(10, 14)]
-		[Export("inheritPipelineState")]
-		bool InheritPipelineState { get; set; }
+	//	// @property (readwrite, nonatomic) BOOL inheritPipelineState __attribute__((availability(ios, unavailable))) __attribute__((availability(macos, introduced=10.14)));
+	//	[NoiOS, Mac(10, 14)]
+	//	[Export("inheritPipelineState")]
+	//	bool InheritPipelineState { get; set; }
 
-		// @property (readwrite, nonatomic) BOOL inheritBuffers;
-		[Export("inheritBuffers")]
-		bool InheritBuffers { get; set; }
+	//	// @property (readwrite, nonatomic) BOOL inheritBuffers;
+	//	[Export("inheritBuffers")]
+	//	bool InheritBuffers { get; set; }
 
-		// @property (readwrite, nonatomic) NSUInteger maxVertexBufferBindCount;
-		[Export("maxVertexBufferBindCount")]
-		nuint MaxVertexBufferBindCount { get; set; }
+	//	// @property (readwrite, nonatomic) NSUInteger maxVertexBufferBindCount;
+	//	[Export("maxVertexBufferBindCount")]
+	//	nuint MaxVertexBufferBindCount { get; set; }
 
-		// @property (readwrite, nonatomic) NSUInteger maxFragmentBufferBindCount;
-		[Export("maxFragmentBufferBindCount")]
-		nuint MaxFragmentBufferBindCount { get; set; }
-	}
+	//	// @property (readwrite, nonatomic) NSUInteger maxFragmentBufferBindCount;
+	//	[Export("maxFragmentBufferBindCount")]
+	//	nuint MaxFragmentBufferBindCount { get; set; }
+	//}
 
 	// @protocol MTLArgumentEncoder <NSObject>
 	[Mac(10, 13), iOS(11, 0)]

@@ -15,6 +15,8 @@ namespace XamarinPhotoEditoriOS
         {
             base.ViewDidLoad();
 
+
+            Console.WriteLine("");
         }
 
         public override void DidReceiveMemoryWarning()
@@ -22,7 +24,6 @@ namespace XamarinPhotoEditoriOS
             base.DidReceiveMemoryWarning();
             // Release any cached data, images, etc that aren't in use.
 
-            var t = new PESDKViewController();
         }
 
         private void DisplayCameraController()

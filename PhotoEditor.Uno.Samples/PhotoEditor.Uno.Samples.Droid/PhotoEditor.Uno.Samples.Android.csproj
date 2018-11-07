@@ -94,11 +94,11 @@
       <Name>PhotoEditor.Core.Android.Binding</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\PhotoEditor.UI.Android.Binding\PhotoEditor.UI.Android.Binding.csproj">
-      <Project>{7618b747-7cc5-4031-96cf-71f09a388409}</Project>
+      <Project>{2555F1FE-0771-4DE3-BD8C-1B667222127C}</Project>
       <Name>PhotoEditor.UI.Android.Binding</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\PhotoEditor.UI.Core.Android.Binding\PhotoEditor.UI.Core.Android.Binding.csproj">
-      <Project>{21f895ea-3448-470b-a8ee-b965bf6faa6c}</Project>
+      <Project>{499706C6-AAED-4AF0-B6DF-60FD378EB777}</Project>
       <Name>PhotoEditor.UI.Core.Android.Binding</Name>
     </ProjectReference>
   </ItemGroup>

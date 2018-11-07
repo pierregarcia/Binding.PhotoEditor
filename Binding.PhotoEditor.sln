@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Binding.PhotoEditor", "Binding.PhotoEditor\Binding.PhotoEditor.csproj", "{7CED905A-D498-4F83-AF64-8238E57A5467}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Binding.PhotoEditor", "Binding.PhotoEditor\Binding.PhotoEditor.csproj", "{7CED905A-D498-4F83-AF64-8238E57A5467}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoEditor.Android.Binding", "PhotoEditor.Android.Binding\PhotoEditor.Android.Binding.csproj", "{4BBA1653-6A64-4F10-B9E1-6D14CE623800}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.Android.Binding", "PhotoEditor.Android.Binding\PhotoEditor.Android.Binding.csproj", "{4BBA1653-6A64-4F10-B9E1-6D14CE623800}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoEditor.iOS.Binding", "PhotoEditor.iOS.Binding\PhotoEditor.iOS.Binding.csproj", "{92CDD9B9-CFD2-4F8D-BB5F-823B5F4321B8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.iOS.Binding", "PhotoEditor.iOS.Binding\PhotoEditor.iOS.Binding.csproj", "{92CDD9B9-CFD2-4F8D-BB5F-823B5F4321B8}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "PhotoEditor.Uno.Samples.Shared", "PhotoEditor.Uno.Samples\PhotoEditor.Uno.Samples.Shared\PhotoEditor.Uno.Samples.Shared.shproj", "{6279C845-92F8-4333-AB99-3D213163593C}"
 EndProject
@@ -15,15 +15,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.Uno.Samples.And
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.Uno.Samples.iOS", "PhotoEditor.Uno.Samples\PhotoEditor.Uno.Samples.iOS\PhotoEditor.Uno.Samples.iOS.csproj", "{4435B846-33EA-4EE1-B8CE-E407BA3718BA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoEditor.Authorization.Android.Binding", "PhotoEditor.Authorization.Android.Binding\PhotoEditor.Authorization.Android.Binding.csproj", "{621E185A-A1A6-4E57-A73D-97A82D0789B8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.Authorization.Android.Binding", "PhotoEditor.Authorization.Android.Binding\PhotoEditor.Authorization.Android.Binding.csproj", "{621E185A-A1A6-4E57-A73D-97A82D0789B8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoEditor.Core.Android.Binding", "PhotoEditor.Core.Android.Binding\PhotoEditor.Core.Android.Binding.csproj", "{DC146F33-E770-4DBC-8123-51DD2AE498D0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.Core.Android.Binding", "PhotoEditor.Core.Android.Binding\PhotoEditor.Core.Android.Binding.csproj", "{DC146F33-E770-4DBC-8123-51DD2AE498D0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoEditor.Annotations.Android.Binding", "PhotoEditor.Annotations.Android.Binding\PhotoEditor.Annotations.Android.Binding.csproj", "{27B7A175-5634-4CD8-BE7B-3ABFD5BD86CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.Annotations.Android.Binding", "PhotoEditor.Annotations.Android.Binding\PhotoEditor.Annotations.Android.Binding.csproj", "{27B7A175-5634-4CD8-BE7B-3ABFD5BD86CF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoEditor.UI.Android.Binding", "PhotoEditor.UI.Android.Binding\PhotoEditor.UI.Android.Binding.csproj", "{2555F1FE-0771-4DE3-BD8C-1B667222127C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.UI.Android.Binding", "PhotoEditor.UI.Android.Binding\PhotoEditor.UI.Android.Binding.csproj", "{2555F1FE-0771-4DE3-BD8C-1B667222127C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoEditor.UI.Core.Android.Binding", "PhotoEditor.UI.Core.Android.Binding\PhotoEditor.UI.Core.Android.Binding.csproj", "{499706C6-AAED-4AF0-B6DF-60FD378EB777}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.UI.Core.Android.Binding", "PhotoEditor.UI.Core.Android.Binding\PhotoEditor.UI.Core.Android.Binding.csproj", "{499706C6-AAED-4AF0-B6DF-60FD378EB777}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinPhotoEditoriOS", "XamarinPhotoEditoriOS\XamarinPhotoEditoriOS.csproj", "{CA05DFDA-445C-44FD-990E-F896A93073F7}"
 EndProject
@@ -307,6 +307,8 @@ Global
 		{4435B846-33EA-4EE1-B8CE-E407BA3718BA}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 		{4435B846-33EA-4EE1-B8CE-E407BA3718BA}.Release|x64.ActiveCfg = Release|iPhone
 		{4435B846-33EA-4EE1-B8CE-E407BA3718BA}.Release|x86.ActiveCfg = Release|iPhone
+		{4435B846-33EA-4EE1-B8CE-E407BA3718BA}.Debug|Any CPU.Build.0 = Debug|iPhone
+		{4435B846-33EA-4EE1-B8CE-E407BA3718BA}.Ad-Hoc|Any CPU.Build.0 = Ad-Hoc|iPhone
 		{621E185A-A1A6-4E57-A73D-97A82D0789B8}.Ad-Hoc|Any CPU.ActiveCfg = Debug|Any CPU
 		{621E185A-A1A6-4E57-A73D-97A82D0789B8}.Ad-Hoc|Any CPU.Build.0 = Debug|Any CPU
 		{621E185A-A1A6-4E57-A73D-97A82D0789B8}.Ad-Hoc|ARM.ActiveCfg = Debug|Any CPU
@@ -547,6 +549,14 @@ Global
 		{499706C6-AAED-4AF0-B6DF-60FD378EB777}.Release|x64.Build.0 = Release|Any CPU
 		{499706C6-AAED-4AF0-B6DF-60FD378EB777}.Release|x86.ActiveCfg = Release|Any CPU
 		{499706C6-AAED-4AF0-B6DF-60FD378EB777}.Release|x86.Build.0 = Release|Any CPU
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Ad-Hoc|Any CPU.ActiveCfg = Debug|iPhoneSimulator
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Ad-Hoc|Any CPU.Build.0 = Debug|iPhoneSimulator
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Debug|Any CPU.ActiveCfg = Debug|iPhoneSimulator
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Debug|Any CPU.Build.0 = Debug|iPhoneSimulator
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Debug|iPhone.Build.0 = Debug|iPhone
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

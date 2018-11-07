@@ -12,6 +12,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <ResourcesDirectory>..\PhotoEditor.Uno.Samples.Shared\Strings</ResourcesDirectory>
+        <UnoSourceGeneratorUseGenerationHost>true</UnoSourceGeneratorUseGenerationHost>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -99,7 +100,8 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Uno.UI" Version="1.40.0" />
+    <PackageReference Include="Uno.UI" Version="1.41.0" />
+    <PackageReference Include="Uno.SourceGenerationTasks" Version="1.28.0-dev.145" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\PhotoEditor.iOS.Binding\PhotoEditor.iOS.Binding.csproj">

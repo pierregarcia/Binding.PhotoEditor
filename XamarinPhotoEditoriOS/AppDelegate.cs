@@ -1,5 +1,6 @@
 ﻿using Foundation;
 using UIKit;
+using PhotoEditor;
 
 namespace XamarinPhotoEditoriOS
 {
@@ -18,8 +19,14 @@ namespace XamarinPhotoEditoriOS
 
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
+            System.Console.WriteLine("before");
+
             // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
+            var t = new PESDKViewController();
+            PESDK.UnlockWithLicenseAt(new Foundation.NSUrl(""));
+
+            System.Console.WriteLine("after");
 
             return true;
         }

@@ -25,6 +25,9 @@ namespace PhotoEditor.Uno.Samples
         public MainPage()
         {
             this.InitializeComponent();
+
+            // var t = new PESDKViewController();
+            PESDK.UnlockWithLicenseAt(new Foundation.NSUrl(""));
         }
     }
 }
