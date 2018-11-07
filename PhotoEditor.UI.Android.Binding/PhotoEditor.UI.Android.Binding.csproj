@@ -8,12 +8,11 @@
 	<Import Project="../Xamarin.Android.Common.props" />
 
 	<ItemGroup>
-		<LibraryProjectZip Include="Jars/authorization-6.1.0.0.aar" />
-		<PackageReference Include="Xamarin.Android.Support.Annotations" Version="26.1.0.1" />
-		<PackageReference Include="Xamarin.Android.Support.v8.RenderScript" Version="26.1.0.1" />
+		<LibraryProjectZip Include="Jars/all-ui-6.0.8.aar" />
+		<ProjectReference Include="..\PhotoEditor.UI.Core.Android.Binding\PhotoEditor.UI.Core.Android.Binding.csproj" PrivateAssets="None" />
 		<Reference Include="Mono.Android" />
 	</ItemGroup>
-	
+
 	<ItemGroup>
 		<TransformFile Include="Transforms\Metadata.xml" />
 	</ItemGroup>

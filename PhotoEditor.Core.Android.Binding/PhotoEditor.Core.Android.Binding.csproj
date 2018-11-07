@@ -9,9 +9,11 @@
 
 	<ItemGroup>
 		<LibraryProjectZip Include="Jars/core-6.0.8.aar" />
-		<PackageReference Include="Xamarin.Android.Support.v4" Version="27.0.2.1" />
-		<PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="27.0.2.1" />
-		<PackageReference Include="Xamarin.Android.Support.v8.RenderScript" Version="27.0.2.1" />
+		<PackageReference Include="Xamarin.Android.Support.v4" Version="26.1.0.1" />
+		<PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="26.1.0.1" />
+		<PackageReference Include="Xamarin.Android.Support.v8.RenderScript" Version="26.1.0.1" />
+		<ProjectReference Include="..\PhotoEditor.Annotations.Android.Binding\PhotoEditor.Annotations.Android.Binding.csproj" PrivateAssets="None" />
+		<ProjectReference Include="..\PhotoEditor.Authorization.Android.Binding\PhotoEditor.Authorization.Android.Binding.csproj" PrivateAssets="None" />
 		<Reference Include="Mono.Android" />
 	</ItemGroup>
 
