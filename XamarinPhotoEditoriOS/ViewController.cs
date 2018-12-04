@@ -1,5 +1,6 @@
 ﻿using System;
 using UIKit;
+using Foundation;
 using PhotoEditor;
 
 namespace XamarinPhotoEditoriOS
@@ -30,6 +31,14 @@ namespace XamarinPhotoEditoriOS
         {
 
             //var cameraController = new PhotoEditor.
+        }
+
+        partial void UIButton1770_TouchUpInside(UIButton sender)
+        {
+            System.Console.WriteLine("----PE BUTTON CLICKED");
+            PESDK.UnlockWithLicenseAt( new NSUrl(""));
+            //NSBundle.MainBundle.GetUrlForResource("LICENSE", fileExtension: "")
+            System.Console.WriteLine("----PE UNLOCKED");
         }
     }
 }

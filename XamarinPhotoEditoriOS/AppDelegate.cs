@@ -1,6 +1,6 @@
 ﻿using Foundation;
 using UIKit;
-using PhotoEditor;
+//using PhotoEditor;
 
 namespace XamarinPhotoEditoriOS
 {
@@ -19,14 +19,13 @@ namespace XamarinPhotoEditoriOS
 
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
-            System.Console.WriteLine("before");
+            System.Console.WriteLine("----PE START FinishedLaunching");
 
             // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
-            var t = new PESDKViewController();
-            PESDK.UnlockWithLicenseAt(new Foundation.NSUrl(""));
-
-            System.Console.WriteLine("after");
+//var t = new PESDKPhotoEditViewController();
+           
+            System.Console.WriteLine("----PE AFTER FinishedLaunching");
 
             return true;
         }
@@ -37,6 +36,7 @@ namespace XamarinPhotoEditoriOS
             // This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) 
             // or when the user quits the application and it begins the transition to the background state.
             // Games should use this method to pause the game.
+           
         }
 
         public override void DidEnterBackground(UIApplication application)

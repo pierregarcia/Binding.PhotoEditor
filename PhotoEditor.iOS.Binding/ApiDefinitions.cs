@@ -34,7 +34,7 @@ namespace PhotoEditor
 	// @interface PESDK : NSObject
 	[iOS(9, 0)]
 	[BaseType(typeof(NSObject))]
-    [Model]
+    [Protocol]
 	interface PESDK
 	{
 		// +(void)unlockWithLicenseAt:(NSURL * _Nonnull)url;
@@ -43,39 +43,39 @@ namespace PhotoEditor
 		void UnlockWithLicenseAt(NSUrl url);
 
 		// @property (readonly, nonatomic, strong, class) PESDKAnalytics * _Nonnull analytics;
-		[Static]
-		[Export("analytics", ArgumentSemantic.Strong)]
-		PESDKAnalytics Analytics { get; }
+		// [Static]
+		// [Export("analytics", ArgumentSemantic.Strong)]
+		// PESDKAnalytics Analytics { get; }
 
 		// @property (nonatomic, strong, class) id<PESDKProgressView> _Nonnull progressView;
-		[Static]
-		[Export("progressView", ArgumentSemantic.Strong)]
-		PESDKProgressView ProgressView { get; set; }
+		// [Static]
+		// [Export("progressView", ArgumentSemantic.Strong)]
+		// PESDKProgressView ProgressView { get; set; }
 
 		// @property (copy, nonatomic, class) NSDictionary<NSString *,NSDictionary<NSString *,NSString *> *> * _Nullable localizationDictionary;
-		[Static]
-		[NullAllowed, Export("localizationDictionary", ArgumentSemantic.Copy)]
-		NSDictionary<NSString, NSDictionary<NSString, NSString>> LocalizationDictionary { get; set; }
+		// [Static]
+		// [NullAllowed, Export("localizationDictionary", ArgumentSemantic.Copy)]
+		// NSDictionary<NSString, NSDictionary<NSString, NSString>> LocalizationDictionary { get; set; }
 
-		// @property (copy, nonatomic, class) NSString * _Nullable (^ _Nullable)(NSString * _Nonnull) localizationBlock;
-		[Static]
-		[NullAllowed, Export("localizationBlock", ArgumentSemantic.Copy)]
-		Func<NSString, NSString> LocalizationBlock { get; set; }
+		// // @property (copy, nonatomic, class) NSString * _Nullable (^ _Nullable)(NSString * _Nonnull) localizationBlock;
+		// [Static]
+		// [NullAllowed, Export("localizationBlock", ArgumentSemantic.Copy)]
+		// Func<NSString, NSString> LocalizationBlock { get; set; }
 
-		// @property (copy, nonatomic, class) UIImage * _Nullable (^ _Nullable)(NSString * _Nonnull) bundleImageBlock;
-		[Static]
-		[NullAllowed, Export("bundleImageBlock", ArgumentSemantic.Copy)]
-		Func<NSString, UIImage> BundleImageBlock { get; set; }
+		// // @property (copy, nonatomic, class) UIImage * _Nullable (^ _Nullable)(NSString * _Nonnull) bundleImageBlock;
+		// [Static]
+		// [NullAllowed, Export("bundleImageBlock", ArgumentSemantic.Copy)]
+		// Func<NSString, UIImage> BundleImageBlock { get; set; }
 
-		// @property (copy, nonatomic, class) PESDKToolbarItem * _Nullable (^ _Nullable)(UIViewController * _Nonnull, PESDKToolbarItem * _Nullable) toolbarItemBlock;
-		[Static]
-		[NullAllowed, Export("toolbarItemBlock", ArgumentSemantic.Copy)]
-		Func<UIViewController, PESDKToolbarItem, PESDKToolbarItem> ToolbarItemBlock { get; set; }
+		// // @property (copy, nonatomic, class) PESDKToolbarItem * _Nullable (^ _Nullable)(UIViewController * _Nonnull, PESDKToolbarItem * _Nullable) toolbarItemBlock;
+		// [Static]
+		// [NullAllowed, Export("toolbarItemBlock", ArgumentSemantic.Copy)]
+		// Func<UIViewController, PESDKToolbarItem, PESDKToolbarItem> ToolbarItemBlock { get; set; }
 
-		// +(BOOL)replaceClass:(Class _Nonnull)builtinClass with:(Class _Nonnull)replacingClass error:(NSError * _Nullable * _Nullable)error;
-		[Static]
-		[Export("replaceClass:with:error:")]
-		bool ReplaceClass(Class builtinClass, Class replacingClass, [NullAllowed] out NSError error);
+		// // +(BOOL)replaceClass:(Class _Nonnull)builtinClass with:(Class _Nonnull)replacingClass error:(NSError * _Nullable * _Nullable)error;
+		// [Static]
+		// [Export("replaceClass:with:error:")]
+		// bool ReplaceClass(Class builtinClass, Class replacingClass, [NullAllowed] out NSError error);
 	}
 
 	// @protocol PESDKAnalyticsClient
