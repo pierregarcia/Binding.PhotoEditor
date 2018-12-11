@@ -36,5 +36,9 @@
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>NSCameraUsageDescription</key>
+	<string>we need the camera to give you a better experience!</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>we need the Photo Album to give you a better experience!</string>
 </dict>
 </plist>

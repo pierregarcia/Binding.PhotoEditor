@@ -1,4 +1,5 @@
 ﻿using Foundation;
+using PhotoEditor.iOS;
 using UIKit;
 //using PhotoEditor;
 
@@ -23,8 +24,11 @@ namespace XamarinPhotoEditoriOS
 
             // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
-//var t = new PESDKPhotoEditViewController();
-           
+            //var t = new PESDKPhotoEditViewController();
+
+            var url = NSBundle.MainBundle.GetUrlForResource("LICENSE", "");
+            PESDK.UnlockWithLicenseAt(url);
+
             System.Console.WriteLine("----PE AFTER FinishedLaunching");
 
             return true;
