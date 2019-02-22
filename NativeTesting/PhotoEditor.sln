@@ -1,0 +1,123 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2048
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "Testing\Testing.csproj", "{3BC0AC7E-3B3B-4D3F-9CC0-B2BDECC460A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.Android.Mobile.UI.Core.Binding", "PhotoEditor.Android.Mobile.UI.Core.Binding\PhotoEditor.Android.Mobile.UI.Core.Binding.csproj", "{F2841EAF-961B-43B8-8AD1-6359416E55CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.Android.Backend.Core.Binding", "PhotoEditor.Android.Backend.Core.Binding\PhotoEditor.Android.Backend.Core.Binding.csproj", "{E1C9ED10-5403-4BE1-B8BB-EF7E791F9182}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.Android.Authorization.Binding", "PhotoEditor.Android.Authorization.Binding\PhotoEditor.Android.Authorization.Binding.csproj", "{D9B6D3B4-A648-4A46-AE54-848CD7AA209D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.Android.Backend.Focus.Binding", "PhotoEditor.Android.Backend.Focus.Binding\PhotoEditor.Android.Backend.Focus.Binding.csproj", "{4C8339CC-DDA9-4E91-BA3F-BFC70266580D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.Android.Backend.Overlay.Binding", "PhotoEditor.Android.Backend.Overlay.Binding\PhotoEditor.Android.Backend.Overlay.Binding.csproj", "{1475D213-DB0A-4A37-B72C-105DA1A58E6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.Android.Backend.Frame.Binding", "PhotoEditor.Android.Backend.Frame.Binding\PhotoEditor.Android.Backend.Frame.Binding.csproj", "{AF13953F-BD25-42C1-B8E1-2CB16D02802F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.Android.Backend.Brush.Binding", "PhotoEditor.Android.Backend.Brush.Binding\PhotoEditor.Android.Backend.Brush.Binding.csproj", "{B94B60E3-5659-48FE-A2D7-EE1A2B3863A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.Android.Annotation.Binding", "PhotoEditor.Android.Annotation.Binding\PhotoEditor.Android.Annotation.Binding.csproj", "{4CBE42D2-C01D-428C-A2E1-1AC54C55BB05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.Android.Mobile.UI.Sticker.Binding", "PhotoEditor.Android.Mobile.UI.Sticker.Binding\PhotoEditor.Android.Mobile.UI.Sticker.Binding.csproj", "{96DBD08E-0801-4CBA-A144-B30AE60AF491}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.Android.Backend.Sticker.Binding", "PhotoEditor.Android.Backend.Sticker.Binding\PhotoEditor.Android.Backend.Sticker.Binding.csproj", "{143DAA09-AD64-4431-A4EF-01960327B2F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.Android.All.Binding", "PhotoEditor.Android.All.Binding\PhotoEditor.Android.All.Binding.csproj", "{535C9036-CE46-4B70-9945-C9C85B90A04B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.Android.BackendAdjustment.Binding", "PhotoEditor.Android.BackendAdjustment.Binding\PhotoEditor.Android.BackendAdjustment.Binding.csproj", "{C073963B-BE9E-4E6B-A81C-F4B6BF9CD0D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.Android.Backend.Abstract.Sticker.Binding", "PhotoEditor.Android.Backend.Abstract.Sticker.Binding\PhotoEditor.Android.Backend.Abstract.Sticker.Binding.csproj", "{799CB80F-942A-4AC0-B7E4-6D2EC9586CF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.Android.Backend.Adjustment.Binding", "PhotoEditor.Android.Backend.Adjustment.Binding\PhotoEditor.Android.Backend.Adjustment.Binding.csproj", "{5A4B7CEB-9745-41C5-B541-31C131EB8D77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.Android.Backend.Camera.Binding", "PhotoEditor.Android.Backend.Camera.Binding\PhotoEditor.Android.Backend.Camera.Binding.csproj", "{43EC56FD-08A7-4409-97B7-5269AABACB9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.Android.Backend.Filter.Binding", "PhotoEditor.Android.Backend.Filter.Binding\PhotoEditor.Android.Backend.Filter.Binding.csproj", "{31ACAD88-4802-4232-B08B-0E29DE3A4E1E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3BC0AC7E-3B3B-4D3F-9CC0-B2BDECC460A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BC0AC7E-3B3B-4D3F-9CC0-B2BDECC460A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BC0AC7E-3B3B-4D3F-9CC0-B2BDECC460A6}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3BC0AC7E-3B3B-4D3F-9CC0-B2BDECC460A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BC0AC7E-3B3B-4D3F-9CC0-B2BDECC460A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BC0AC7E-3B3B-4D3F-9CC0-B2BDECC460A6}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{F2841EAF-961B-43B8-8AD1-6359416E55CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2841EAF-961B-43B8-8AD1-6359416E55CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2841EAF-961B-43B8-8AD1-6359416E55CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2841EAF-961B-43B8-8AD1-6359416E55CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1C9ED10-5403-4BE1-B8BB-EF7E791F9182}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1C9ED10-5403-4BE1-B8BB-EF7E791F9182}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1C9ED10-5403-4BE1-B8BB-EF7E791F9182}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1C9ED10-5403-4BE1-B8BB-EF7E791F9182}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9B6D3B4-A648-4A46-AE54-848CD7AA209D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9B6D3B4-A648-4A46-AE54-848CD7AA209D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9B6D3B4-A648-4A46-AE54-848CD7AA209D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9B6D3B4-A648-4A46-AE54-848CD7AA209D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C8339CC-DDA9-4E91-BA3F-BFC70266580D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C8339CC-DDA9-4E91-BA3F-BFC70266580D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C8339CC-DDA9-4E91-BA3F-BFC70266580D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C8339CC-DDA9-4E91-BA3F-BFC70266580D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1475D213-DB0A-4A37-B72C-105DA1A58E6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1475D213-DB0A-4A37-B72C-105DA1A58E6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1475D213-DB0A-4A37-B72C-105DA1A58E6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1475D213-DB0A-4A37-B72C-105DA1A58E6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF13953F-BD25-42C1-B8E1-2CB16D02802F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF13953F-BD25-42C1-B8E1-2CB16D02802F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF13953F-BD25-42C1-B8E1-2CB16D02802F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF13953F-BD25-42C1-B8E1-2CB16D02802F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B94B60E3-5659-48FE-A2D7-EE1A2B3863A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B94B60E3-5659-48FE-A2D7-EE1A2B3863A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B94B60E3-5659-48FE-A2D7-EE1A2B3863A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B94B60E3-5659-48FE-A2D7-EE1A2B3863A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CBE42D2-C01D-428C-A2E1-1AC54C55BB05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CBE42D2-C01D-428C-A2E1-1AC54C55BB05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CBE42D2-C01D-428C-A2E1-1AC54C55BB05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CBE42D2-C01D-428C-A2E1-1AC54C55BB05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96DBD08E-0801-4CBA-A144-B30AE60AF491}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96DBD08E-0801-4CBA-A144-B30AE60AF491}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96DBD08E-0801-4CBA-A144-B30AE60AF491}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96DBD08E-0801-4CBA-A144-B30AE60AF491}.Release|Any CPU.Build.0 = Release|Any CPU
+		{143DAA09-AD64-4431-A4EF-01960327B2F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{143DAA09-AD64-4431-A4EF-01960327B2F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{143DAA09-AD64-4431-A4EF-01960327B2F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{143DAA09-AD64-4431-A4EF-01960327B2F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{535C9036-CE46-4B70-9945-C9C85B90A04B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{535C9036-CE46-4B70-9945-C9C85B90A04B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{535C9036-CE46-4B70-9945-C9C85B90A04B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{535C9036-CE46-4B70-9945-C9C85B90A04B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C073963B-BE9E-4E6B-A81C-F4B6BF9CD0D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C073963B-BE9E-4E6B-A81C-F4B6BF9CD0D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C073963B-BE9E-4E6B-A81C-F4B6BF9CD0D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C073963B-BE9E-4E6B-A81C-F4B6BF9CD0D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{799CB80F-942A-4AC0-B7E4-6D2EC9586CF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{799CB80F-942A-4AC0-B7E4-6D2EC9586CF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{799CB80F-942A-4AC0-B7E4-6D2EC9586CF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{799CB80F-942A-4AC0-B7E4-6D2EC9586CF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A4B7CEB-9745-41C5-B541-31C131EB8D77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A4B7CEB-9745-41C5-B541-31C131EB8D77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A4B7CEB-9745-41C5-B541-31C131EB8D77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A4B7CEB-9745-41C5-B541-31C131EB8D77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43EC56FD-08A7-4409-97B7-5269AABACB9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43EC56FD-08A7-4409-97B7-5269AABACB9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43EC56FD-08A7-4409-97B7-5269AABACB9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43EC56FD-08A7-4409-97B7-5269AABACB9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31ACAD88-4802-4232-B08B-0E29DE3A4E1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31ACAD88-4802-4232-B08B-0E29DE3A4E1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31ACAD88-4802-4232-B08B-0E29DE3A4E1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31ACAD88-4802-4232-B08B-0E29DE3A4E1E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2C023478-830F-46FA-A136-06E2FC878867}
+	EndGlobalSection
+EndGlobal

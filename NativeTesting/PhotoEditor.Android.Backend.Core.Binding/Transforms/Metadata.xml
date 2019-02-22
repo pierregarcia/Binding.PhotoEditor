@@ -1,0 +1,19 @@
+﻿<metadata>
+	<!--Removes the Kotlin extensions-->
+	<remove-node path="/api/package[starts-with(@name, 'ly.img.android.pesdk.backend.text_design.kotlin_extension')]" />
+
+	<!--error CS0102: The type 'Exify' already contains a definition for 'JpegProcess'-->
+	<attr path="/api/package[@name='ly.img.android.pesdk.backend.exif']/class[@name='Exify']/method[@name='getJpegProcess' and count(parameter)=0]" name="managedName">JpegProcessId</attr>
+	<attr	path="/api/package[@name='ly.img.android.pesdk.backend.exif']/class[@name='IOUtils']/method[@name='closeQuietly' and count(parameter)=1 and parameter[1][@type='java.io.OutputStream']]" name="managedName">closeQuietlyOutput</attr>
+	
+	<attr path="/api/package[@name='ly.img.android.pesdk.backend.decoder.system']/class[@name='NativeSupportedDecoder']/method[@name='decodeSize' and count(parameter)=0]" name="visibility">protected</attr>
+	<!--error CS0507: 'GlOperation.OnRelease()': cannot change access modifiers when overriding 'protected' inherited member 'GlObject.OnRelease()'-->
+	<attr path="/api/package[@name='ly.img.android.pesdk.backend.operator.preview']/class[@name='GlOperation']/method[@name='onRelease' and count(parameter)=0]" name="visibility">protected</attr>
+	<attr path="/api/package[@name='ly.img.android.pesdk.backend.operator.preview']/class[@name='GlLayerOperation']/method[@name='doOperation' and count(parameter)=3 and parameter[1][@type='ly.img.android.opengl.textures.GlTexture'] and parameter[2][@type='boolean'] and parameter[3][@type='ly.img.android.opengl.textures.GlFrameBufferTexture']]" name="visibility">protected</attr>
+	<attr path="/api/package[@name='ly.img.android.pesdk.backend.operator.preview']/class[@name='GlLoadOperation']/method[@name='doOperation' and count(parameter)=1 and parameter[1][@type='ly.img.android.opengl.textures.GlTexture']]" name="visibility">protected</attr>
+	
+	<attr path="/api/package[@name='ly.img.android.pesdk.backend.model.state.manager']/class[@name='SettingsList']/field[@name='settingsList']" name="managedName">SettingsListDict</attr>
+
+	<attr path="/api/package[@name='ly.img.android.pesdk.ui.activity']/interface[@name='ImgLyContext']/method[@name='getImgLyIntent' and count(parameter)=0]" name="return">ly.img.android.pesdk.ui.activity.ImgLyIntent</attr>
+	
+</metadata>

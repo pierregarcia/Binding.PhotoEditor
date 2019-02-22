@@ -1,0 +1,5 @@
+﻿<metadata>
+
+	<attr path="/api/package[@name='ly.img.android.pesdk.backend.operator.preview']/class[@name='GlFocusOperation']/method[@name='doOperation' and count(parameter)=1 and parameter[1][@type='ly.img.android.opengl.textures.GlTexture']]" name="visibility">protected</attr>
+
+</metadata>
