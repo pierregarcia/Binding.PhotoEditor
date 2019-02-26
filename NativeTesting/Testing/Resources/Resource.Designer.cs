@@ -5469,9 +5469,6 @@ namespace Testing
 			// aapt resource value: 0x7f0a0010
 			public const int abc_toolbar_collapse_description = 2131361808;
 			
-			// aapt resource value: 0x7f0a012d
-			public const int action_settings = 2131362093;
-			
 			// aapt resource value: 0x7f0a0065
 			public const int app_name = 2131361893;
 			
