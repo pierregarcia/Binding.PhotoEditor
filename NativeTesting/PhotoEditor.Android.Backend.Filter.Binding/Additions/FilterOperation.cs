@@ -16,20 +16,20 @@ using LY.Img.Android.Pesdk.Backend.Model.State;
 namespace LY.Img.Android.Pesdk.Backend.Operator.Export
 {
 	public partial class FilterOperation
-	{
-		protected override IRequestResultI DoOperation(Operator @operator, Java.Lang.Object settings, IResultRegionI request)
+    {
+        protected override IRequestResultI DoOperation(Operator @operator, Java.Lang.Object settings, IResultRegionI request)
 		{
-			return this.DoOperation(@operator, settings as FilterSettings, request);
+			return this.DoOperation(@operator, settings as LY.Img.Android.Pesdk.Backend.Model.State.FilterSettings, request);
 		}
 
-		protected override BigDecimal GetEstimatedMemoryConsumptionFactor(Operator @operator, Java.Lang.Object settings)
+        protected override BigDecimal GetEstimatedMemoryConsumptionFactor(Operator @operator, Java.Lang.Object settings)
 		{
-			return this.GetEstimatedMemoryConsumptionFactor(@operator, settings as FilterSettings);
+			return this.GetEstimatedMemoryConsumptionFactor(@operator, settings as LY.Img.Android.Pesdk.Backend.Model.State.FilterSettings);
 		}
 
-		public override bool IsReady(Java.Lang.Object settings)
+        public override bool IsReady(Java.Lang.Object settings)
 		{
-			return this.IsReady(settings as FilterSettings);
+			return this.IsReady(settings as LY.Img.Android.Pesdk.Backend.Model.State.FilterSettings);
 		}
 	}
 }

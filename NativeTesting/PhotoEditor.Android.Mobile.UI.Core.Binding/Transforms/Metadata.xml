@@ -24,4 +24,10 @@
 			<parameter name="p0" type="java.lang.Object" />
 		</method>
 	</add-node>
+    
+    <remove-node path="/api/package[@name='ly.img.android.pesdk.ui.panels']/class[@name='ColorOptionToolPanel']/method[@name='setColor' and count(parameter)=1 and parameter[1][@type='int']]"/>
+    <remove-node path="/api/package[@name='ly.img.android.pesdk.ui.panels']/class[@name='ColorOptionToolPanel']/method[@name='getColor' and count(parameter)=0]" name= "propertyName"/>
+    
+    <!--<attr path="/api/package[@name='ly.img.android.pesdk.ui.panels']/class[@name='ColorOptionToolPanel']/method[@name='setColor' and count(parameter)=1 and parameter[1][@type='int']]" name= "propertyName"></attr>
+    <attr path="/api/package[@name='ly.img.android.pesdk.ui.panels']/class[@name='ColorOptionToolPanel']/method[@name='getColor' and count(parameter)=0]" name= "propertyName"></attr>-->
 </metadata>

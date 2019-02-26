@@ -13,7 +13,6 @@
     <RootNamespace>PhotoEditor.Android.Mobile.UI.Sticker.Binding</RootNamespace>
     <AssemblyName>PhotoEditor.Android.Mobile.UI.Sticker.Binding</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
     <AndroidClassParser>class-parse</AndroidClassParser>
     <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
@@ -67,6 +66,10 @@
     <ProjectReference Include="..\PhotoEditor.Android.Backend.Sticker.Binding\PhotoEditor.Android.Backend.Sticker.Binding.csproj">
       <Project>{143daa09-ad64-4431-a4ef-01960327b2f6}</Project>
       <Name>PhotoEditor.Android.Backend.Sticker.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.Backend.Abstract.Sticker.Binding\PhotoEditor.Android.Backend.Abstract.Sticker.Binding.csproj">
+      <Project>{799CB80F-942A-4AC0-B7E4-6D2EC9586CF8}</Project>
+      <Name>PhotoEditor.Android.Backend.Abstract.Sticker.Binding</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />

@@ -13,7 +13,6 @@
     <RootNamespace>PhotoEditor.Android.Backend.Overlay.Binding</RootNamespace>
     <AssemblyName>PhotoEditor.Android.Backend.Overlay.Binding</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
     <AndroidClassParser>class-parse</AndroidClassParser>
     <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
@@ -50,8 +49,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Jars\AboutJars.txt" />
-    <None Include="Additions\AboutAdditions.txt" />
     <LibraryProjectZip Include="Jars\pesdk-backend-overlay-debug.aar" />
     <None Include="packages.config" />
   </ItemGroup>

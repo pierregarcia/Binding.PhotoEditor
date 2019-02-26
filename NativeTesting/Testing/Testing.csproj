@@ -17,7 +17,6 @@
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
@@ -35,11 +34,8 @@
     <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
     <AndroidLinkMode>None</AndroidLinkMode>
     <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
-    <AotAssemblies>false</AotAssemblies>
-    <EnableLLVM>false</EnableLLVM>
-    <BundleAssemblies>false</BundleAssemblies>
-    <EnableProguard>false</EnableProguard>
-    <AndroidEnableMultiDex>false</AndroidEnableMultiDex>
+    <EnableProguard>true</EnableProguard>
+    <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>PdbOnly</DebugType>
@@ -134,6 +130,102 @@
     <ProjectReference Include="..\PhotoEditor.Android.Mobile.UI.Core.Binding\PhotoEditor.Android.Mobile.UI.Core.Binding.csproj">
       <Project>{f2841eaf-961b-43b8-8ad1-6359416e55ca}</Project>
       <Name>PhotoEditor.Android.Mobile.UI.Core.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.All.Binding\PhotoEditor.Android.All.Binding.csproj">
+      <Project>{535C9036-CE46-4B70-9945-C9C85B90A04B}</Project>
+      <Name>PhotoEditor.Android.All.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.Assets.Filter.Binding\PhotoEditor.Android.Assets.Filter.Binding.csproj">
+      <Project>{69F08CDD-E8CD-42D0-B8C6-561D95D1D596}</Project>
+      <Name>PhotoEditor.Android.Assets.Filter.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.Assets.Font.Binding\PhotoEditor.Android.Assets.Font.Binding.csproj">
+      <Project>{4A9B5D96-75B5-449B-8550-BFB6900D84FD}</Project>
+      <Name>PhotoEditor.Android.Assets.Font.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.Assets.Font.Design.Binding\PhotoEditor.Android.Assets.Font.Design.Binding.csproj">
+      <Project>{55125700-EB9B-43B6-B9F6-B9244F695BAF}</Project>
+      <Name>PhotoEditor.Android.Assets.Font.Design.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.Assets.Overlay.Binding\PhotoEditor.Android.Assets.Overlay.Binding.csproj">
+      <Project>{41F1A082-9968-4677-A7F3-C1031CCE992D}</Project>
+      <Name>PhotoEditor.Android.Assets.Overlay.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.Assets.Frame.Binding\PhotoEditor.Android.Assets.Frame.Binding.csproj">
+      <Project>{8D4C9508-F830-43BE-971D-77C39DC6F0F6}</Project>
+      <Name>PhotoEditor.Android.Assets.Frame.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.Assets.Sticker.Emoticons.Binding\PhotoEditor.Android.Assets.Sticker.Emoticons.Binding.csproj">
+      <Project>{008F5BE3-8B66-4BBE-A5EA-2795A086B144}</Project>
+      <Name>PhotoEditor.Android.Assets.Sticker.Emoticons.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.Assets.Sticker.Shapes.Binding\PhotoEditor.Android.Assets.Sticker.Shapes.Binding.csproj">
+      <Project>{0F0D19AD-A77D-4371-A0A4-B8A0CD98C194}</Project>
+      <Name>PhotoEditor.Android.Assets.Sticker.Shapes.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.Backend.Adjustment.Binding\PhotoEditor.Android.Backend.Adjustment.Binding.csproj">
+      <Project>{5A4B7CEB-9745-41C5-B541-31C131EB8D77}</Project>
+      <Name>PhotoEditor.Android.Backend.Adjustment.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.Backend.Abstract.Sticker.Binding\PhotoEditor.Android.Backend.Abstract.Sticker.Binding.csproj">
+      <Project>{799CB80F-942A-4AC0-B7E4-6D2EC9586CF8}</Project>
+      <Name>PhotoEditor.Android.Backend.Abstract.Sticker.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.Backend.Camera.Binding\PhotoEditor.Android.Backend.Camera.Binding.csproj">
+      <Project>{43EC56FD-08A7-4409-97B7-5269AABACB9B}</Project>
+      <Name>PhotoEditor.Android.Backend.Camera.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.Backend.Filter.Binding\PhotoEditor.Android.Backend.Filter.Binding.csproj">
+      <Project>{31ACAD88-4802-4232-B08B-0E29DE3A4E1E}</Project>
+      <Name>PhotoEditor.Android.Backend.Filter.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.Backend.Text.Binding\PhotoEditor.Android.Backend.Text.Binding.csproj">
+      <Project>{41102F51-F407-4785-9AFE-3D188C490889}</Project>
+      <Name>PhotoEditor.Android.Backend.Text.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.Backend.Sticker.Binding\PhotoEditor.Android.Backend.Sticker.Binding.csproj">
+      <Project>{143DAA09-AD64-4431-A4EF-01960327B2F6}</Project>
+      <Name>PhotoEditor.Android.Backend.Sticker.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.Mobile.UI.Brush.Binding\PhotoEditor.Android.Mobile.UI.Brush.Binding.csproj">
+      <Project>{A5DCE118-BBB1-41FF-8034-51C5B0B5F3C7}</Project>
+      <Name>PhotoEditor.Android.Mobile.UI.Brush.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.Mobile.UI.Adjustment.Binding\PhotoEditor.Android.Mobile.UI.Adjustment.Binding.csproj">
+      <Project>{68EB1C74-16D6-41BB-A186-0113B2040719}</Project>
+      <Name>PhotoEditor.Android.Mobile.UI.Adjustment.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.Mobile.UI.Camera.Binding\PhotoEditor.Android.Mobile.UI.Camera.Binding.csproj">
+      <Project>{D72EF0BE-42B1-4E45-B0C9-369A361945A2}</Project>
+      <Name>PhotoEditor.Android.Mobile.UI.Camera.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.Mobile.UI.Filter.Binding\PhotoEditor.Android.Mobile.UI.Filter.Binding.csproj">
+      <Project>{F60A8C36-2B5C-4835-8946-47193726B4AD}</Project>
+      <Name>PhotoEditor.Android.Mobile.UI.Filter.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.Mobile.UI.Focus.Binding\PhotoEditor.Android.Mobile.UI.Focus.Binding.csproj">
+      <Project>{92114E09-F85E-40A1-9A7D-05A4119A7C3A}</Project>
+      <Name>PhotoEditor.Android.Mobile.UI.Focus.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.Mobile.UI.Frame.Binding\PhotoEditor.Android.Mobile.UI.Frame.Binding.csproj">
+      <Project>{222D84BB-49DD-477C-9BF9-30F3EAA2CCD5}</Project>
+      <Name>PhotoEditor.Android.Mobile.UI.Frame.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.Mobile.UI.Overlay.Binding\PhotoEditor.Android.Mobile.UI.Overlay.Binding.csproj">
+      <Project>{0F98DC8E-C6F8-4C4E-95A3-B43BC136E0C5}</Project>
+      <Name>PhotoEditor.Android.Mobile.UI.Overlay.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.Mobile.UI.Sticker.Binding\PhotoEditor.Android.Mobile.UI.Sticker.Binding.csproj">
+      <Project>{96DBD08E-0801-4CBA-A144-B30AE60AF491}</Project>
+      <Name>PhotoEditor.Android.Mobile.UI.Sticker.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.Mobile.UI.Text.Binding\PhotoEditor.Android.Mobile.UI.Text.Binding.csproj">
+      <Project>{87B0D2C2-F2B4-4260-B914-3F9597ACC0FC}</Project>
+      <Name>PhotoEditor.Android.Mobile.UI.Text.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.Mobile.UI.Transform.Binding\PhotoEditor.Android.Mobile.UI.Transform.Binding.csproj">
+      <Project>{5E88FD90-A21F-4F69-8154-1A851016BE73}</Project>
+      <Name>PhotoEditor.Android.Mobile.UI.Transform.Binding</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

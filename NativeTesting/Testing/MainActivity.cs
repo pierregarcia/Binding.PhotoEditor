@@ -42,7 +42,6 @@ namespace Testing
 			((EditorLoadSettings)settingsList.GetSettingsModel(Java.Lang.Class.FromType(typeof(EditorLoadSettings)))).SetImageSource(Android.Net.Uri.Parse("https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg?auto=compress&cs=tinysrgb&h=350"));
 
 			((EditorLoadSettings)settingsList.GetSettingsModel(Java.Lang.Class.FromType(typeof(EditorLoadSettings)))).SetImageSource(Android.Net.Uri.Parse("https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg?auto=compress&cs=tinysrgb&h=350"));
-			((EditorLoadSettings)settingsList.GetSettingsModel(Java.Lang.Class.FromType(typeof(UICon))))
 
 			new PhotoEditorBuilder(this)
 				.SetSettingsList(settingsList)

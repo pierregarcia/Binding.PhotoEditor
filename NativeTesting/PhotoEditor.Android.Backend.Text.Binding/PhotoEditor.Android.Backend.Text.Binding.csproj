@@ -13,7 +13,6 @@
     <RootNamespace>PhotoEditor.Android.Backend.Text.Binding</RootNamespace>
     <AssemblyName>PhotoEditor.Android.Backend.Text.Binding</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
     <AndroidClassParser>class-parse</AndroidClassParser>
     <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
@@ -42,15 +41,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Jars\AboutJars.txt" />
-    <None Include="Additions\AboutAdditions.txt" />
+    <Compile Include="Additions\TextGlLayer.cs" />
+    <Compile Include="Additions\TextLayerSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <TransformFile Include="Transforms\Metadata.xml" />
     <TransformFile Include="Transforms\EnumFields.xml" />
     <TransformFile Include="Transforms\EnumMethods.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <LibraryProjectZip Include="Jars\pesdk-backend-text-debug.aar" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PhotoEditor.Android.Backend.Abstract.Sticker.Binding\PhotoEditor.Android.Backend.Abstract.Sticker.Binding.csproj">
+      <Project>{799CB80F-942A-4AC0-B7E4-6D2EC9586CF8}</Project>
+      <Name>PhotoEditor.Android.Backend.Abstract.Sticker.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.Backend.Core.Binding\PhotoEditor.Android.Backend.Core.Binding.csproj">
+      <Project>{E1C9ED10-5403-4BE1-B8BB-EF7E791F9182}</Project>
+      <Name>PhotoEditor.Android.Backend.Core.Binding</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Additions\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

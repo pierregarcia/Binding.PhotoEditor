@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{55125700-EB9B-43B6-B9F6-B9244F695BAF}</ProjectGuid>
+    <ProjectTypeGuids>{10368E6C-D01B-4462-8E8B-01FC667A7035};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>PhotoEditor.Android.Assets.Font.Design.Binding</RootNamespace>
+    <AssemblyName>PhotoEditor.Android.Assets.Font.Design.Binding</AssemblyName>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <AndroidClassParser>class-parse</AndroidClassParser>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidManagedSymbols>true</AndroidManagedSymbols>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Mono.Android" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Additions\AboutAdditions.txt" />
+    <None Include="Jars\AboutJars.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <TransformFile Include="Transforms\EnumFields.xml" />
+    <TransformFile Include="Transforms\EnumMethods.xml" />
+    <TransformFile Include="Transforms\Metadata.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <LibraryProjectZip Include="Jars\pesdk-assets-font-text-design-debug.aar" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PhotoEditor.Android.Backend.Text.Binding\PhotoEditor.Android.Backend.Text.Binding.csproj">
+      <Project>{41102F51-F407-4785-9AFE-3D188C490889}</Project>
+      <Name>PhotoEditor.Android.Backend.Text.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.Backend.Core.Binding\PhotoEditor.Android.Backend.Core.Binding.csproj">
+      <Project>{E1C9ED10-5403-4BE1-B8BB-EF7E791F9182}</Project>
+      <Name>PhotoEditor.Android.Backend.Core.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.Mobile.UI.Core.Binding\PhotoEditor.Android.Mobile.UI.Core.Binding.csproj">
+      <Project>{F2841EAF-961B-43B8-8AD1-6359416E55CA}</Project>
+      <Name>PhotoEditor.Android.Mobile.UI.Core.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.Mobile.UI.Text.Binding\PhotoEditor.Android.Mobile.UI.Text.Binding.csproj">
+      <Project>{87B0D2C2-F2B4-4260-B914-3F9597ACC0FC}</Project>
+      <Name>PhotoEditor.Android.Mobile.UI.Text.Binding</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
+</Project>
