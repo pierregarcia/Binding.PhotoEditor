@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Android.App;
 using Android.OS;
 using Android.Runtime;
@@ -18,6 +19,10 @@ using LY.Img.Android.Pesdk.Backend.Decoder;
 using LY.Img.Android.Pesdk.UI.Panels;
 using LY.Img.Android.Pesdk.Assets.Sticker.Emoticons;
 using LY.Img.Android.Pesdk.Assets.Sticker.Shapes;
+using LY.Img.Android.Pesdk.Assets.Filter.Basic;
+using LY.Img.Android.Pesdk.Assets.Font.Basic;
+using LY.Img.Android.Pesdk.Assets.Frame.Basic;
+using System.Collections.Generic;
 
 namespace Testing
 {
@@ -49,20 +54,41 @@ namespace Testing
 
             ((UiConfigMainMenu)settingsList.GetSettingsModel(Java.Lang.Class.FromType(typeof(UiConfigMainMenu)))).SetToolList(new[]
             {
+                new ToolItem(TransformToolPanel.ToolId, Resource.String.pesdk_transform_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_transform)),
+                //new ToolItem(FilterToolPanel.ToolId, Resource.String.pesdk_filter_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_filters)),
+                new ToolItem(AdjustmentToolPanel.ToolId, Resource.String.pesdk_adjustments_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_adjust)),
                 new ToolItem(StickerToolPanel.ToolId, Resource.String.pesdk_sticker_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_sticker)),
+                new ToolItem(TextToolPanel.ToolId, Resource.String.pesdk_text_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_text)),
+                //new ToolItem(TextDesignToolPanel.ToolId, Resource.String.pesdk_textDesign_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_text_design)),
+                //new ToolItem(OverlayToolPanel.ToolId, Resource.String.pesdk_overlay_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_overlay)),
+                new ToolItem(FrameToolPanel.ToolId, Resource.String.pesdk_frame_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_frame)),
+                new ToolItem(BrushToolPanel.ToolId, Resource.String.pesdk_brush_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_brush)),
+                new ToolItem(FocusToolPanel.ToolId, Resource.String.pesdk_focus_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_focus)),
             });
 
+            ((UiConfigSticker)settingsList.GetSettingsModel(Java.Lang.Class.FromType(typeof(UiConfigSticker)))).SetStickerLists(new[]
+            {
+                StickerPackEmoticons.StickerCategory,
+                StickerPackShapes.StickerCategory,
+            });
 
-            ((UiConfigSticker)settingsList.GetSettingsModel(Java.Lang.Class.FromType(typeof(UiConfigSticker))))
-                .SetStickerLists(new[]
-                {
-                    StickerPackEmoticons.StickerCategory,
-                 });
+            //((UiConfigFilter)settingsList.GetSettingsModel(Java.Lang.Class.FromType(typeof(UiConfigFilter)))).SetFilterList(new[]
+            //{
+            //    FilterPackBasic.FilterPack,
+            //});
 
+            var frames = new List<FrameItem>();
+            for (int i = 0; i < FramePackBasic.FramePack.Size(); i++)
+            {
+                frames.Add(FramePackBasic.FramePack.Get(i) as FrameItem);
+            }
+
+            ((UiConfigFrame)settingsList.GetSettingsModel(Java.Lang.Class.FromType(typeof(UiConfigFrame))))
+            .SetFrameList(frames);
 
             new PhotoEditorBuilder(this)
-                    .SetSettingsList(settingsList)
-                    .StartActivityForResult(this, EDITOR_ACTIVITY_RESULT);
+                        .SetSettingsList(settingsList)
+                        .StartActivityForResult(this, EDITOR_ACTIVITY_RESULT);
         }
 
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)

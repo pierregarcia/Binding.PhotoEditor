@@ -80,9 +80,6 @@
     <TransformFile Include="Transforms\Metadata.xml" />
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\pesdk-mobile_ui-text-debug.aar" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\PhotoEditor.Android.Backend.Text.Binding\PhotoEditor.Android.Backend.Text.Binding.csproj">
       <Project>{41102F51-F407-4785-9AFE-3D188C490889}</Project>
       <Name>PhotoEditor.Android.Backend.Text.Binding</Name>
@@ -99,6 +96,9 @@
       <Project>{E1C9ED10-5403-4BE1-B8BB-EF7E791F9182}</Project>
       <Name>PhotoEditor.Android.Backend.Core.Binding</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <LibraryProjectZip Include="Jars\pesdk-mobile_ui-text-release.aar" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Annotations.27.0.2.1\build\MonoAndroid81\Xamarin.Android.Support.Annotations.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Annotations.27.0.2.1\build\MonoAndroid81\Xamarin.Android.Support.Annotations.targets')" />

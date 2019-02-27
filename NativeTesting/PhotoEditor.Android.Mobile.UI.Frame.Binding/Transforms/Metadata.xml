@@ -7,4 +7,7 @@
   This sample removes the method: android.support.v4.content.CursorLoader.loadInBackground:
   <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
   -->
+    <remove-node path="/api/package[@name='ly.img.android.pesdk.ui.model.state']/class[@name='UiConfigFrame']/method[@name='setFrameList' and count(parameter)=1 and parameter[1][@type='java.util.ArrayList&lt;ly.img.android.pesdk.ui.panels.item.FrameItem&gt;...']]"/>
+    <remove-node path="/api/package[@name='ly.img.android.pesdk.ui.model.state']/class[@name='UiConfigFrame']/method[@name='setFrameList' and count(parameter)=1 and parameter[1][@type='ly.img.android.pesdk.ui.panels.item.FrameItem...']]"/>
+
 </metadata>
