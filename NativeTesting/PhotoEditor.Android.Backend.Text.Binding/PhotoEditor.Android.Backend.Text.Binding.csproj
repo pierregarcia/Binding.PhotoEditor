@@ -50,9 +50,6 @@
     <TransformFile Include="Transforms\EnumMethods.xml" />
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\pesdk-backend-text-debug.aar" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\PhotoEditor.Android.Backend.Abstract.Sticker.Binding\PhotoEditor.Android.Backend.Abstract.Sticker.Binding.csproj">
       <Project>{799CB80F-942A-4AC0-B7E4-6D2EC9586CF8}</Project>
       <Name>PhotoEditor.Android.Backend.Abstract.Sticker.Binding</Name>
@@ -64,6 +61,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Additions\" />
+    <Folder Include="Jars\" />
+  </ItemGroup>
+  <ItemGroup>
+    <LibraryProjectZip Include="Jars\pesdk-backend-text-release.aar" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

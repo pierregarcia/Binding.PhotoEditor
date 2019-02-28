@@ -55,9 +55,6 @@
     <TransformFile Include="Transforms\Metadata.xml" />
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\pesdk-mobile_ui-adjustment-debug.aar" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\PhotoEditor.Android.Mobile.UI.Core.Binding\PhotoEditor.Android.Mobile.UI.Core.Binding.csproj">
       <Project>{F2841EAF-961B-43B8-8AD1-6359416E55CA}</Project>
       <Name>PhotoEditor.Android.Mobile.UI.Core.Binding</Name>
@@ -70,6 +67,9 @@
       <Project>{E1C9ED10-5403-4BE1-B8BB-EF7E791F9182}</Project>
       <Name>PhotoEditor.Android.Backend.Core.Binding</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <LibraryProjectZip Include="Jars\pesdk-mobile_ui-adjustment-release.aar" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
 </Project>

@@ -23,6 +23,7 @@ using LY.Img.Android.Pesdk.Assets.Filter.Basic;
 using LY.Img.Android.Pesdk.Assets.Font.Basic;
 using LY.Img.Android.Pesdk.Assets.Frame.Basic;
 using System.Collections.Generic;
+using LY.Img.Android.Pesdk.Assets.Overlay.Basic;
 
 namespace Testing
 {
@@ -40,8 +41,6 @@ namespace Testing
             SetSupportActionBar(toolbar);
 
             FindViewById<Button>(Resource.Id.myButton).Click += MainActivity_Click;
-
-            //StartActivity(typeof(Com.Photoeditorsdk.Android.App.MainActivity));
         }
 
         private void MainActivity_Click(object sender, EventArgs e)
@@ -55,12 +54,12 @@ namespace Testing
             ((UiConfigMainMenu)settingsList.GetSettingsModel(Java.Lang.Class.FromType(typeof(UiConfigMainMenu)))).SetToolList(new[]
             {
                 new ToolItem(TransformToolPanel.ToolId, Resource.String.pesdk_transform_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_transform)),
-                //new ToolItem(FilterToolPanel.ToolId, Resource.String.pesdk_filter_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_filters)),
+                new ToolItem(FilterToolPanel.ToolId, Resource.String.pesdk_filter_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_filters)),
                 new ToolItem(AdjustmentToolPanel.ToolId, Resource.String.pesdk_adjustments_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_adjust)),
                 new ToolItem(StickerToolPanel.ToolId, Resource.String.pesdk_sticker_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_sticker)),
                 new ToolItem(TextToolPanel.ToolId, Resource.String.pesdk_text_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_text)),
                 //new ToolItem(TextDesignToolPanel.ToolId, Resource.String.pesdk_textDesign_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_text_design)),
-                //new ToolItem(OverlayToolPanel.ToolId, Resource.String.pesdk_overlay_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_overlay)),
+                new ToolItem(OverlayToolPanel.ToolId, Resource.String.pesdk_overlay_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_overlay)),
                 new ToolItem(FrameToolPanel.ToolId, Resource.String.pesdk_frame_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_frame)),
                 new ToolItem(BrushToolPanel.ToolId, Resource.String.pesdk_brush_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_brush)),
                 new ToolItem(FocusToolPanel.ToolId, Resource.String.pesdk_focus_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_focus)),
@@ -72,10 +71,13 @@ namespace Testing
                 StickerPackShapes.StickerCategory,
             });
 
-            //((UiConfigFilter)settingsList.GetSettingsModel(Java.Lang.Class.FromType(typeof(UiConfigFilter)))).SetFilterList(new[]
-            //{
-            //    FilterPackBasic.FilterPack,
-            //});
+            var filters = new List<FilterItem>();
+            for (int i = 0; i < FilterPackBasic.FilterPack.Size(); i++)
+            {
+                filters.Add(FilterPackBasic.FilterPack.Get(i) as FilterItem);
+            }
+            ((UiConfigFilter)settingsList.GetSettingsModel(Java.Lang.Class.FromType(typeof(UiConfigFilter))))
+            .SetFilterList(filters);
 
             var frames = new List<FrameItem>();
             for (int i = 0; i < FramePackBasic.FramePack.Size(); i++)
@@ -86,9 +88,18 @@ namespace Testing
             ((UiConfigFrame)settingsList.GetSettingsModel(Java.Lang.Class.FromType(typeof(UiConfigFrame))))
             .SetFrameList(frames);
 
+            var overlays = new List<OverlayItem>();
+            for (int i = 0; i < OverlayPackBasic.OverlayPack.Size(); i++)
+            {
+                overlays.Add(OverlayPackBasic.OverlayPack.Get(i) as OverlayItem);
+            }
+
+            ((UiConfigOverlay)settingsList.GetSettingsModel(Java.Lang.Class.FromType(typeof(UiConfigOverlay))))
+            .SetOverlayList(overlays);
+
             new PhotoEditorBuilder(this)
-                        .SetSettingsList(settingsList)
-                        .StartActivityForResult(this, EDITOR_ACTIVITY_RESULT);
+                            .SetSettingsList(settingsList)
+                            .StartActivityForResult(this, EDITOR_ACTIVITY_RESULT);
         }
 
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)

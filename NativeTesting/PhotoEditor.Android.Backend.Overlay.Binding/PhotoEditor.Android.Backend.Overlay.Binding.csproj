@@ -49,7 +49,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\pesdk-backend-overlay-debug.aar" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -66,6 +65,12 @@
       <Project>{e1c9ed10-5403-4be1-b8bb-ef7e791f9182}</Project>
       <Name>PhotoEditor.Android.Backend.Core.Binding</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Jars\" />
+  </ItemGroup>
+  <ItemGroup>
+    <LibraryProjectZip Include="Jars\pesdk-backend-overlay-release.aar" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.v8.RenderScript.27.0.2.1\build\MonoAndroid81\Xamarin.Android.Support.v8.RenderScript.targets" Condition="Exists('..\packages\Xamarin.Android.Support.v8.RenderScript.27.0.2.1\build\MonoAndroid81\Xamarin.Android.Support.v8.RenderScript.targets')" />

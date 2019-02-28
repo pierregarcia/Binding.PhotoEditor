@@ -54,9 +54,6 @@
     <TransformFile Include="Transforms\Metadata.xml" />
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\pesdk-assets-font-text-design-debug.aar" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\PhotoEditor.Android.Backend.Text.Binding\PhotoEditor.Android.Backend.Text.Binding.csproj">
       <Project>{41102F51-F407-4785-9AFE-3D188C490889}</Project>
       <Name>PhotoEditor.Android.Backend.Text.Binding</Name>
@@ -73,6 +70,9 @@
       <Project>{87B0D2C2-F2B4-4260-B914-3F9597ACC0FC}</Project>
       <Name>PhotoEditor.Android.Mobile.UI.Text.Binding</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <LibraryProjectZip Include="Jars\pesdk-assets-font-text-design-release.aar" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
 </Project>
