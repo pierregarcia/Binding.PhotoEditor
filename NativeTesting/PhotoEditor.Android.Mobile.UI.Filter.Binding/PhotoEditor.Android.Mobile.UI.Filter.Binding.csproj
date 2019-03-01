@@ -68,11 +68,6 @@
     <Compile Include="Additions\FontViewHolder.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Additions\AboutAdditions.txt" />
-    <None Include="Jars\AboutJars.txt" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <TransformFile Include="Transforms\EnumFields.xml" />
     <TransformFile Include="Transforms\EnumMethods.xml" />
     <TransformFile Include="Transforms\Metadata.xml" />

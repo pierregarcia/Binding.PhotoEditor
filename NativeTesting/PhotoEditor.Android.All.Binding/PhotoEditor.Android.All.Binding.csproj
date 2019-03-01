@@ -40,17 +40,9 @@
     <Reference Include="Mono.Android" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="Xamarin.Android.Support.v8.RenderScript, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Android.Support.v8.RenderScript.27.0.2.1\lib\MonoAndroid81\Xamarin.Android.Support.v8.RenderScript.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Jars\AboutJars.txt" />
-    <None Include="Additions\AboutAdditions.txt" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <TransformFile Include="Transforms\Metadata.xml" />
@@ -182,23 +174,13 @@
       <Project>{5E88FD90-A21F-4F69-8154-1A851016BE73}</Project>
       <Name>PhotoEditor.Android.Mobile.UI.Transform.Binding</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\RenderScriptV8\RenderScriptV8\RenderScriptV8.csproj">
+      <Project>{9A6D85F6-17BC-4C02-918B-AE9C7BA156E7}</Project>
+      <Name>RenderScriptV8</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <LibraryProjectZip Include="Jars\pesdk-all-release.aar" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
-  <Import Project="..\packages\Xamarin.Android.Support.v8.RenderScript.27.0.2.1\build\MonoAndroid81\Xamarin.Android.Support.v8.RenderScript.targets" Condition="Exists('..\packages\Xamarin.Android.Support.v8.RenderScript.27.0.2.1\build\MonoAndroid81\Xamarin.Android.Support.v8.RenderScript.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Xamarin.Android.Support.v8.RenderScript.27.0.2.1\build\MonoAndroid81\Xamarin.Android.Support.v8.RenderScript.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.v8.RenderScript.27.0.2.1\build\MonoAndroid81\Xamarin.Android.Support.v8.RenderScript.targets'))" />
-  </Target>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

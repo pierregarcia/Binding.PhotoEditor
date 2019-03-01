@@ -79,20 +79,12 @@
     <Reference Include="Xamarin.Android.Support.v7.RecyclerView, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Xamarin.Android.Support.v7.RecyclerView.28.0.0\lib\monoandroid81\Xamarin.Android.Support.v7.RecyclerView.dll</HintPath>
     </Reference>
-    <Reference Include="Xamarin.Android.Support.v8.RenderScript, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Android.Support.v8.RenderScript.27.0.2.1\lib\MonoAndroid81\Xamarin.Android.Support.v8.RenderScript.dll</HintPath>
-    </Reference>
     <Reference Include="Xamarin.Android.Support.Vector.Drawable, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Xamarin.Android.Support.Vector.Drawable.28.0.0\lib\monoandroid81\Xamarin.Android.Support.Vector.Drawable.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Jars\AboutJars.txt" />
-    <None Include="Additions\AboutAdditions.txt" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <TransformFile Include="Transforms\Metadata.xml" />
@@ -103,6 +95,10 @@
     <ProjectReference Include="..\PhotoEditor.Android.Backend.Core.Binding\PhotoEditor.Android.Backend.Core.Binding.csproj">
       <Project>{e1c9ed10-5403-4be1-b8bb-ef7e791f9182}</Project>
       <Name>PhotoEditor.Android.Backend.Core.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\RenderScriptV8\RenderScriptV8\RenderScriptV8.csproj">
+      <Project>{9A6D85F6-17BC-4C02-918B-AE9C7BA156E7}</Project>
+      <Name>RenderScriptV8</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -128,7 +124,6 @@
     <Error Condition="!Exists('..\packages\Xamarin.Android.Support.Animated.Vector.Drawable.28.0.0\build\monoandroid81\Xamarin.Android.Support.Animated.Vector.Drawable.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.Animated.Vector.Drawable.28.0.0\build\monoandroid81\Xamarin.Android.Support.Animated.Vector.Drawable.targets'))" />
     <Error Condition="!Exists('..\packages\Xamarin.Android.Support.v7.AppCompat.28.0.0\build\monoandroid81\Xamarin.Android.Support.v7.AppCompat.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.v7.AppCompat.28.0.0\build\monoandroid81\Xamarin.Android.Support.v7.AppCompat.targets'))" />
     <Error Condition="!Exists('..\packages\Xamarin.Android.Support.v7.RecyclerView.28.0.0\build\monoandroid81\Xamarin.Android.Support.v7.RecyclerView.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.v7.RecyclerView.28.0.0\build\monoandroid81\Xamarin.Android.Support.v7.RecyclerView.targets'))" />
-    <Error Condition="!Exists('..\packages\Xamarin.Android.Support.v8.RenderScript.27.0.2.1\build\MonoAndroid81\Xamarin.Android.Support.v8.RenderScript.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.v8.RenderScript.27.0.2.1\build\MonoAndroid81\Xamarin.Android.Support.v8.RenderScript.targets'))" />
   </Target>
   <Import Project="..\packages\Xamarin.Android.Arch.Core.Common.1.1.1\build\monoandroid81\Xamarin.Android.Arch.Core.Common.targets" Condition="Exists('..\packages\Xamarin.Android.Arch.Core.Common.1.1.1\build\monoandroid81\Xamarin.Android.Arch.Core.Common.targets')" />
   <Import Project="..\packages\Xamarin.Android.Arch.Lifecycle.Common.1.1.1\build\monoandroid81\Xamarin.Android.Arch.Lifecycle.Common.targets" Condition="Exists('..\packages\Xamarin.Android.Arch.Lifecycle.Common.1.1.1\build\monoandroid81\Xamarin.Android.Arch.Lifecycle.Common.targets')" />
@@ -143,12 +138,4 @@
   <Import Project="..\packages\Xamarin.Android.Support.Animated.Vector.Drawable.28.0.0\build\monoandroid81\Xamarin.Android.Support.Animated.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Animated.Vector.Drawable.28.0.0\build\monoandroid81\Xamarin.Android.Support.Animated.Vector.Drawable.targets')" />
   <Import Project="..\packages\Xamarin.Android.Support.v7.AppCompat.28.0.0\build\monoandroid81\Xamarin.Android.Support.v7.AppCompat.targets" Condition="Exists('..\packages\Xamarin.Android.Support.v7.AppCompat.28.0.0\build\monoandroid81\Xamarin.Android.Support.v7.AppCompat.targets')" />
   <Import Project="..\packages\Xamarin.Android.Support.v7.RecyclerView.28.0.0\build\monoandroid81\Xamarin.Android.Support.v7.RecyclerView.targets" Condition="Exists('..\packages\Xamarin.Android.Support.v7.RecyclerView.28.0.0\build\monoandroid81\Xamarin.Android.Support.v7.RecyclerView.targets')" />
-  <Import Project="..\packages\Xamarin.Android.Support.v8.RenderScript.27.0.2.1\build\MonoAndroid81\Xamarin.Android.Support.v8.RenderScript.targets" Condition="Exists('..\packages\Xamarin.Android.Support.v8.RenderScript.27.0.2.1\build\MonoAndroid81\Xamarin.Android.Support.v8.RenderScript.targets')" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

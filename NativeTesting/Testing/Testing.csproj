@@ -235,6 +235,19 @@
   <ItemGroup>
     <ProguardConfiguration Include="proguard_vca.cfg" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="lib\" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidNativeLibrary Include="lib\arm64-v8a\libRSSupport.so" />
+    <AndroidNativeLibrary Include="lib\arm64-v8a\librsjni.so" />
+    <AndroidNativeLibrary Include="lib\armeabi-v7a\libRSSupport.so" />
+    <AndroidNativeLibrary Include="lib\armeabi-v7a\librsjni.so" />
+    <AndroidNativeLibrary Include="lib\x86\libRSSupport.so" />
+    <AndroidNativeLibrary Include="lib\x86\librsjni.so" />
+    <AndroidNativeLibrary Include="lib\x86_64\libRSSupport.so" />
+    <AndroidNativeLibrary Include="lib\x86_64\librsjni.so" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
     Other similar extension points exist, see Microsoft.Common.targets.
