@@ -55,5 +55,8 @@
       <Name>RenderScriptV8</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <LibraryProjectZip Include="Jars\authorization-6.0.0.0.aar" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
 </Project>

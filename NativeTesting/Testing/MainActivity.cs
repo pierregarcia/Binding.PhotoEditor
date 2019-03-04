@@ -70,6 +70,13 @@ namespace Testing
                 StickerPackEmoticons.StickerCategory,
                 StickerPackShapes.StickerCategory,
             });
+            var fonts = new List<FontItem>();
+            for (int i = 0; i < FontPackBasic.FontPack.Size(); i++)
+            {
+                fonts.Add(FontPackBasic.FontPack.Get(i) as FontItem);
+            }
+            ((UiConfigText)settingsList.GetSettingsModel(Java.Lang.Class.FromType(typeof(UiConfigText))))
+            .SetFontList(fonts);
 
             var filters = new List<FilterItem>();
             for (int i = 0; i < FilterPackBasic.FilterPack.Size(); i++)
