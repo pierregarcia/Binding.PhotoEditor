@@ -71,6 +71,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.Android.Assets.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RenderScriptV8", "..\..\..\RenderScriptV8\RenderScriptV8\RenderScriptV8.csproj", "{9A6D85F6-17BC-4C02-918B-AE9C7BA156E7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.Android.Backend.Text.Design.Binding", "PhotoEditor.Android.Backend.Text.Design.Binding\PhotoEditor.Android.Backend.Text.Design.Binding.csproj", "{BC5F4EAB-743A-47CB-A8AC-7693F2250C0C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -227,6 +229,10 @@ Global
 		{9A6D85F6-17BC-4C02-918B-AE9C7BA156E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A6D85F6-17BC-4C02-918B-AE9C7BA156E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A6D85F6-17BC-4C02-918B-AE9C7BA156E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC5F4EAB-743A-47CB-A8AC-7693F2250C0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC5F4EAB-743A-47CB-A8AC-7693F2250C0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC5F4EAB-743A-47CB-A8AC-7693F2250C0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC5F4EAB-743A-47CB-A8AC-7693F2250C0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
