@@ -63,7 +63,6 @@
   <ItemGroup>
     <AndroidAsset Include="Assets\LICENSE" />
     <None Include="Properties\AndroidManifest.xml" />
-    <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\activity_main.axml">
@@ -225,6 +224,14 @@
       <Project>{5E88FD90-A21F-4F69-8154-1A851016BE73}</Project>
       <Name>PhotoEditor.Android.Mobile.UI.Transform.Binding</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.Backend.Text.Design.Binding\PhotoEditor.Android.Backend.Text.Design.Binding.csproj">
+      <Project>{24E21C3A-92D1-4D38-81A0-E393D83EE73E}</Project>
+      <Name>PhotoEditor.Android.Backend.Text.Design.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.Mobile.UI.Text.Design.Binding\PhotoEditor.Android.Mobile.UI.Text.Design.Binding.csproj">
+      <Project>{680A0F32-3AB7-49F0-AEB7-CBF0D3C4DDFB}</Project>
+      <Name>PhotoEditor.Android.Mobile.UI.Text.Design.Binding</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Android.Support.Design">
@@ -232,6 +239,9 @@
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat">
       <Version>27.0.2.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk7">
+      <Version>1.3.21</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

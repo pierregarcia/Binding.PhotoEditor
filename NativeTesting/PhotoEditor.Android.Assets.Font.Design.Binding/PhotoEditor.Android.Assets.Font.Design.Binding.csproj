@@ -68,7 +68,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\pesdk-assets-font-text-design-release.aar" />
+    <LibraryProjectZip Include="..\NativeLibs\pesdk-assets-font-text-design-release.aar">
+      <Link>Jars\pesdk-assets-font-text-design-release.aar</Link>
+    </LibraryProjectZip>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
 </Project>

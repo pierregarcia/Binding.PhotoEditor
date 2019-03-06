@@ -60,13 +60,15 @@
       <Project>{799CB80F-942A-4AC0-B7E4-6D2EC9586CF8}</Project>
       <Name>PhotoEditor.Android.Backend.Abstract.Sticker.Binding</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\RenderScriptV8\RenderScriptV8\RenderScriptV8.csproj">
+    <ProjectReference Include="..\RenderScriptV8\RenderScriptV8.csproj">
       <Project>{9A6D85F6-17BC-4C02-918B-AE9C7BA156E7}</Project>
       <Name>RenderScriptV8</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\pesdk-backend-sticker-release.aar" />
+    <LibraryProjectZip Include="..\NativeLibs\pesdk-backend-sticker-release.aar">
+      <Link>Jars\pesdk-backend-sticker-release.aar</Link>
+    </LibraryProjectZip>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
 </Project>
