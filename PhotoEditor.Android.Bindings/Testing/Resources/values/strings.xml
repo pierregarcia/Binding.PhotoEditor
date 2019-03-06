@@ -1,0 +1,11 @@
+﻿<resources>
+    <string name="pesdk_transform_title_name">Transform</string>
+    <string name="pesdk_filter_title_name">Filter</string>
+    <string name="pesdk_sticker_title_name">Sticker</string>
+    <string name="pesdk_text_title_name">Text</string>
+    <string name="pesdk_textDesign_title_name">Text Design</string>
+    <string name="pesdk_overlay_title_name">Overlay</string>
+    <string name="pesdk_frame_title_name">Frame</string>
+    <string name="pesdk_brush_title_name">Brush</string>
+    <string name="pesdk_focus_title_name">Focus</string>
+</resources>

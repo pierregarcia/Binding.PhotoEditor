@@ -7,4 +7,7 @@
   This sample removes the method: android.support.v4.content.CursorLoader.loadInBackground:
   <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
   -->
+    
+    <attr path="/api/package[@name='ly.img.android.pesdk.backend.text_design.model.row.block']/class[@name='TextDesignRowTriple']/method[@name='setOrientation']/parameter[1]" name="name">orientation</attr>
+    <attr path="/api/package[@name='ly.img.android.pesdk.backend.text_design.model.row.image']/class[@name='TextDesignRowImage']/method[@name='setImagePosition']/parameter[1]" name="name">position</attr>
 </metadata>

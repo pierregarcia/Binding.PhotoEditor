@@ -27,7 +27,7 @@ using LY.Img.Android.Pesdk.Assets.Overlay.Basic;
 
 namespace Testing
 {
-    [Activity(Label = "VCA", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
+    [Activity(Label = "Img Nventive", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
         private static int EDITOR_ACTIVITY_RESULT = 1;
@@ -51,25 +51,32 @@ namespace Testing
 
             ((EditorLoadSettings)settingsList.GetSettingsModel(Java.Lang.Class.FromType(typeof(EditorLoadSettings)))).SetImageSource(Android.Net.Uri.Parse("https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg?auto=compress&cs=tinysrgb&h=350"));
 
-            ((UiConfigMainMenu)settingsList.GetSettingsModel(Java.Lang.Class.FromType(typeof(UiConfigMainMenu)))).SetToolList(new[]
-            {
-                new ToolItem(TransformToolPanel.ToolId, Resource.String.pesdk_transform_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_transform)),
-                new ToolItem(FilterToolPanel.ToolId, Resource.String.pesdk_filter_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_filters)),
-                new ToolItem(AdjustmentToolPanel.ToolId, Resource.String.pesdk_adjustments_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_adjust)),
-                new ToolItem(StickerToolPanel.ToolId, Resource.String.pesdk_sticker_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_sticker)),
-                new ToolItem(TextToolPanel.ToolId, Resource.String.pesdk_text_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_text)),
-                //new ToolItem(TextDesignToolPanel.ToolId, Resource.String.pesdk_textDesign_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_text_design)),
-                new ToolItem(OverlayToolPanel.ToolId, Resource.String.pesdk_overlay_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_overlay)),
-                new ToolItem(FrameToolPanel.ToolId, Resource.String.pesdk_frame_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_frame)),
-                new ToolItem(BrushToolPanel.ToolId, Resource.String.pesdk_brush_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_brush)),
-                new ToolItem(FocusToolPanel.ToolId, Resource.String.pesdk_focus_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_focus)),
-            });
+            //((UiConfigMainMenu)settingsList.GetSettingsModel(Java.Lang.Class.FromType(typeof(UiConfigMainMenu)))).SetToolList(new[]
+            //{
+            //    new ToolItem(TransformToolPanel.ToolId, Resource.String.pesdk_transform_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_transform)),
+            //    new ToolItem(FilterToolPanel.ToolId, Resource.String.pesdk_filter_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_filters)),
+            //    new ToolItem(AdjustmentToolPanel.ToolId, Resource.String.pesdk_adjustments_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_adjust)),
+            //    new ToolItem(StickerToolPanel.ToolId, Resource.String.pesdk_sticker_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_sticker)),
+            //    new ToolItem(TextToolPanel.ToolId, Resource.String.pesdk_text_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_text)),
+            //    //new ToolItem(TextDesignToolPanel.ToolId, Resource.String.pesdk_textDesign_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_text_design)),
+            //    new ToolItem(OverlayToolPanel.ToolId, Resource.String.pesdk_overlay_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_overlay)),
+            //    new ToolItem(FrameToolPanel.ToolId, Resource.String.pesdk_frame_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_frame)),
+            //    new ToolItem(BrushToolPanel.ToolId, Resource.String.pesdk_brush_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_brush)),
+            //    new ToolItem(FocusToolPanel.ToolId, Resource.String.pesdk_focus_title_name, ImageSource.Create(Resource.Drawable.imgly_icon_tool_focus)),
+            //});
 
             ((UiConfigSticker)settingsList.GetSettingsModel(Java.Lang.Class.FromType(typeof(UiConfigSticker)))).SetStickerLists(new[]
             {
                 StickerPackEmoticons.StickerCategory,
                 StickerPackShapes.StickerCategory,
             });
+            var fonts = new List<FontItem>();
+            for (int i = 0; i < FontPackBasic.FontPack.Size(); i++)
+            {
+                fonts.Add(FontPackBasic.FontPack.Get(i) as FontItem);
+            }
+            ((UiConfigText)settingsList.GetSettingsModel(Java.Lang.Class.FromType(typeof(UiConfigText))))
+            .SetFontList(fonts);
 
             var filters = new List<FilterItem>();
             for (int i = 0; i < FilterPackBasic.FilterPack.Size(); i++)

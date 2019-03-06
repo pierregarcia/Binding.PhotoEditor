@@ -53,7 +53,7 @@
     <InputJar Include="Jars\annotations.jar" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\RenderScriptV8\RenderScriptV8\RenderScriptV8.csproj">
+    <ProjectReference Include="..\RenderScriptV8\RenderScriptV8.csproj">
       <Project>{9A6D85F6-17BC-4C02-918B-AE9C7BA156E7}</Project>
       <Name>RenderScriptV8</Name>
     </ProjectReference>

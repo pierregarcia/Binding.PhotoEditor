@@ -96,15 +96,12 @@
       <Project>{E1C9ED10-5403-4BE1-B8BB-EF7E791F9182}</Project>
       <Name>PhotoEditor.Android.Backend.Core.Binding</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\RenderScriptV8\RenderScriptV8\RenderScriptV8.csproj">
+    <ProjectReference Include="..\RenderScriptV8\RenderScriptV8.csproj">
       <Project>{9A6D85F6-17BC-4C02-918B-AE9C7BA156E7}</Project>
       <Name>RenderScriptV8</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Additions\" />
-    <Folder Include="Jars\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

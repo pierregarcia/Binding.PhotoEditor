@@ -5337,16 +5337,22 @@ namespace Testing
 			public const int fragment_shader_sticker = 2131165196;
 			
 			// aapt resource value: 0x7f07000d
-			public const int vertex_shader_camera_correction = 2131165197;
+			public const int jpeg_v5_0_2 = 2131165197;
 			
 			// aapt resource value: 0x7f07000e
-			public const int vertex_shader_default = 2131165198;
+			public const int split_v5_0_2 = 2131165198;
 			
 			// aapt resource value: 0x7f07000f
-			public const int vertex_shader_layer = 2131165199;
+			public const int vertex_shader_camera_correction = 2131165199;
 			
 			// aapt resource value: 0x7f070010
-			public const int vertex_shader_particle = 2131165200;
+			public const int vertex_shader_default = 2131165200;
+			
+			// aapt resource value: 0x7f070011
+			public const int vertex_shader_layer = 2131165201;
+			
+			// aapt resource value: 0x7f070012
+			public const int vertex_shader_particle = 2131165202;
 			
 			static Raw()
 			{
