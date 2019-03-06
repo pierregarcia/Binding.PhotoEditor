@@ -27,6 +27,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+	<NoWarn>CS0109</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -35,6 +36,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+	<NoWarn>CS0109</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
@@ -45,11 +47,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Additions\StickerOptionToolPanel.cs" />
     <Compile Include="Additions\StickerToolPanel.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <TransformFile Include="Transforms\Metadata.xml" />
-    <TransformFile Include="Transforms\EnumFields.xml" />
-    <TransformFile Include="Transforms\EnumMethods.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PhotoEditor.Android.Backend.Core.Binding\PhotoEditor.Android.Backend.Core.Binding.csproj">
@@ -74,7 +71,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\pesdk-mobile_ui-sticker-release.aar" />
+    <LibraryProjectZip Include="..\NativeLibs\pesdk-mobile_ui-sticker-release.aar">
+      <Link>Jars\pesdk-mobile_ui-sticker-release.aar</Link>
+    </LibraryProjectZip>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Transforms\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
 </Project>

@@ -27,6 +27,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+	<NoWarn>CS0109</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -35,6 +36,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+	<NoWarn>CS0109</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
@@ -94,13 +96,15 @@
   </ItemGroup>
   <ItemGroup>
     <TransformFile Include="Transforms\Metadata.xml" />
-    <TransformFile Include="Transforms\EnumFields.xml" />
-    <TransformFile Include="Transforms\EnumMethods.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PhotoEditor.Android.Backend.Core.Binding\PhotoEditor.Android.Backend.Core.Binding.csproj">
       <Project>{e1c9ed10-5403-4be1-b8bb-ef7e791f9182}</Project>
       <Name>PhotoEditor.Android.Backend.Core.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.Authorization.Binding\PhotoEditor.Android.Authorization.Binding.csproj">
+      <Project>{D9B6D3B4-A648-4A46-AE54-848CD7AA209D}</Project>
+      <Name>PhotoEditor.Android.Authorization.Binding</Name>
     </ProjectReference>
     <ProjectReference Include="..\RenderScriptV8\RenderScriptV8.csproj">
       <Project>{9A6D85F6-17BC-4C02-918B-AE9C7BA156E7}</Project>
@@ -108,7 +112,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\pesdk-mobile_ui-core-release.aar" />
+    <LibraryProjectZip Include="..\NativeLibs\pesdk-mobile_ui-core-release.aar">
+      <Link>Jars\pesdk-mobile_ui-core-release.aar</Link>
+    </LibraryProjectZip>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />

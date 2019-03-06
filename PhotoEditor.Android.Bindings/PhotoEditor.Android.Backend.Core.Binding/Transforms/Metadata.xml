@@ -1,6 +1,6 @@
 ﻿<metadata>
 	<!--Removes the Kotlin extensions-->
-	<remove-node path="/api/package[starts-with(@name, 'ly.img.android.pesdk.backend.text_design.kotlin_extension')]" />
+<!--	<remove-node path="/api/package[starts-with(@name, 'ly.img.android.pesdk.backend.text_design.kotlin_extension')]" />-->
 
 	<!--error CS0102: The type 'Exify' already contains a definition for 'JpegProcess'-->
 	<attr path="/api/package[@name='ly.img.android.pesdk.backend.exif']/class[@name='Exify']/method[@name='getJpegProcess' and count(parameter)=0]" name="managedName">JpegProcessId</attr>
@@ -16,4 +16,27 @@
 
 	<attr path="/api/package[@name='ly.img.android.pesdk.ui.activity']/interface[@name='ImgLyContext']/method[@name='getImgLyIntent' and count(parameter)=0]" name="return">ly.img.android.pesdk.ui.activity.ImgLyIntent</attr>
 	
+    
+    <attr path="/api/package[@name='ly.img.android.pesdk.backend.text_design.kotlin_extension']/class[@name='TypeExtensionsKt']/method[@name='getFirstHeight']/parameter[1]" name="name">receiver</attr>
+    <attr path="/api/package[@name='ly.img.android.pesdk.backend.text_design.kotlin_extension']/class[@name='TypeExtensionsKt']/method[@name='getFirstWidth']/parameter[1]" name="name">receiver</attr>
+    <attr path="/api/package[@name='ly.img.android.pesdk.backend.text_design.kotlin_extension']/class[@name='TypeExtensionsKt']/method[@name='getHeight']/parameter[1]" name="name">receiver</attr>
+    <attr path="/api/package[@name='ly.img.android.pesdk.backend.text_design.kotlin_extension']/class[@name='TypeExtensionsKt']/method[@name='getSecondHeight']/parameter[1]" name="name">receiver</attr>
+    <attr path="/api/package[@name='ly.img.android.pesdk.backend.text_design.kotlin_extension']/class[@name='TypeExtensionsKt']/method[@name='getSecondWidth']/parameter[1]" name="name">receiver</attr>
+    <attr path="/api/package[@name='ly.img.android.pesdk.backend.text_design.kotlin_extension']/class[@name='TypeExtensionsKt']/method[@name='getW']/parameter[1]" name="name">receiver</attr>
+    <attr path="/api/package[@name='ly.img.android.pesdk.backend.text_design.kotlin_extension']/class[@name='TypeExtensionsKt']/method[@name='getWidth']/parameter[1]" name="name">receiver</attr>
+    <attr path="/api/package[@name='ly.img.android.pesdk.backend.text_design.kotlin_extension']/class[@name='TypeExtensionsKt']/method[@name='getX']/parameter[1]" name="name">receiver</attr>
+    <attr path="/api/package[@name='ly.img.android.pesdk.backend.text_design.kotlin_extension']/class[@name='TypeExtensionsKt']/method[@name='getY']/parameter[1]" name="name">receiver</attr>
+    <attr path="/api/package[@name='ly.img.android.pesdk.backend.text_design.kotlin_extension']/class[@name='TypeExtensionsKt']/method[@name='getZ']/parameter[1]" name="name">receiver</attr>
+    <attr path="/api/package[@name='ly.img.android.pesdk.backend.text_design.kotlin_extension']/class[@name='TypeExtensionsKt']/method[@name='scaleAll']/parameter[1]" name="name">receiver</attr>
+    <attr path="/api/package[@name='ly.img.android.pesdk.backend.text_design.kotlin_extension']/class[@name='TypeExtensionsKt']/method[@name='setFirstHeight']/parameter[1]" name="name">receiver</attr>
+    <attr path="/api/package[@name='ly.img.android.pesdk.backend.text_design.kotlin_extension']/class[@name='TypeExtensionsKt']/method[@name='setFirstWidth']/parameter[1]" name="name">receiver</attr>
+    <attr path="/api/package[@name='ly.img.android.pesdk.backend.text_design.kotlin_extension']/class[@name='TypeExtensionsKt']/method[@name='setHeight']/parameter[1]" name="name">receiver</attr>
+    <attr path="/api/package[@name='ly.img.android.pesdk.backend.text_design.kotlin_extension']/class[@name='TypeExtensionsKt']/method[@name='setSecondHeight']/parameter[1]" name="name">receiver</attr>
+    <attr path="/api/package[@name='ly.img.android.pesdk.backend.text_design.kotlin_extension']/class[@name='TypeExtensionsKt']/method[@name='setSecondWidth']/parameter[1]" name="name">receiver</attr>
+    <attr path="/api/package[@name='ly.img.android.pesdk.backend.text_design.kotlin_extension']/class[@name='TypeExtensionsKt']/method[@name='setW']/parameter[1]" name="name">receiver</attr>
+    <attr path="/api/package[@name='ly.img.android.pesdk.backend.text_design.kotlin_extension']/class[@name='TypeExtensionsKt']/method[@name='setWidth']/parameter[1]" name="name">receiver</attr>
+    <attr path="/api/package[@name='ly.img.android.pesdk.backend.text_design.kotlin_extension']/class[@name='TypeExtensionsKt']/method[@name='setX']/parameter[1]" name="name">receiver</attr>
+    <attr path="/api/package[@name='ly.img.android.pesdk.backend.text_design.kotlin_extension']/class[@name='TypeExtensionsKt']/method[@name='setY']/parameter[1]" name="name">receiver</attr>
+    <attr path="/api/package[@name='ly.img.android.pesdk.backend.text_design.kotlin_extension']/class[@name='TypeExtensionsKt']/method[@name='setZ']/parameter[1]" name="name">receiver</attr>
+    <attr path="/api/package[@name='ly.img.android.pesdk.backend.text_design.kotlin_extension']/interface[@name='KParcelable']/method[@name='writeToParcel']/parameter[2]" name="type">android.os.ParcelableWriteFlags</attr>
 </metadata>

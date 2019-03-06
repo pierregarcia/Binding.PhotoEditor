@@ -27,6 +27,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <NoWarn>CS0109</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -35,6 +36,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <NoWarn>CS0109</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
@@ -42,6 +44,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Additions\PhotoEditorAndroidExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -174,13 +177,24 @@
       <Project>{5E88FD90-A21F-4F69-8154-1A851016BE73}</Project>
       <Name>PhotoEditor.Android.Mobile.UI.Transform.Binding</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.Backend.Text.Design.Binding\PhotoEditor.Android.Backend.Text.Design.Binding.csproj">
+      <Project>{24E21C3A-92D1-4D38-81A0-E393D83EE73E}</Project>
+      <Name>PhotoEditor.Android.Backend.Text.Design.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhotoEditor.Android.Mobile.UI.Text.Design.Binding\PhotoEditor.Android.Mobile.UI.Text.Design.Binding.csproj">
+      <Project>{680A0F32-3AB7-49F0-AEB7-CBF0D3C4DDFB}</Project>
+      <Name>PhotoEditor.Android.Mobile.UI.Text.Design.Binding</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RenderScriptV8\RenderScriptV8.csproj">
       <Project>{9A6D85F6-17BC-4C02-918B-AE9C7BA156E7}</Project>
       <Name>RenderScriptV8</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\pesdk-all-release.aar" />
+    <LibraryProjectZip Include="..\NativeLibs\pesdk-all-release.aar">
+      <Link>Jars\pesdk-all-release.aar</Link>
+    </LibraryProjectZip>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
 </Project>

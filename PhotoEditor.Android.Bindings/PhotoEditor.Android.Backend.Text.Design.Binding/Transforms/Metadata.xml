@@ -1,13 +1,15 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-    <!--
-  This sample removes the class: android.support.v4.content.AsyncTaskLoader.LoadTask:
-  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='AsyncTaskLoader.LoadTask']" />
-  
-  This sample removes the method: android.support.v4.content.CursorLoader.loadInBackground:
-  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
-  -->
+    <attr path="/api/package[@name='ly.img.android.pesdk.backend.model.state.layer']/class[@name='TextDesignLayerSettings']/method[@name='flipVertical' and count(parameter)=0]" name="managedName">FlipVerticalBase</attr>
+    <attr path="/api/package[@name='ly.img.android.pesdk.backend.model.state.layer']/class[@name='TextDesignLayerSettings']/method[@name='flipHorizontal' and count(parameter)=0]" name="managedName">FlipHorizontalBase</attr>
+    <attr path="/api/package[@name='ly.img.android.pesdk.backend.model.state.layer']/class[@name='TextDesignLayerSettings']/method[@name='setStickerRotation' and count(parameter)=1 and parameter[1][@type='float']]" name="managedName">SetStickerRotationBase</attr>
+    <attr path="/api/package[@name='ly.img.android.pesdk.backend.model.state.layer']/class[@name='TextDesignLayerSettings']/method[@name='setPosition' and count(parameter)=4 and parameter[1][@type='double'] and parameter[2][@type='double'] and parameter[3][@type='float'] and parameter[4][@type='double']]" name="managedName">SetPositionBase</attr>
+    <attr path="/api/package[@name='ly.img.android.pesdk.backend.model.state.layer']/class[@name='TextDesignLayerSettings']/method[@name='setColorMatrix' and count(parameter)=1 and parameter[1][@type='android.graphics.ColorMatrix']]" name="managedName">SetColorMatrixBase</attr>
     
+    <remove-node path="/api/package[@name='ly.img.android.pesdk.backend.text_design.type']/class[@name='Words']/method[@name='size' and count(parameter)=0]"/>
+    
+<!--    <remove-node path="/api/package[@name='ly.img.android.pesdk.backend.text_design.layout']/class[@name='TextDesign']/method[@name='setBackground' and count(parameter)=1 and parameter[1][@type='ly.img.android.pesdk.backend.text_design.model.background.TextDesignBackground']]"/>-->
+    <attr path="/api/package[@name='ly.img.android.pesdk.backend.text_design.layout']/class[@name='TextDesign']/method[@name='setBackground']/parameter[1]" name="name">background</attr>
     <attr path="/api/package[@name='ly.img.android.pesdk.backend.text_design.model.row.block']/class[@name='TextDesignRowTriple']/method[@name='setOrientation']/parameter[1]" name="name">orientation</attr>
     <attr path="/api/package[@name='ly.img.android.pesdk.backend.text_design.model.row.image']/class[@name='TextDesignRowImage']/method[@name='setImagePosition']/parameter[1]" name="name">position</attr>
 </metadata>

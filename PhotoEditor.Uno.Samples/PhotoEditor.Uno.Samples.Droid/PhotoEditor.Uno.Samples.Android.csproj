@@ -59,6 +59,9 @@
   <ItemGroup>
     <PackageReference Include="Uno.UI" Version="1.40.0" />
     <PackageReference Include="Uno.UniversalImageLoader" Version="1.9.31" />
+    <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk7">
+      <Version>1.3.21</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
@@ -169,6 +172,10 @@
       <Project>{41102f51-f407-4785-9afe-3d188c490889}</Project>
       <Name>PhotoEditor.Android.Backend.Text.Binding</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\PhotoEditor.Android.Bindings\PhotoEditor.Android.Backend.Text.Design.Binding\PhotoEditor.Android.Backend.Text.Design.Binding.csproj">
+      <Project>{24e21c3a-92d1-4d38-81a0-e393d83ee73e}</Project>
+      <Name>PhotoEditor.Android.Backend.Text.Design.Binding</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\PhotoEditor.Android.Bindings\PhotoEditor.Android.Mobile.UI.Adjustment.Binding\PhotoEditor.Android.Mobile.UI.Adjustment.Binding.csproj">
       <Project>{68eb1c74-16d6-41bb-a186-0113b2040719}</Project>
       <Name>PhotoEditor.Android.Mobile.UI.Adjustment.Binding</Name>
@@ -208,6 +215,10 @@
     <ProjectReference Include="..\..\PhotoEditor.Android.Bindings\PhotoEditor.Android.Mobile.UI.Text.Binding\PhotoEditor.Android.Mobile.UI.Text.Binding.csproj">
       <Project>{87b0d2c2-f2b4-4260-b914-3f9597acc0fc}</Project>
       <Name>PhotoEditor.Android.Mobile.UI.Text.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\PhotoEditor.Android.Bindings\PhotoEditor.Android.Mobile.UI.Text.Design.Binding\PhotoEditor.Android.Mobile.UI.Text.Design.Binding.csproj">
+      <Project>{680a0f32-3ab7-49f0-aeb7-cbf0d3c4ddfb}</Project>
+      <Name>PhotoEditor.Android.Mobile.UI.Text.Design.Binding</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\PhotoEditor.Android.Bindings\PhotoEditor.Android.Mobile.UI.Transform.Binding\PhotoEditor.Android.Mobile.UI.Transform.Binding.csproj">
       <Project>{5e88fd90-a21f-4f69-8154-1a851016be73}</Project>
