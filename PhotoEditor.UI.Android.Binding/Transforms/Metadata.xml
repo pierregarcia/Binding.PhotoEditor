@@ -1,9 +1,0 @@
-<metadata>
-
-	<!-- Error fixing -->
-	<remove-node path="/api/package[starts-with(@name, 'ly.img.android.events')]"/>
-	<remove-node path="/api/package[starts-with(@name, 'ly.img.android.pesdk.ui.all')]"/>
-	<remove-node path="/api/package[starts-with(@name, 'ly.img.android.pesdk.ui.model.state')]"/>
-	<remove-node path="/api/package[starts-with(@name, 'ly.img.android.pesdk.ui.panels')]"/>
-
-</metadata>
