@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Binding.PhotoEditor", "Binding.PhotoEditor\Binding.PhotoEditor.csproj", "{7CED905A-D498-4F83-AF64-8238E57A5467}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Binding.PhotoEditor", "Binding.PhotoEditor\Binding.PhotoEditor.csproj", "{7CED905A-D498-4F83-AF64-8238E57A5467}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.Android.Binding", "PhotoEditor.Android.Binding\PhotoEditor.Android.Binding.csproj", "{4BBA1653-6A64-4F10-B9E1-6D14CE623800}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoEditor.Android.Binding", "PhotoEditor.Android.Binding\PhotoEditor.Android.Binding.csproj", "{4BBA1653-6A64-4F10-B9E1-6D14CE623800}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "PhotoEditor.Uno.Samples.Shared", "PhotoEditor.Uno.Samples\PhotoEditor.Uno.Samples.Shared\PhotoEditor.Uno.Samples.Shared.shproj", "{6279C845-92F8-4333-AB99-3D213163593C}"
 EndProject
@@ -13,15 +13,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.Uno.Samples.And
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.Uno.Samples.iOS", "PhotoEditor.Uno.Samples\PhotoEditor.Uno.Samples.iOS\PhotoEditor.Uno.Samples.iOS.csproj", "{4435B846-33EA-4EE1-B8CE-E407BA3718BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.Authorization.Android.Binding", "PhotoEditor.Authorization.Android.Binding\PhotoEditor.Authorization.Android.Binding.csproj", "{621E185A-A1A6-4E57-A73D-97A82D0789B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoEditor.Authorization.Android.Binding", "PhotoEditor.Authorization.Android.Binding\PhotoEditor.Authorization.Android.Binding.csproj", "{621E185A-A1A6-4E57-A73D-97A82D0789B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.Core.Android.Binding", "PhotoEditor.Core.Android.Binding\PhotoEditor.Core.Android.Binding.csproj", "{DC146F33-E770-4DBC-8123-51DD2AE498D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoEditor.Core.Android.Binding", "PhotoEditor.Core.Android.Binding\PhotoEditor.Core.Android.Binding.csproj", "{DC146F33-E770-4DBC-8123-51DD2AE498D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.Annotations.Android.Binding", "PhotoEditor.Annotations.Android.Binding\PhotoEditor.Annotations.Android.Binding.csproj", "{27B7A175-5634-4CD8-BE7B-3ABFD5BD86CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoEditor.Annotations.Android.Binding", "PhotoEditor.Annotations.Android.Binding\PhotoEditor.Annotations.Android.Binding.csproj", "{27B7A175-5634-4CD8-BE7B-3ABFD5BD86CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.UI.Android.Binding", "PhotoEditor.UI.Android.Binding\PhotoEditor.UI.Android.Binding.csproj", "{2555F1FE-0771-4DE3-BD8C-1B667222127C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoEditor.UI.Android.Binding", "PhotoEditor.UI.Android.Binding\PhotoEditor.UI.Android.Binding.csproj", "{2555F1FE-0771-4DE3-BD8C-1B667222127C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.UI.Core.Android.Binding", "PhotoEditor.UI.Core.Android.Binding\PhotoEditor.UI.Core.Android.Binding.csproj", "{499706C6-AAED-4AF0-B6DF-60FD378EB777}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoEditor.UI.Core.Android.Binding", "PhotoEditor.UI.Core.Android.Binding\PhotoEditor.UI.Core.Android.Binding.csproj", "{499706C6-AAED-4AF0-B6DF-60FD378EB777}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinPhotoEditoriOS", "XamarinPhotoEditoriOS\XamarinPhotoEditoriOS.csproj", "{CA05DFDA-445C-44FD-990E-F896A93073F7}"
 EndProject
@@ -228,6 +228,7 @@ Global
 		{18243CD1-39D7-413D-83FB-07EAD9740C22}.Release|x86.Build.0 = Release|Any CPU
 		{18243CD1-39D7-413D-83FB-07EAD9740C22}.Release|x86.Deploy.0 = Release|Any CPU
 		{4435B846-33EA-4EE1-B8CE-E407BA3718BA}.Ad-Hoc|Any CPU.ActiveCfg = Ad-Hoc|iPhone
+		{4435B846-33EA-4EE1-B8CE-E407BA3718BA}.Ad-Hoc|Any CPU.Build.0 = Ad-Hoc|iPhone
 		{4435B846-33EA-4EE1-B8CE-E407BA3718BA}.Ad-Hoc|ARM.ActiveCfg = Ad-Hoc|iPhone
 		{4435B846-33EA-4EE1-B8CE-E407BA3718BA}.Ad-Hoc|iPhone.ActiveCfg = Ad-Hoc|iPhone
 		{4435B846-33EA-4EE1-B8CE-E407BA3718BA}.Ad-Hoc|iPhone.Build.0 = Ad-Hoc|iPhone
@@ -244,6 +245,7 @@ Global
 		{4435B846-33EA-4EE1-B8CE-E407BA3718BA}.AppStore|x64.ActiveCfg = AppStore|iPhone
 		{4435B846-33EA-4EE1-B8CE-E407BA3718BA}.AppStore|x86.ActiveCfg = AppStore|iPhone
 		{4435B846-33EA-4EE1-B8CE-E407BA3718BA}.Debug|Any CPU.ActiveCfg = Debug|iPhone
+		{4435B846-33EA-4EE1-B8CE-E407BA3718BA}.Debug|Any CPU.Build.0 = Debug|iPhone
 		{4435B846-33EA-4EE1-B8CE-E407BA3718BA}.Debug|ARM.ActiveCfg = Debug|iPhone
 		{4435B846-33EA-4EE1-B8CE-E407BA3718BA}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{4435B846-33EA-4EE1-B8CE-E407BA3718BA}.Debug|iPhone.Build.0 = Debug|iPhone
@@ -259,8 +261,6 @@ Global
 		{4435B846-33EA-4EE1-B8CE-E407BA3718BA}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 		{4435B846-33EA-4EE1-B8CE-E407BA3718BA}.Release|x64.ActiveCfg = Release|iPhone
 		{4435B846-33EA-4EE1-B8CE-E407BA3718BA}.Release|x86.ActiveCfg = Release|iPhone
-		{4435B846-33EA-4EE1-B8CE-E407BA3718BA}.Debug|Any CPU.Build.0 = Debug|iPhone
-		{4435B846-33EA-4EE1-B8CE-E407BA3718BA}.Ad-Hoc|Any CPU.Build.0 = Ad-Hoc|iPhone
 		{621E185A-A1A6-4E57-A73D-97A82D0789B8}.Ad-Hoc|Any CPU.ActiveCfg = Debug|Any CPU
 		{621E185A-A1A6-4E57-A73D-97A82D0789B8}.Ad-Hoc|Any CPU.Build.0 = Debug|Any CPU
 		{621E185A-A1A6-4E57-A73D-97A82D0789B8}.Ad-Hoc|ARM.ActiveCfg = Debug|Any CPU
@@ -503,12 +503,45 @@ Global
 		{499706C6-AAED-4AF0-B6DF-60FD378EB777}.Release|x86.Build.0 = Release|Any CPU
 		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Ad-Hoc|Any CPU.ActiveCfg = Debug|iPhoneSimulator
 		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Ad-Hoc|Any CPU.Build.0 = Debug|iPhoneSimulator
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Ad-Hoc|ARM.ActiveCfg = Release|iPhone
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Ad-Hoc|ARM.Build.0 = Release|iPhone
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Ad-Hoc|iPhone.ActiveCfg = Release|iPhone
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Ad-Hoc|iPhone.Build.0 = Release|iPhone
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Ad-Hoc|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Ad-Hoc|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Ad-Hoc|x64.ActiveCfg = Release|iPhone
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Ad-Hoc|x64.Build.0 = Release|iPhone
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Ad-Hoc|x86.ActiveCfg = Release|iPhone
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Ad-Hoc|x86.Build.0 = Release|iPhone
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.AppStore|Any CPU.ActiveCfg = Release|iPhone
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.AppStore|Any CPU.Build.0 = Release|iPhone
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.AppStore|ARM.ActiveCfg = Release|iPhone
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.AppStore|ARM.Build.0 = Release|iPhone
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.AppStore|iPhone.ActiveCfg = Release|iPhone
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.AppStore|iPhone.Build.0 = Release|iPhone
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.AppStore|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.AppStore|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.AppStore|x64.ActiveCfg = Release|iPhone
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.AppStore|x64.Build.0 = Release|iPhone
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.AppStore|x86.ActiveCfg = Release|iPhone
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.AppStore|x86.Build.0 = Release|iPhone
 		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Debug|Any CPU.ActiveCfg = Debug|iPhoneSimulator
 		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Debug|Any CPU.Build.0 = Debug|iPhoneSimulator
-		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
-		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Debug|ARM.ActiveCfg = Debug|iPhone
 		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Debug|iPhone.Build.0 = Debug|iPhone
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Debug|x64.ActiveCfg = Debug|iPhone
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Debug|x86.ActiveCfg = Debug|iPhone
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Release|Any CPU.ActiveCfg = Release|iPhone
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Release|ARM.ActiveCfg = Release|iPhone
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Release|iPhone.ActiveCfg = Release|iPhone
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Release|iPhone.Build.0 = Release|iPhone
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Release|x64.ActiveCfg = Release|iPhone
+		{CA05DFDA-445C-44FD-990E-F896A93073F7}.Release|x86.ActiveCfg = Release|iPhone
 		{758F3020-DDB3-40A7-8A86-85F199D0C62F}.Ad-Hoc|Any CPU.ActiveCfg = Debug|Any CPU
 		{758F3020-DDB3-40A7-8A86-85F199D0C62F}.Ad-Hoc|Any CPU.Build.0 = Debug|Any CPU
 		{758F3020-DDB3-40A7-8A86-85F199D0C62F}.Ad-Hoc|ARM.ActiveCfg = Debug|Any CPU
