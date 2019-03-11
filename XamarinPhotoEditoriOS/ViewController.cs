@@ -40,6 +40,33 @@ namespace XamarinPhotoEditoriOS
 			EditPhoto(new CancellationToken(false));
 		}
 
+		private void ConfigureStickers()
+		{
+			var catStickersImages = new[] { "meeeo", "purrfect", "cattitud", "cattastic", "bubble_fish", "ball_of_yarn", "snap_cat_v1a", "snap_cat_v1c" };
+			var dogStickersImages = new[] { "puppy_love", "woof", "the_bark_side", "going_mutts", "i_woof_you", "lifes_ruff", "looking_good_gone_good", "bubble_bone", "bone" };
+			var costumeStickersImages = new[] { "bowtie", "sun_glasses", "hat1", "hat2", "mustache", "beard", "glasses", "stars", "ball", "pawesome", "so_fuffly", "harts", "feeling_good", "just_chill", "love", "four_legs_love", "VCA_Logo", "VCA_Canada_Logo" };
+
+			var catStickerCategory = CreateStickerCategory("Cat", catStickersImages);
+			var dogStickerCategory = CreateStickerCategory("Dog", dogStickersImages);
+			var costumeStickerCategory = CreateStickerCategory("Costume", costumeStickersImages);
+
+			PESDKStickerCategory.All = new[] { catStickerCategory, dogStickerCategory, costumeStickerCategory };
+		}
+
+		private PESDKStickerCategory CreateStickerCategory(string title, string[] stickerImages)
+		{
+			var stickers = stickerImages.Select(i =>
+			{
+				var stickerImageUrl = NSBundle.MainBundle.GetUrlForResource(i, "png");
+				var identifier = $"vca_messenger_{Guid.NewGuid()}_i";
+				return new PESDKSticker(stickerImageUrl, null, identifier);
+			}).ToArray();
+
+			var categoryImageUrl = NSBundle.MainBundle.GetUrlForResource(stickerImages.First(), "png");
+
+			return new PESDKStickerCategory(title, categoryImageUrl, stickers);
+		}
+
 		private  class EditViewControllerDelegate : PESDKPhotoEditViewControllerDelegate
 		{
 			private readonly TaskCompletionSource<NSData> _taskCompletionSource;
