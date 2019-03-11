@@ -565,7 +565,7 @@ SWIFT_CLASS_NAMED("AnimationDelegate")
 
 /// An <code>AssetManager</code> can be used to cache <code>UIImage</code> and <code>CIImage</code> instances and to download and
 /// cache image assets.
-SWIFT_CLASS_NAMED("AssetManager")
+SWIFT_CLASS_NAMED("AssetManager") SWIFT_AVAILABILITY(ios,introduced=9.0)
 @interface PESDKAssetManager : NSObject
 /// Caches an image for the given identifier.
 /// \param image The image to store in the cache or <code>nil</code> to delete an image from the cache.
@@ -617,7 +617,7 @@ SWIFT_CLASS_NAMED("AssetManager")
 /// \param completion A completion block that is passed the image on success or the error on failure.
 ///
 - (void)getImageAt:(NSURL * _Nonnull)url completion:(void (^ _Nonnull)(UIImage * _Nullable, NSError * _Nullable))completion;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=9.0);
 @end
 
 /// Represents the type of blend that should be used for several operations such as overlay.

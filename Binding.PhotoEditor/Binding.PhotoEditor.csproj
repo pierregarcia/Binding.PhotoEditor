@@ -5,10 +5,6 @@
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
 
-	<ItemGroup>
-	  <ProjectReference Include="..\PhotoEditor.iOS.Binding\PhotoEditor.iOS.Binding.csproj" PrivateAssets="All" />
-	</ItemGroup>
-
 	<Target Name="CopyProjectReferencesToPackage" DependsOnTargets="ResolveReferences">
 		<ItemGroup>
 			<BuildOutputInPackage Include="@(ReferenceCopyLocalPaths-&gt;WithMetadataValue('ReferenceSourceTarget', 'ProjectReference')-&gt;WithMetadataValue('PrivateAssets', 'All'))" />
