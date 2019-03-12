@@ -4,6 +4,7 @@ using PhotoEditor.iOS;
 using Foundation;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Linq;
 
 namespace XamarinPhotoEditoriOS
 {
@@ -18,20 +19,32 @@ namespace XamarinPhotoEditoriOS
 		{
 			var task = new TaskCompletionSource<NSData>();
 			var photo = new PESDKPhoto(new NSUrl("https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg?auto=compress&cs=tinysrgb&h=350"));
-			var viewController = new PESDKPhotoEditViewController(photo, new PESDKConfiguration())
-			{
-				Delegate = new EditViewControllerDelegate(task)
-			};
 
-			using (ct.Register(() =>
-			{
-				task?.TrySetResult(null);
-				viewController.DismissViewController(true, null);
-			}))
-			{
-				PresentViewController(viewController, true, null);
+			var menuItems = PESDKPhotoEditMenuItem.DefaultItems.Take(PESDKPhotoEditMenuItem.DefaultItems.Length - 2).ToArray();
+			ConfigureStickers();
 
-				var test = await task.Task;
+			try
+			{
+				var viewController = new PESDKPhotoEditViewController(photo, new PESDKConfiguration(), menuItems, new PESDKPhotoEditModel())
+				{
+					Delegate = new EditViewControllerDelegate(task)
+				};
+
+				using (ct.Register(() =>
+				{
+					task?.TrySetResult(null);
+					viewController.DismissViewController(true, null);
+				}))
+				{
+					PresentViewController(viewController, true, null);
+
+					var test = await task.Task;
+				}
+			}
+			catch (Exception ex)
+			{
+
+				throw;
 			}
 		}
 
@@ -59,7 +72,7 @@ namespace XamarinPhotoEditoriOS
 			{
 				var stickerImageUrl = NSBundle.MainBundle.GetUrlForResource(i, "png");
 				var identifier = $"vca_messenger_{Guid.NewGuid()}_i";
-				return new PESDKSticker(stickerImageUrl, null, identifier);
+				return new PESDKSticker(stickerImageUrl, stickerImageUrl, identifier);
 			}).ToArray();
 
 			var categoryImageUrl = NSBundle.MainBundle.GetUrlForResource(stickerImages.First(), "png");
@@ -67,7 +80,7 @@ namespace XamarinPhotoEditoriOS
 			return new PESDKStickerCategory(title, categoryImageUrl, stickers);
 		}
 
-		private  class EditViewControllerDelegate : PESDKPhotoEditViewControllerDelegate
+		private class EditViewControllerDelegate : PESDKPhotoEditViewControllerDelegate
 		{
 			private readonly TaskCompletionSource<NSData> _taskCompletionSource;
 

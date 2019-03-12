@@ -26,7 +26,7 @@ namespace XamarinPhotoEditoriOS
             // If not required for your application you can safely delete this method
             //var t = new PESDKPhotoEditViewController();
 
-            var url = NSBundle.MainBundle.GetUrlForResource("LICENSE", "");
+            var url = NSBundle.MainBundle.GetUrlForResource("ios_pesdk_license_prod", "");
             PESDK.UnlockWithLicenseAt(url);
 
             System.Console.WriteLine("----PE AFTER FinishedLaunching");
