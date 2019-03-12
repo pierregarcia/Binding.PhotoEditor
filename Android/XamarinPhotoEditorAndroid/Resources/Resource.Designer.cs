@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("Testing.Resource", IsApplication=true)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("XamarinPhotoEditorAndroid.Resource", IsApplication=true)]
 
-namespace Testing
+namespace XamarinPhotoEditorAndroid
 {
 	
 	

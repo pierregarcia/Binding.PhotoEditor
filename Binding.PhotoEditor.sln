@@ -81,7 +81,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoEditor.Android.Mobile.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RenderScriptV8", "Android\RenderScriptV8\RenderScriptV8.csproj", "{9A6D85F6-17BC-4C02-918B-AE9C7BA156E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "Android\Testing\Testing.csproj", "{3BC0AC7E-3B3B-4D3F-9CC0-B2BDECC460A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinPhotoEditorAndroid", "Android\XamarinPhotoEditorAndroid\XamarinPhotoEditorAndroid.csproj", "{3BC0AC7E-3B3B-4D3F-9CC0-B2BDECC460A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

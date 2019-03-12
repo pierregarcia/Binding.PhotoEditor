@@ -23,7 +23,7 @@ using Android.Runtime;
 using Android.Widget;
 using Android.Content.PM;
 
-namespace Testing
+namespace XamarinPhotoEditorAndroid
 {
     [Activity(Label = "Img Nventive", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public class MainActivity : AppCompatActivity

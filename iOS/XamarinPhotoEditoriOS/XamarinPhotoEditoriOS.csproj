@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -85,7 +85,14 @@
     <MtouchVerbosity>
     </MtouchVerbosity>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
+    <AppExtensionDebugBundleId />
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PhotoEditorSDK.Bindings, Version=1.0.7009.17633, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PhotoEditor.iOS.Binding\bin\Debug\PhotoEditorSDK.Bindings.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -172,16 +179,16 @@
     </ImageAsset>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
-  <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
     <InterfaceDefinition Include="Main.storyboard" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Info.plist" />
+    <None Include="Info.plist">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Entitlements.plist" />
     <None Include="packages.config" />
+    <BundleResource Include="Resources\ios_pesdk_license_prod" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -195,11 +202,111 @@
     <BundleResource Include="Resources\LICENSE" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PhotoEditor.iOS.Binding\PhotoEditor.iOS.Binding.csproj">
-      <Project>{758F3020-DDB3-40A7-8A86-85F199D0C62F}</Project>
-      <Name>PhotoEditor.iOS.Binding</Name>
-    </ProjectReference>
+    <BundleResource Include="Resources\ball_of_yarn.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bubble_fish.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cattastic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cattitud.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\meeeo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\purrfect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\snap_cat_v1a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\snap_cat_v1c.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\beard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bowtie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\glasses.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\hat1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\hat2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mustache.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sun_glasses.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bubble_bone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\going_mutts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\i_woof_you.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lifes_ruff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\looking_good_gone_good.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\puppy_love.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\the_bark_side.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\woof.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ball.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\feeling_good.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\four_legs_love.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\harts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\just_chill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\love.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pawesome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\so_fuffly.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\stars.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\VCA_Canada_Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\VCA_Logo.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Swift4.4.0.0.1\build\Xamarin.Swift4.targets" Condition="Exists('..\..\packages\Xamarin.Swift4.4.0.0.1\build\Xamarin.Swift4.targets')" />
 </Project>
