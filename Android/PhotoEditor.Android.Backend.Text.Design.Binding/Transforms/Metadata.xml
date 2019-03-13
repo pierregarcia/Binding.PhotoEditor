@@ -8,7 +8,6 @@
     
     <remove-node path="/api/package[@name='ly.img.android.pesdk.backend.text_design.type']/class[@name='Words']/method[@name='size' and count(parameter)=0]"/>
     
-<!--    <remove-node path="/api/package[@name='ly.img.android.pesdk.backend.text_design.layout']/class[@name='TextDesign']/method[@name='setBackground' and count(parameter)=1 and parameter[1][@type='ly.img.android.pesdk.backend.text_design.model.background.TextDesignBackground']]"/>-->
     <attr path="/api/package[@name='ly.img.android.pesdk.backend.text_design.layout']/class[@name='TextDesign']/method[@name='setBackground']/parameter[1]" name="name">background</attr>
     <attr path="/api/package[@name='ly.img.android.pesdk.backend.text_design.model.row.block']/class[@name='TextDesignRowTriple']/method[@name='setOrientation']/parameter[1]" name="name">orientation</attr>
     <attr path="/api/package[@name='ly.img.android.pesdk.backend.text_design.model.row.image']/class[@name='TextDesignRowImage']/method[@name='setImagePosition']/parameter[1]" name="name">position</attr>

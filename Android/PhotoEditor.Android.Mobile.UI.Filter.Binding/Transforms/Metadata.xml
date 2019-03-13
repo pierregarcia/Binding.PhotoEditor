@@ -1,12 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-    <!--
-  This sample removes the class: android.support.v4.content.AsyncTaskLoader.LoadTask:
-  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='AsyncTaskLoader.LoadTask']" />
-  
-  This sample removes the method: android.support.v4.content.CursorLoader.loadInBackground:
-  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
-  -->
+    <attr path="/api/package[@name='ly.img.android.pesdk.ui.viewholder']/class[@name='ImageFilterViewHolder']/method[@name='bindData']/parameter[1]" name="type">java.lang.Object</attr>
+    
+    <attr path="/api/package[@name='ly.img.android.pesdk.ui.panels']/class[@name='FilterToolPanel']/method[@name='onItemClick']/parameter[1]" name="type">java.lang.Object</attr>
+    
     <remove-node path="/api/package[@name='ly.img.android.pesdk.ui.model.state']/class[@name='UiConfigFilter']/method[@name='setFilterList' and count(parameter)=1 and parameter[1][@type='java.util.ArrayList&lt;ly.img.android.pesdk.ui.panels.item.FilterItem&gt;...']]"/>
-    <remove-node path="/api/package[@name='ly.img.android.pesdk.ui.model.state']/class[@name='UiConfigFilter']/method[@name='setFilterList' and count(parameter)=1 and parameter[1][@type='ly.img.android.pesdk.ui.panels.item.FilterItem...']]"/>
 </metadata>

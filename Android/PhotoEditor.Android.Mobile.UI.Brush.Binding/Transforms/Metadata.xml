@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-    <!--
-  This sample removes the class: android.support.v4.content.AsyncTaskLoader.LoadTask:
-  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='AsyncTaskLoader.LoadTask']" />
-  
-  This sample removes the method: android.support.v4.content.CursorLoader.loadInBackground:
-  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
-  -->
-    
+    <attr path="/api/package[@name='ly.img.android.pesdk.ui.panels']/class[@name='BrushToolPanel']/method[@name='onItemClick']/parameter[1]" name="type">java.lang.Object</attr>
+    <attr path="/api/package[@name='ly.img.android.pesdk.ui.panels']/class[@name='BrushToolPanel']/method[@name='onTimeOut']/parameter[1]" name="type">java.lang.Object</attr>
+    <attr path="/api/package[@name='ly.img.android.pesdk.ui.panels']/class[@name='BrushToolPanel.QuickListClickListener']/method[@name='onItemClick']/parameter[1]" name="type">java.lang.Object</attr>
+
+<add-node path="/api/package[@name='ly.img.android.pesdk.ui.panels']/class[@name='OnTimeOut']">
+   <method name="OnTimeOut" return="void" abstract="false" native="false" synchronized="false" static="false" final="false" deprecated="not deprecated" visibility="public">
+      <parameter name="entity" type="java.lang.Object" />
+    </method>
+</add-node>
 </metadata>

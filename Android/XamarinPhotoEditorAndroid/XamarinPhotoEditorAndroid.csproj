@@ -48,9 +48,6 @@
     <AndroidManagedSymbols>true</AndroidManagedSymbols>
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
-    <AotAssemblies>false</AotAssemblies>
-    <EnableLLVM>false</EnableLLVM>
-    <BundleAssemblies>false</BundleAssemblies>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -248,16 +245,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <AndroidNativeLibrary Include="lib\arm64-v8a\libRSSupport.so" />
-    <AndroidNativeLibrary Include="lib\arm64-v8a\librsjni.so" />
-    <AndroidNativeLibrary Include="lib\armeabi-v7a\libRSSupport.so" />
-    <AndroidNativeLibrary Include="lib\armeabi-v7a\librsjni.so" />
-    <AndroidNativeLibrary Include="lib\x86\libRSSupport.so" />
-    <AndroidNativeLibrary Include="lib\x86\librsjni.so" />
-    <AndroidNativeLibrary Include="lib\x86_64\libRSSupport.so" />
-    <AndroidNativeLibrary Include="lib\x86_64\librsjni.so" />
-  </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\ball.png" />
   </ItemGroup>

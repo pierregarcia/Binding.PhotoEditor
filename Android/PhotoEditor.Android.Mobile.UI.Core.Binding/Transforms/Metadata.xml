@@ -1,7 +1,10 @@
 ﻿<metadata>
+    <attr path="/api/package[@name='ly.img.android.pesdk.ui.viewholder']/class[@name='ColorViewHolder']/method[@name='bindData']/parameter[1]" name="type">java.lang.Object</attr>
+    <attr path="/api/package[@name='ly.img.android.pesdk.ui.viewholder']/class[@name='DefaultViewHolder']/method[@name='bindData']/parameter[1]" name="type">java.lang.Object</attr>
+    <attr path="/api/package[@name='ly.img.android.pesdk.ui.viewholder']/class[@name='SpaceFillViewHolder']/method[@name='bindData']/parameter[1]" name="type">java.lang.Object</attr>
+    <attr path="/api/package[@name='ly.img.android.pesdk.ui.panels']/class[@name='ColorOptionToolPanel']/method[@name='setColor' and count(parameter)=1 and parameter[1][@type='int']]" name="propertyName"></attr>
+    <attr path="/api/package[@name='ly.img.android.pesdk.ui.panels']/class[@name='ColorOptionToolPanel']/method[@name='getColor' and count(parameter)=0]" name= "propertyName"></attr>
     
-    <remove-node path="/api/package[@name='ly.img.android.pesdk.ui.panels']/class[@name='ColorOptionToolPanel']/method[@name='setColor' and count(parameter)=1 and parameter[1][@type='int']]"/>
+    <!--<remove-node path="/api/package[@name='ly.img.android.pesdk.ui.panels']/class[@name='ColorOptionToolPanel']/method[@name='setColor' and count(parameter)=1 and parameter[1][@type='int']]"/>
     <remove-node path="/api/package[@name='ly.img.android.pesdk.ui.panels']/class[@name='ColorOptionToolPanel']/method[@name='getColor' and count(parameter)=0]" name= "propertyName"/>
-    <!--<attr path="/api/package[@name='ly.img.android.pesdk.ui.panels']/class[@name='ColorOptionToolPanel']/method[@name='setColor' and count(parameter)=1 and parameter[1][@type='int']]" name= "propertyName"></attr>
-    <attr path="/api/package[@name='ly.img.android.pesdk.ui.panels']/class[@name='ColorOptionToolPanel']/method[@name='getColor' and count(parameter)=0]" name= "propertyName"></attr>-->
-</metadata>
+--></metadata>
