@@ -1,14 +1,17 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-    <attr path="/api/package[@name='ly.img.android.pesdk.ui.viewholder']/class[@name='FontPreviewViewHolder']/method[@name='bindData']/parameter[1]" name="type">java.lang.Object</attr>
-    <attr path="/api/package[@name='ly.img.android.pesdk.ui.viewholder']/class[@name='FontViewHolder']/method[@name='bindData']/parameter[1]" name="type">java.lang.Object</attr>
+	<attr path="/api/package[@name='ly.img.android.pesdk.ui.viewholder']/class[@name='FontPreviewViewHolder']/method[@name='bindData']/parameter[1]" name="type">java.lang.Object</attr>
+	<attr path="/api/package[@name='ly.img.android.pesdk.ui.viewholder']/class[@name='FontViewHolder']/method[@name='bindData']/parameter[1]" name="type">java.lang.Object</attr>
 
-    <attr path="/api/package[@name='ly.img.android.pesdk.ui.panels']/class[@name='TextFontOptionToolPanel']/method[@name='onItemClick']/parameter[1]" name="type">java.lang.Object</attr>
-    <attr path="/api/package[@name='ly.img.android.pesdk.ui.panels']/class[@name='TextOptionToolPanel']/method[@name='onItemClick']/parameter[1]" name="type">java.lang.Object</attr>
+	<attr path="/api/package[@name='ly.img.android.pesdk.ui.panels']/class[@name='TextFontOptionToolPanel']/method[@name='onItemClick']/parameter[1]" name="type">java.lang.Object</attr>
+	<attr path="/api/package[@name='ly.img.android.pesdk.ui.panels']/class[@name='TextOptionToolPanel']/method[@name='onItemClick']/parameter[1]" name="type">java.lang.Object</attr>
 
-    <attr path="/api/package[@name='ly.img.android.pesdk.ui.panels']/class[@name='ColorOptionTextBackgroundToolPanel']/method[@name='setColor' and count(parameter)=1 and parameter[1][@type='int']]" name="visibility">public</attr>
-    <attr path="/api/package[@name='ly.img.android.pesdk.ui.panels']/class[@name='ColorOptionTextForegroundToolPanel']/method[@name='setColor' and count(parameter)=1 and parameter[1][@type='int']]" name="visibility">public</attr>
-    
-    <remove-node path="/api/package[@name='ly.img.android.pesdk.ui.model.state']/class[@name='UiConfigText']/method[@name='setFontList' and count(parameter)=1 and parameter[1][@type='java.util.ArrayList&lt;ly.img.android.pesdk.ui.panels.item.FontItem&gt;...']]"/>
+	<attr path="/api/package[@name='ly.img.android.pesdk.ui.panels']/class[@name='ColorOptionTextBackgroundToolPanel']/method[@name='setColor' and count(parameter)=1 and parameter[1][@type='int']]" name="visibility">public</attr>
+	<attr path="/api/package[@name='ly.img.android.pesdk.ui.panels']/class[@name='ColorOptionTextForegroundToolPanel']/method[@name='setColor' and count(parameter)=1 and parameter[1][@type='int']]" name="visibility">public</attr>
+	
+	<attr path="/api/package[@name='ly.img.android.pesdk.ui.panels']/class[@name='ColorOptionTextBackgroundToolPanel']/method[@name='getColor' and count(parameter)=0]" name= "propertyName"></attr>
+	<attr path="/api/package[@name='ly.img.android.pesdk.ui.panels']/class[@name='ColorOptionTextForegroundToolPanel']/method[@name='getColor' and count(parameter)=0]" name= "propertyName"></attr>
+
+	<remove-node path="/api/package[@name='ly.img.android.pesdk.ui.model.state']/class[@name='UiConfigText']/method[@name='setFontList' and count(parameter)=1 and parameter[1][@type='java.util.ArrayList&lt;ly.img.android.pesdk.ui.panels.item.FontItem&gt;...']]"/>
     
 </metadata>

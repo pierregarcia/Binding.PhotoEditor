@@ -1,0 +1,524 @@
+<resources>
+<!--    Filter Styles-->
+    <style name="Imgly.PESDK.Editor.Panel.Filter" parent="Imgly.PESDK.Editor.Panel">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Filter.FilterItem" parent="Imgly.PESDK.default.Item">
+        <item name="android:layout_marginTop">@dimen/container_item_marginTop</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Filter.FilterItem.Value" parent="Imgly.PESDK.default.Item.Label">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">@color/imgly_text_color</item>
+        <item name="android:text">100</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:lines">1</item>
+        <item name="android:visibility">invisible</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Filter.FilterItem.Label" parent="Imgly.PESDK.default.Item.Label">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/item_label_text_size</item>
+        <item name="android:textColor">@color/imgly_text_color</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:background">@drawable/imgly_item_filter_label_bg</item>
+        <item name="android:text">@string/pesdk_filter_asset_none</item>
+        <item name="android:lines">1</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Filter.FilterItem.Icon" parent="Imgly.PESDK.default.Item.Icon">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginLeft">@dimen/filter_list_margin_left</item>
+        <item name="android:layout_marginStart">@dimen/filter_list_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/filter_list_margin_right</item>
+        <item name="android:layout_marginEnd">@dimen/filter_list_margin_right</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Filter.FilterItem.SelectOverlay" parent="Imgly.PESDK.default.Item.SelectOverlay">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/imgly_item_filter_overlay</item>
+        <item name="android:padding">0dp</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Filter.SeekSlider" parent="Imgly.PESDK.SeekSlider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    
+<!--    Transform Styles-->
+    <style name="Imgly.PESDK.Editor.Panel.Transform" parent="Imgly.PESDK.Editor.Panel">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Transform.Crop" parent="Imgly.PESDK">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Transform.CropItem" parent="Imgly.PESDK.default.Item">
+        <item name="android:layout_marginTop">@dimen/container_item_marginTop</item>
+        <item name="android:background">@drawable/imgly_item_border</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Transform.CropItem.Label" parent="Imgly.PESDK.default.Item.Label">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:maxLines">5</item>
+        <item name="android:lines">5</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Transform.Button.Rotate" parent="Imgly.PESDK.Button">
+        <item name="android:layout_width">@dimen/transform_SliderBar_button_width</item>
+        <item name="android:layout_height">@dimen/transform_SliderBar_height</item>
+        <item name="android:scaleType">center</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Transform.Button.Flip" parent="Imgly.PESDK.Button">
+        <item name="android:layout_width">@dimen/transform_SliderBar_button_width</item>
+        <item name="android:layout_height">@dimen/transform_SliderBar_height</item>
+        <item name="android:scaleType">center</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Transform.Slider" parent="Imgly.PESDK">
+        <item name="android:layout_width">@dimen/transform_SliderBar_width</item>
+        <item name="android:layout_height">@dimen/transform_SliderBar_height</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+    
+<!--    Adjust Styles-->
+    <style name="Imgly.PESDK.Editor.Panel.Adjust" parent="Imgly.PESDK.Editor.Panel">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Adjust.SeekSlider" parent="Imgly.PESDK.SeekSlider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Adjust.SmallOptionList" parent="Imgly.PESDK">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">44dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+    
+<!--    Sticker Styles -->
+   <style name="Imgly.PESDK.Editor.Panel.Sticker" parent="Imgly.PESDK.Editor.Panel">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Sticker.StickerItem" parent="Imgly.PESDK.default.Item">
+        <item name="android:layout_width">64dp</item>
+        <item name="android:layout_height">64dp</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Sticker.StickerItem.Label" parent="Imgly.PESDK">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Sticker.StickerItem.Icon" parent="Imgly.PESDK">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Sticker.StickerCategoryItem" parent="Imgly.PESDK.default.Item">
+        <item name="android:layout_marginTop">@dimen/container_item_marginTop</item>
+        <item name="android:background">@drawable/imgly_item_sticker_category_border</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Sticker.StickerCategoryItem.Label" parent="Imgly.PESDK">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">Agöb</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Sticker.StickerCategoryItem.Icon" parent="Imgly.PESDK">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Sticker.Expandable" parent="Imgly.PESDK">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_marginBottom">88dp</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Sticker.Expandable.Grid" parent="Imgly.PESDK">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginTop">14dp</item>
+        <item name="android:paddingTop">14dp</item>
+        <item name="android:background">@color/imgly_editor_sticker_panel_background</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Sticker.Expandable.Thumb" parent="Imgly.PESDK">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">14dp</item>
+        <item name="android:src">@drawable/imgly_list_thump_handle</item>
+        <item name="android:scaleType">center</item>
+        <item name="android:background">@drawable/imgly_list_thump</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Sticker.SeekSlider" parent="Imgly.PESDK.SeekSlider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:visibility">invisible</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Sticker.StickerOption" parent="Imgly.PESDK">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Sticker.OptionList" parent="Imgly.PESDK">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">88dp</item>
+        <item name="android:layout_alignParentBottom">true</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Sticker.SmallOptionList" parent="Imgly.PESDK">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">44dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+    
+<!--    Text Styles-->
+     <style name="Imgly.PESDK.Editor.Panel.Text" parent="Imgly.PESDK.Editor.Panel">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/imgly_editor_text_background</item>
+        <item name="android:clickable">false</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Text.SmallOptionList" parent="Imgly.PESDK">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">44dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">98dp</item>
+        <item name="android:layout_alignParentBottom">true</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Text.OptionList" parent="Imgly.PESDK">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">88dp</item>
+        <item name="android:layout_alignParentBottom">true</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Text.TextOptions" parent="Imgly.PESDK">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Text.InputField" parent="Imgly.PESDK">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:lines">5</item>
+        <item name="android:maxLines">50</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:inputType">textCapSentences|textAutoCorrect</item>
+        <item name="android:imeOptions">actionDone</item>
+        <item name="android:textColor">@color/imgly_text_color</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:hint">@string/pesdk_text_text_editTextPlaceholder</item>
+        <item name="android:text"></item>
+        <item name="android:textSize">30sp</item>
+    </style>
+    
+<!--    TextDesign Styles-->
+      <style name="Imgly.PESDK.Editor.Panel.TextDesign.TextDesignItem" parent="Imgly.PESDK.default.Item">
+        <item name="android:background">@drawable/imgly_item_text_design_border</item>
+        <item name="android:layout_marginTop">@dimen/container_item_marginTop</item>
+        <item name="android:layout_marginLeft">@dimen/text_design_margin_left</item>
+        <item name="android:layout_marginStart">@dimen/text_design_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/text_design_margin_right</item>
+        <item name="android:layout_marginEnd">@dimen/text_design_margin_right</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.TextDesign.TextDesignItem.Icon" parent="Imgly.PESDK.default.Item.Icon">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.TextDesign.ColorItem" parent="Imgly.PESDK.default.Item">
+        <item name="android:layout_width">36dp</item>
+        <item name="android:layout_height">32dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_marginLeft">@dimen/text_design_margin_left</item>
+        <item name="android:layout_marginStart">@dimen/text_design_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/text_design_margin_right</item>
+        <item name="android:layout_marginEnd">@dimen/text_design_margin_right</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.TextDesign" parent="Imgly.PESDK.Editor.Panel">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/imgly_editor_text_background</item>
+        <item name="android:clickable">false</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.TextDesign.SmallOptionList" parent="Imgly.PESDK">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">44dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">98dp</item>
+        <item name="android:layout_alignParentBottom">true</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.TextDesign.OptionList" parent="Imgly.PESDK">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">88dp</item>
+        <item name="android:layout_alignParentBottom">true</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.TextDesign.TextOptions" parent="Imgly.PESDK">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.TextDesign.InputField" parent="Imgly.PESDK">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:lines">5</item>
+        <item name="android:maxLines">50</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:inputType">textCapSentences|textAutoCorrect</item>
+        <item name="android:imeOptions">actionDone</item>
+        <item name="android:textColor">@color/imgly_text_color</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:hint">@string/pesdk_text_text_editTextPlaceholder</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+    
+<!--    Overlay Styles-->
+    <style name="Imgly.PESDK.Editor.Panel.Overlay" parent="Imgly.PESDK.Editor.Panel">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.default.Item.SelectBackground" parent="Imgly.PESDK"/>
+
+    <style name="Imgly.PESDK.Editor.Panel.Overlay.OverlayItem" parent="Imgly.PESDK.default.Item">
+        <item name="android:layout_marginTop">@dimen/container_item_marginTop</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Overlay.OverlayItem.Icon" parent="Imgly.PESDK.default.Item.Icon">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginLeft">@dimen/overlay_list_margin_left</item>
+        <item name="android:layout_marginStart">@dimen/overlay_list_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/overlay_list_margin_right</item>
+        <item name="android:layout_marginEnd">@dimen/overlay_list_margin_right</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Overlay.OverlayItem.SelectOverlay" parent="Imgly.PESDK">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:padding">0dp</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Overlay.OverlayItem.Label" parent="Imgly.PESDK.default.Item.Label">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/item_label_text_size</item>
+        <item name="android:textColor">@color/imgly_text_color</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:background">@drawable/imgly_item_overlay_label_bg</item>
+        <item name="android:text">@string/pesdk_overlay_title_name</item>
+        <item name="android:lines">1</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Overlay.OverlayItem.Value" parent="Imgly.PESDK.default.Item.Value">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">@color/imgly_text_color</item>
+        <item name="android:text">100</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:lines">1</item>
+        <item name="android:visibility">invisible</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Overlay.OverlayItem.SelectBackground" parent="Imgly.PESDK.Editor.Panel.default.Item.SelectBackground">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:padding">0dp</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Overlay.BlendModeItem" parent="Imgly.PESDK">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:background">@drawable/imgly_item_border</item>
+        <item name="android:layout_marginTop">12dp</item>
+        <item name="android:layout_marginBottom">12dp</item>
+        <item name="android:layout_marginLeft">@dimen/blend_mode_margin_left</item>
+        <item name="android:layout_marginStart">@dimen/blend_mode_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/blend_mode_margin_right</item>
+        <item name="android:layout_marginEnd">@dimen/blend_mode_margin_right</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Overlay.BlendModeItem.Label" parent="Imgly.PESDK.default.Item.Label">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:lines">1</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Overlay.ModeList" parent="Imgly.PESDK">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">88dp</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Overlay.SeekSlider" parent="Imgly.PESDK.SeekSlider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Overlay.ModeContainer" parent="Imgly.PESDK">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:background">@color/imgly_editor_toolbar_background</item>
+    </style>
+    
+<!--    Frame Styles-->
+     <style name="Imgly.PESDK.Editor.Panel.Frame" parent="Imgly.PESDK.Editor.Panel">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Frame.FrameItem" parent="Imgly.PESDK.default.Item">
+        <item name="android:layout_marginTop">@dimen/container_item_marginTop</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Frame.FrameItem.Icon" parent="Imgly.PESDK.default.Item.Icon">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Frame.FrameItem.Label" parent="Imgly.PESDK.default.Item.Label">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Frame.SmallOptionList" parent="Imgly.PESDK">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">44dp</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Frame.SeekSlider" parent="Imgly.PESDK.SeekSlider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:alpha">0</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Frame.OptionList" parent="Imgly.PESDK">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">88dp</item>
+    </style>
+    
+<!--    Brush Styles-->
+    <style name="Imgly.PESDK.Editor.Panel.Brush" parent="Imgly.PESDK.Editor.Panel">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:duplicateParentState">true</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Brush.SeekSlider" parent="Imgly.PESDK.SeekSlider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:alpha">0.7</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Brush.SmallOptionList" parent="Imgly.PESDK">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">44dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Popup.Brush.BrushPreview" parent="Imgly.PESDK">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">10</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Popup.Brush" parent="Imgly.PESDK">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">40</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:background">@drawable/imgly_dialog_background</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Popup.Brush.BrushToolPreview" parent="Imgly.PESDK">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_centerInParent">true</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Popup.Brush.HorizontalMargin" parent="Imgly.PESDK">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">25</item>
+    </style>
+    
+<!--    Focus Styles-->
+     <style name="Imgly.PESDK.Editor.Panel.Focus" parent="Imgly.PESDK.Editor.Panel">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Focus.SeekSlider" parent="Imgly.PESDK.SeekSlider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Imgly.PESDK.Editor.Panel.Focus.OptionContainer" parent="Imgly.PESDK"/>
+
+
+</resources>

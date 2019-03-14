@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-    <attr path="/api/package[@name='ly.img.android.pesdk.ui.panels']/class[@name='StickerOptionToolPanel']/method[@name='onItemClick']/parameter[1]" name="type">java.lang.Object</attr>
-    <attr path="/api/package[@name='ly.img.android.pesdk.ui.panels']/class[@name='StickerToolPanel']/method[@name='onItemClick']/parameter[1]" name="type">java.lang.Object</attr>
+	<attr path="/api/package[@name='ly.img.android.pesdk.ui.panels']/class[@name='StickerOptionToolPanel']/method[@name='onItemClick']/parameter[1]" name="type">java.lang.Object</attr>
+	<attr path="/api/package[@name='ly.img.android.pesdk.ui.panels']/class[@name='StickerToolPanel']/method[@name='onItemClick']/parameter[1]" name="type">java.lang.Object</attr>
+
+	<attr path="/api/package[@name='ly.img.android.pesdk.ui.panels']/class[@name='ColorOptionStickerInkToolPanel']/method[@name='getColor' and count(parameter)=0]" name= "propertyName"></attr>
+	<attr path="/api/package[@name='ly.img.android.pesdk.ui.panels']/class[@name='ColorOptionStickerTintToolPanel']/method[@name='getColor' and count(parameter)=0]" name= "propertyName"></attr>
 </metadata>
