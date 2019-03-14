@@ -1,0 +1,58 @@
+﻿<!-- NATIVE ANDROID -->
+<resources>
+	<string name="pesdk_transform_title_name">Transform</string>
+	<string name="pesdk_filter_title_name">Filter</string>
+	<string name="pesdk_adjustments_title_name">Adjust</string>
+	<string name="pesdk_sticker_title_name">Sticker</string>
+	<string name="pesdk_text_title_name">Text</string>
+	<string name="pesdk_textDesign_title_name">Text Design</string>
+	<string name="pesdk_overlay_title_name">Overlay</string>
+	<string name="pesdk_frame_title_name">Frame</string>
+	<string name="pesdk_brush_title_name">Brush</string>
+	<string name="pesdk_focus_title_name">Focus</string>
+</resources>
+
+<!-- UNO -->
+  <data name="pesdk_transform_title_name" xml:space="preserve">
+    <value>Transform</value>
+    <comment>DO NOT REMOVE (required by Android)</comment>
+  </data>
+  <data name="pesdk_filter_title_name" xml:space="preserve">
+    <value>Filter</value>
+    <comment>DO NOT REMOVE (required by Android)</comment>
+  </data>
+  <data name="pesdk_adjustments_title_name" xml:space="preserve">
+    <value>Adjust</value>
+    <comment>DO NOT REMOVE (required by Android)</comment>
+  </data>
+  <data name="pesdk_sticker_title_name" xml:space="preserve">
+    <value>Sticker</value>
+    <comment>DO NOT REMOVE (required by Android)</comment>
+  </data>
+  <data name="pesdk_text_title_name" xml:space="preserve">
+    <value>Text</value>
+    <comment>DO NOT REMOVE (required by Android)</comment>
+  </data>
+  <data name="pesdk_textDesign_title_name" xml:space="preserve">
+    <value>Text Design</value>
+    <comment>DO NOT REMOVE (required by Android)</comment>
+  </data>
+  <data name="pesdk_overlay_title_name" xml:space="preserve">
+    <value>Overlay</value>
+    <comment>DO NOT REMOVE (required by Android)</comment>
+  </data>
+  <data name="pesdk_frame_title_name" xml:space="preserve">
+    <value>Frame</value>
+    <comment>DO NOT REMOVE (required by Android)</comment>
+  </data>
+  <data name="pesdk_brush_title_name" xml:space="preserve">
+    <value>Brush</value>
+    <comment>DO NOT REMOVE (required by Android)</comment>
+  </data>
+  <data name="pesdk_focus_title_name" xml:space="preserve">
+    <value>Focus</value>
+    <comment>DO NOT REMOVE (required by Android)</comment>
+  </data>
+
+
+
